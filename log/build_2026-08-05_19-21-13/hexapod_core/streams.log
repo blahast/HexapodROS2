@@ -1,0 +1,18 @@
+[0.013s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_core': CMAKE_PREFIX_PATH=/opt/ros/jazzy /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_core -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_core
+[0.589s] -- The C compiler identification is GNU 13.3.0
+[0.766s] -- The CXX compiler identification is unknown
+[0.802s] -- Detecting C compiler ABI info
+[0.996s] -- Detecting C compiler ABI info - done
+[1.011s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.011s] -- Detecting C compile features
+[1.012s] -- Detecting C compile features - done
+[1.013s] [31mCMake Error at CMakeLists.txt:2 (project):
+[1.013s]   No CMAKE_CXX_COMPILER could be found.
+[1.013s] 
+[1.013s]   Tell CMake where to find the compiler by setting either the environment
+[1.014s]   variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
+[1.014s]   to the compiler, or to the compiler name if it is in the PATH.
+[1.014s] 
+[1.014s] [0m
+[1.016s] -- Configuring incomplete, errors occurred!
+[1.036s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_core' returned '1': CMAKE_PREFIX_PATH=/opt/ros/jazzy /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_core -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_core
