@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/hexapod/ros2_ws/build/hexapod_hardware/libbuzzer_driver_node.so" "TARGETS" "buzzer_driver_node" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")

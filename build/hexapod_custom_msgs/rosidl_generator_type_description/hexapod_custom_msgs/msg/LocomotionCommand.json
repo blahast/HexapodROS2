@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "hexapod_custom_msgs/msg/LocomotionCommand",
+      "fields": [
+        {
+          "name": "command_id",
+          "type": {
+            "type_id": 3,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "hexapod_custom_msgs/msg/LocomotionCommand",
+      "hash_string": "RIHS01_556b336ca8ad89af049b8384474b6c2afc64b4ba45d0dacd1a76bc1f23b9dd54"
+    }
+  ]
+}

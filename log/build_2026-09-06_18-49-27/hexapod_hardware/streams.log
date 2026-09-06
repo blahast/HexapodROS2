@@ -1,0 +1,46 @@
+[0.024s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_hardware': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_hardware -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_hardware
+[0.073s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.532s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.544s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.576s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.593s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.610s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.630s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.774s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.789s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.966s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.153s] -- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)
+[1.196s] -- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)
+[1.505s] -- Configuring done (1.5s)
+[1.578s] -- Generating done (0.1s)
+[1.603s] -- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_hardware
+[1.625s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_hardware' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_hardware -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_hardware
+[1.629s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_hardware': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_hardware -- -j4 -l4
+[1.762s] [ 33%] [32mBuilding CXX object CMakeFiles/buzzer_driver_node.dir/src/main.cpp.o[0m
+[1.767s] [ 66%] [32mBuilding CXX object CMakeFiles/buzzer_driver_node.dir/src/buzzer_driver_node.cpp.o[0m
+[20.858s] [100%] [32m[1mLinking CXX executable buzzer_driver_node[0m
+[21.985s] [100%] Built target buzzer_driver_node
+[22.042s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_hardware' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_hardware -- -j4 -l4
+[22.045s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_hardware': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_hardware
+[22.063s] -- Install configuration: ""
+[22.063s] -- Execute custom install script
+[22.063s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/lib/hexapod_hardware/buzzer_driver_node
+[22.066s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/include/hexapod_hardware/buzzer_driver_node.hpp
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/include/hexapod_hardware/notes.hpp
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/launch/buzzer.launch.py
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/ament_index/resource_index/package_run_dependencies/hexapod_hardware
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/ament_index/resource_index/parent_prefix_path/hexapod_hardware
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/environment/ament_prefix_path.sh
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/environment/ament_prefix_path.dsv
+[22.067s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/environment/path.sh
+[22.068s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/environment/path.dsv
+[22.068s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/local_setup.bash
+[22.068s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/local_setup.sh
+[22.068s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/local_setup.zsh
+[22.068s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/local_setup.dsv
+[22.068s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.dsv
+[22.100s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/ament_index/resource_index/packages/hexapod_hardware
+[22.100s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/cmake/hexapod_hardwareConfig.cmake
+[22.100s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/cmake/hexapod_hardwareConfig-version.cmake
+[22.105s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.xml
+[22.123s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_hardware' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_hardware

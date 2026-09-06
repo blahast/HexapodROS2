@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "hexapod_custom_msgs__rs",
+		"source" : "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/hexapod_custom_msgs__rs"
+	}
+}

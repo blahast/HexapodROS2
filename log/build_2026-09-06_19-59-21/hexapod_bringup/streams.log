@@ -1,0 +1,25 @@
+[0.024s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_bringup': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_bringup -- -j4 -l4
+[0.120s] [ 50%] [32mBuilding CXX object CMakeFiles/hexapod_shared_process.dir/src/main.cpp.o[0m
+[5.240s] [100%] [32m[1mLinking CXX executable hexapod_shared_process[0m
+[6.851s] [100%] Built target hexapod_shared_process
+[6.873s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_bringup' returned '0': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_bringup -- -j4 -l4
+[6.875s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_bringup': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_bringup
+[6.892s] -- Install configuration: ""
+[6.892s] -- Installing: /home/hexapod/ros2_ws/install/hexapod_bringup/lib/hexapod_bringup/hexapod_shared_process
+[6.892s] -- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_bringup/lib/hexapod_bringup/hexapod_shared_process" to ""
+[6.892s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/ament_index/resource_index/package_run_dependencies/hexapod_bringup
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/ament_index/resource_index/parent_prefix_path/hexapod_bringup
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/environment/ament_prefix_path.sh
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/environment/ament_prefix_path.dsv
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/environment/path.sh
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/environment/path.dsv
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/local_setup.bash
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/local_setup.sh
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/local_setup.zsh
+[6.893s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/local_setup.dsv
+[6.893s] -- Installing: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.dsv
+[6.894s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/ament_index/resource_index/packages/hexapod_bringup
+[6.894s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/cmake/hexapod_bringupConfig.cmake
+[6.894s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/cmake/hexapod_bringupConfig-version.cmake
+[6.894s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.xml
+[6.896s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_bringup' returned '0': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_bringup

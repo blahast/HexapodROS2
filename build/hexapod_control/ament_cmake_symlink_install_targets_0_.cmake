@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/hexapod/ros2_ws/build/hexapod_control/libhexapod_brain_node.so" "TARGETS" "hexapod_brain_node" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")

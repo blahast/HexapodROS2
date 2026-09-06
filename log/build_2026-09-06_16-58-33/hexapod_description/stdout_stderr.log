@@ -1,0 +1,19 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/urdf/hexapod.urdf.xacro
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/launch/display.launch.py
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/package_run_dependencies/hexapod_description
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/parent_prefix_path/hexapod_description
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.sh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.bash
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.sh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.zsh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/packages/hexapod_description
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig.cmake
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig-version.cmake
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.xml

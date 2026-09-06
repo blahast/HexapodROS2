@@ -1,0 +1,9 @@
+{
+  "package_name": "hexapod_custom_msgs",
+  "non_idl_tuples": [
+    "/home/hexapod/ros2_ws/src/hexapod_custom_msgs:msg/TeleopEvent.msg",
+    "/home/hexapod/ros2_ws/src/hexapod_custom_msgs:msg/BuzzerCommand.msg",
+    "/home/hexapod/ros2_ws/src/hexapod_custom_msgs:msg/LocomotionState.msg",
+    "/home/hexapod/ros2_ws/src/hexapod_custom_msgs:msg/LocomotionCommand.msg"
+  ]
+}

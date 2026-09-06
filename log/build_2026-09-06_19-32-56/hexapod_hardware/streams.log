@@ -1,0 +1,20 @@
+[0.028s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_hardware': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/home/hexapod/ros2_ws/install/hexapod_teleop/lib:/home/hexapod/ros2_ws/install/hexapod_hardware/lib:/home/hexapod/ros2_ws/install/hexapod_control/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_hardware -- -j4 -l4
+[0.106s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.716s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.734s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.814s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.832s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.854s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.908s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.125s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.132s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.345s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.489s] -- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)
+[1.509s] -- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)
+[1.718s] -- Configuring done (1.6s)
+[1.756s] -- Generating done (0.0s)
+[1.771s] -- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_hardware
+[1.870s] [ 50%] Built target buzzer_driver_node
+[1.927s] [ 75%] [32mBuilding CXX object CMakeFiles/buzzer_driver_standalone.dir/src/main.cpp.o[0m
+[7.302s] [100%] [32m[1mLinking CXX executable buzzer_driver_standalone[0m
+[8.028s] [100%] Built target buzzer_driver_standalone

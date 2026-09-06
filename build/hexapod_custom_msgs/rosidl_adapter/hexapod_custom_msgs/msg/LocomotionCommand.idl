@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from hexapod_custom_msgs/msg/LocomotionCommand.msg
+// generated code does not contain a copyright notice
+
+
+module hexapod_custom_msgs {
+  module msg {
+    module LocomotionCommand_Constants {
+      const uint8 CMD_STAND_UP = 1;
+      const uint8 CMD_SIT_DOWN = 2;
+      const uint8 CMD_CHANGE_GAIT = 3;
+      const uint8 CMD_PLAY_ANIMATION = 4;
+    };
+    struct LocomotionCommand {
+      uint8 command_id;
+    };
+  };
+};

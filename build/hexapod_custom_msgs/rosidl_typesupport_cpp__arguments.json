@@ -1,0 +1,23 @@
+{
+  "package_name": "hexapod_custom_msgs",
+  "output_dir": "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_typesupport_cpp/hexapod_custom_msgs",
+  "template_dir": "/opt/ros/jazzy/share/rosidl_typesupport_cpp/resource",
+  "idl_tuples": [
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs:msg/TeleopEvent.idl",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs:msg/BuzzerCommand.idl",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs:msg/LocomotionState.idl",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs:msg/LocomotionCommand.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/jazzy/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp",
+    "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_typesupport_cpp/__init__.py",
+    "/opt/ros/jazzy/share/rosidl_typesupport_cpp/resource/action__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_cpp/resource/idl__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_cpp/resource/msg__type_support.cpp.em",
+    "/opt/ros/jazzy/share/rosidl_typesupport_cpp/resource/srv__type_support.cpp.em",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs/msg/TeleopEvent.idl",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs/msg/BuzzerCommand.idl",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs/msg/LocomotionState.idl",
+    "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_adapter/hexapod_custom_msgs/msg/LocomotionCommand.idl"
+  ]
+}

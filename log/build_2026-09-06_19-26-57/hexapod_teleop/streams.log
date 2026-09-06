@@ -1,0 +1,61 @@
+[0.023s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[0.082s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.525s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.535s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.568s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.581s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.599s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.622s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.706s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.708s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.804s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.907s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[0.955s] -- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)
+[0.962s] -- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)
+[0.991s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.262s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.268s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/hexapod/ros2_ws/src/hexapod_teleop/include>
+[1.268s] -- Configured cppcheck exclude dirs and/or files: 
+[1.268s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.268s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.269s] -- Added test 'lint_cmake' to check CMake code style
+[1.269s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.271s] -- Added test 'uncrustify' to check C / C++ code style
+[1.271s] -- Configured uncrustify additional arguments: 
+[1.273s] -- Added test 'xmllint' to check XML markup files
+[1.280s] -- Configuring done (1.2s)
+[1.320s] -- Generating done (0.0s)
+[1.340s] -- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_teleop
+[1.435s] [ 50%] Built target bluetooth_teleop_node
+[1.474s] [ 75%] [32mBuilding CXX object CMakeFiles/bluetooth_teleop_node_standalone.dir/src/main.cpp.o[0m
+[7.355s] [100%] [32m[1mLinking CXX executable bluetooth_teleop_node_standalone[0m
+[8.031s] [100%] Built target bluetooth_teleop_node_standalone
+[8.072s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_teleop' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[8.078s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_teleop
+[8.103s] -- Install configuration: ""
+[8.105s] -- Execute custom install script
+[8.106s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/library_path.sh
+[8.108s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/library_path.dsv
+[8.109s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/lib/libbluetooth_teleop_node.so
+[8.109s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/lib/hexapod_teleop/bluetooth_teleop_node_standalone
+[8.137s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/include/bluetooth_teleop_node/bluetooth_teleop_node.hpp
+[8.138s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/launch/hexapod_teleop.launch.py
+[8.140s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/package_run_dependencies/hexapod_teleop
+[8.142s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/parent_prefix_path/hexapod_teleop
+[8.142s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/ament_prefix_path.sh
+[8.144s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/ament_prefix_path.dsv
+[8.144s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/path.sh
+[8.145s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/path.dsv
+[8.147s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.bash
+[8.148s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.sh
+[8.150s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.zsh
+[8.150s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.dsv
+[8.150s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.dsv
+[8.181s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/packages/hexapod_teleop
+[8.184s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/ament_cmake_export_include_directories-extras.cmake
+[8.185s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/ament_cmake_export_libraries-extras.cmake
+[8.185s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/ament_cmake_export_dependencies-extras.cmake
+[8.186s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/hexapod_teleopConfig.cmake
+[8.188s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/hexapod_teleopConfig-version.cmake
+[8.188s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.xml
+[8.195s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_teleop' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_teleop

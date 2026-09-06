@@ -1,0 +1,183 @@
+[0.060s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_custom_msgs -- -j4 -l4
+[0.156s] [  1%] Built target hexapod_custom_msgs__rosidl_generator_type_description
+[0.161s] [  3%] Built target hexapod_custom_msgs__rs
+[0.182s] [  3%] Built target ament_cmake_python_symlink_hexapod_custom_msgs
+[0.208s] [ 24%] Built target hexapod_custom_msgs__rosidl_generator_c
+[0.223s] [ 26%] Built target hexapod_custom_msgs__cpp
+[0.276s] [ 35%] Built target hexapod_custom_msgs__rosidl_typesupport_c
+[0.293s] [ 44%] Built target hexapod_custom_msgs__rosidl_typesupport_fastrtps_c
+[0.308s] [ 53%] Built target hexapod_custom_msgs__rosidl_typesupport_introspection_c
+[0.353s] [ 63%] Built target hexapod_custom_msgs__rosidl_typesupport_introspection_cpp
+[0.371s] [ 72%] Built target hexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp
+[0.377s] [ 81%] Built target hexapod_custom_msgs__rosidl_typesupport_cpp
+[0.418s] [ 81%] Built target hexapod_custom_msgs
+[0.474s] [ 83%] Built target hexapod_custom_msgs__py
+[0.530s] [ 90%] Built target hexapod_custom_msgs__rosidl_generator_py
+[0.583s] [ 93%] Built target hexapod_custom_msgs_s__rosidl_typesupport_introspection_c
+[0.584s] [ 98%] Built target hexapod_custom_msgs_s__rosidl_typesupport_c
+[0.584s] [100%] Built target hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c
+[0.626s] running egg_info
+[0.649s] writing hexapod_custom_msgs.egg-info/PKG-INFO
+[0.649s] writing dependency_links to hexapod_custom_msgs.egg-info/dependency_links.txt
+[0.652s] writing top-level names to hexapod_custom_msgs.egg-info/top_level.txt
+[0.711s] reading manifest file 'hexapod_custom_msgs.egg-info/SOURCES.txt'
+[0.712s] writing manifest file 'hexapod_custom_msgs.egg-info/SOURCES.txt'
+[0.774s] [100%] Built target ament_cmake_python_build_hexapod_custom_msgs_egg
+[0.795s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_custom_msgs -- -j4 -l4
+[0.797s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_custom_msgs
+[0.810s] -- Install configuration: ""
+[0.811s] -- Execute custom install script
+[0.811s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/rosidl_interfaces/hexapod_custom_msgs
+[0.812s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/TeleopEvent.json
+[0.812s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/BuzzerCommand.json
+[0.812s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionState.json
+[0.812s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionCommand.json
+[0.813s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/buzzer_command.h
+[0.813s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__functions.h
+[0.814s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__struct.h
+[0.814s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.h
+[0.814s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__functions.h
+[0.814s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__struct.h
+[0.814s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__type_support.h
+[0.814s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__functions.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__struct.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__functions.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__struct.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__type_support.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/locomotion_command.h
+[0.815s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/locomotion_state.h
+[0.816s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_generator_c__visibility_control.h
+[0.816s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/teleop_event.h
+[0.816s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/library_path.sh
+[0.816s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/library_path.dsv
+[0.817s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_fastrtps_c.h
+[0.817s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__rosidl_typesupport_fastrtps_c.h
+[0.817s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_fastrtps_c.h
+[0.817s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_fastrtps_c.h
+[0.818s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.818s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_introspection_c.h
+[0.818s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__rosidl_typesupport_introspection_c.h
+[0.818s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_introspection_c.h
+[0.819s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_introspection_c.h
+[0.819s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.819s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/buzzer_command.hpp
+[0.819s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__builder.hpp
+[0.820s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__struct.hpp
+[0.820s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__traits.hpp
+[0.820s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.hpp
+[0.820s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__builder.hpp
+[0.820s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__struct.hpp
+[0.820s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__traits.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__type_support.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__builder.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__struct.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__traits.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__builder.hpp
+[0.821s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__struct.hpp
+[0.822s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__traits.hpp
+[0.822s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__type_support.hpp
+[0.822s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/locomotion_command.hpp
+[0.822s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/locomotion_state.hpp
+[0.822s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.822s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/teleop_event.hpp
+[0.823s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_fastrtps_cpp.hpp
+[0.823s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__rosidl_typesupport_fastrtps_cpp.hpp
+[0.824s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_fastrtps_cpp.hpp
+[0.824s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_fastrtps_cpp.hpp
+[0.824s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.824s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_introspection_cpp.hpp
+[0.825s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_command__rosidl_typesupport_introspection_cpp.hpp
+[0.825s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_introspection_cpp.hpp
+[0.825s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_introspection_cpp.hpp
+[0.825s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/pythonpath.sh
+[0.825s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/pythonpath.dsv
+[0.826s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/PKG-INFO
+[0.826s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/SOURCES.txt
+[0.826s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/dependency_links.txt
+[0.826s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/top_level.txt
+[0.827s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/__init__.py
+[0.827s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_c.c
+[0.827s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.827s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[0.828s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_c.so
+[0.828s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.so
+[0.828s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_introspection_c.so
+[0.828s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/__init__.py
+[0.828s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_buzzer_command.py
+[0.829s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_buzzer_command_s.c
+[0.829s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_command.py
+[0.829s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_command_s.c
+[0.829s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_state.py
+[0.829s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_state_s.c
+[0.830s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_teleop_event.py
+[0.830s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_teleop_event_s.c
+[0.830s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.so
+[0.830s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_introspection_c.so
+[0.831s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_c.so
+[0.831s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/rust_packages/hexapod_custom_msgs
+[0.832s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/Cargo.toml
+[0.832s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/build.rs
+[0.833s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/src/lib.rs
+[0.834s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/src/msg.rs
+[0.834s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/src/msg/rmw.rs
+[0.834s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/TeleopEvent.idl
+[0.834s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/BuzzerCommand.idl
+[0.835s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionState.idl
+[0.835s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionCommand.idl
+[0.835s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/TeleopEvent.msg
+[0.835s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/BuzzerCommand.msg
+[0.835s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionState.msg
+[0.836s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionCommand.msg
+[0.836s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/package_run_dependencies/hexapod_custom_msgs
+[0.836s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/parent_prefix_path/hexapod_custom_msgs
+[0.836s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/ament_prefix_path.sh
+[0.836s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/ament_prefix_path.dsv
+[0.836s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/path.sh
+[0.837s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/path.dsv
+[0.837s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.bash
+[0.837s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.sh
+[0.837s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.zsh
+[0.837s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.dsv
+[0.837s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.dsv
+[0.854s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/packages/hexapod_custom_msgs
+[0.854s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake-extras.cmake
+[0.855s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.855s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[0.855s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[0.855s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.855s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.855s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.856s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[0.856s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgsConfig.cmake
+[0.856s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgsConfig-version.cmake
+[0.856s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.xml
+[0.857s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_generator_c.so
+[0.857s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_fastrtps_c.so
+[0.857s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_introspection_c.so
+[0.858s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_c.so
+[0.858s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.so
+[0.859s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_introspection_cpp.so
+[0.859s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_cpp.so
+[0.910s] Listing '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs'...
+[0.910s] Listing '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg'...
+[0.925s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_generator_py.so
+[0.925s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_cExport.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_cExport-noconfig.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cExport.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cExport.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_cppExport.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.926s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[0.927s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.927s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cppExport.cmake
+[0.927s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[0.927s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_pyExport.cmake
+[0.927s] -- Up-to-date: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_pyExport-noconfig.cmake
+[0.930s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_custom_msgs

@@ -1,0 +1,17 @@
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/urdf/hexapod.urdf.xacro
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/launch/display.launch.py
+/home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/package_run_dependencies/hexapod_description
+/home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/parent_prefix_path/hexapod_description
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.sh
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.dsv
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.sh
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.dsv
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.bash
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.sh
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.zsh
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.dsv
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.dsv
+/home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/packages/hexapod_description
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig.cmake
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig-version.cmake
+/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.xml

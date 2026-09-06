@@ -1,0 +1,32 @@
+[0.036s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/home/hexapod/ros2_ws/install/hexapod_teleop/lib:/home/hexapod/ros2_ws/install/hexapod_hardware/lib:/home/hexapod/ros2_ws/install/hexapod_control/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[0.136s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.809s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.847s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.004s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.070s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.114s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.162s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.335s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.340s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.469s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.570s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.615s] -- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)
+[1.621s] -- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)
+[1.647s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.869s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.869s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/hexapod/ros2_ws/src/hexapod_teleop/include>
+[1.870s] -- Configured cppcheck exclude dirs and/or files: 
+[1.870s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.870s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.871s] -- Added test 'lint_cmake' to check CMake code style
+[1.872s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.873s] -- Added test 'uncrustify' to check C / C++ code style
+[1.873s] -- Configured uncrustify additional arguments: 
+[1.874s] -- Added test 'xmllint' to check XML markup files
+[1.878s] -- Configuring done (1.8s)
+[1.906s] -- Generating done (0.0s)
+[1.921s] -- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_teleop
+[2.005s] [ 50%] Built target bluetooth_teleop_node
+[2.061s] [ 75%] [32mBuilding CXX object CMakeFiles/bluetooth_teleop_node_standalone.dir/src/main.cpp.o[0m
+[7.300s] [100%] [32m[1mLinking CXX executable bluetooth_teleop_node_standalone[0m
+[8.004s] [100%] Built target bluetooth_teleop_node_standalone

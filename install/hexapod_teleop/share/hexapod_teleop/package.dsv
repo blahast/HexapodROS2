@@ -1,0 +1,8 @@
+source;share/hexapod_teleop/hook/cmake_prefix_path.dsv
+source;share/hexapod_teleop/hook/cmake_prefix_path.sh
+source;share/hexapod_teleop/hook/ld_library_path_lib.dsv
+source;share/hexapod_teleop/hook/ld_library_path_lib.sh
+source;share/hexapod_teleop/local_setup.bash
+source;share/hexapod_teleop/local_setup.dsv
+source;share/hexapod_teleop/local_setup.sh
+source;share/hexapod_teleop/local_setup.zsh

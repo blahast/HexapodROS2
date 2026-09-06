@@ -1,0 +1,35 @@
+[0.025s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/home/hexapod/ros2_ws/install/hexapod_teleop/lib:/home/hexapod/ros2_ws/install/hexapod_hardware/lib:/home/hexapod/ros2_ws/install/hexapod_control/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[0.152s] [ 25%] [32mBuilding CXX object CMakeFiles/bluetooth_teleop_node.dir/src/bluetooth_teleop_node.cpp.o[0m
+[12.841s] [ 50%] [32m[1mLinking CXX shared library libbluetooth_teleop_node.so[0m
+[13.607s] [ 50%] Built target bluetooth_teleop_node
+[13.658s] [ 75%] [32m[1mLinking CXX executable bluetooth_teleop_node_standalone[0m
+[14.266s] [100%] Built target bluetooth_teleop_node_standalone
+[14.310s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_teleop' returned '0': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/home/hexapod/ros2_ws/install/hexapod_teleop/lib:/home/hexapod/ros2_ws/install/hexapod_hardware/lib:/home/hexapod/ros2_ws/install/hexapod_control/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[14.311s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/home/hexapod/ros2_ws/install/hexapod_teleop/lib:/home/hexapod/ros2_ws/install/hexapod_hardware/lib:/home/hexapod/ros2_ws/install/hexapod_control/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_teleop
+[14.338s] -- Install configuration: ""
+[14.338s] -- Execute custom install script
+[14.339s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/library_path.sh
+[14.339s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/library_path.dsv
+[14.339s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/lib/libbluetooth_teleop_node.so
+[14.339s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/lib/hexapod_teleop/bluetooth_teleop_node_standalone
+[14.340s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/include/bluetooth_teleop_node/bluetooth_teleop_node.hpp
+[14.340s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/launch/hexapod_teleop.launch.py
+[14.340s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/package_run_dependencies/hexapod_teleop
+[14.340s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/parent_prefix_path/hexapod_teleop
+[14.341s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/ament_prefix_path.sh
+[14.342s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/ament_prefix_path.dsv
+[14.342s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/path.sh
+[14.342s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/path.dsv
+[14.343s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.bash
+[14.343s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.sh
+[14.343s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.zsh
+[14.344s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.dsv
+[14.344s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.dsv
+[14.364s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/packages/hexapod_teleop
+[14.364s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/ament_cmake_export_include_directories-extras.cmake
+[14.365s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/ament_cmake_export_libraries-extras.cmake
+[14.366s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/ament_cmake_export_dependencies-extras.cmake
+[14.366s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/hexapod_teleopConfig.cmake
+[14.367s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/hexapod_teleopConfig-version.cmake
+[14.368s] -- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.xml
+[14.372s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_teleop' returned '0': CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_bringup:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/home/hexapod/ros2_ws/install/hexapod_teleop/lib:/home/hexapod/ros2_ws/install/hexapod_hardware/lib:/home/hexapod/ros2_ws/install/hexapod_control/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_teleop

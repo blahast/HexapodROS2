@@ -1,0 +1,1 @@
+Invoking command in '/home/hexapod/ros2_ws/build/hexapod_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_description

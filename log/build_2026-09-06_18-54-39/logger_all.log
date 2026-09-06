@@ -1,0 +1,430 @@
+[0.146s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.146s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff809838c0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff809836e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff809836e0>>)
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.203s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/hexapod/ros2_ws'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extension 'ignore'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extension 'ignore_ament_install'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extensions ['colcon_pkg']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extension 'colcon_pkg'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extensions ['colcon_meta']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extension 'colcon_meta'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extensions ['ros']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_bringup) by extension 'ros'
+[0.247s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hexapod_bringup' with type 'ros.ament_cmake' and name 'hexapod_bringup'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extensions ['ignore', 'ignore_ament_install']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extension 'ignore'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extension 'ignore_ament_install'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extensions ['colcon_pkg']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extension 'colcon_pkg'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extensions ['colcon_meta']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extension 'colcon_meta'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extensions ['ros']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_control) by extension 'ros'
+[0.248s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hexapod_control' with type 'ros.ament_cmake' and name 'hexapod_control'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extension 'ignore_ament_install'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extensions ['colcon_pkg']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extension 'colcon_pkg'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extensions ['colcon_meta']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extension 'colcon_meta'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extensions ['ros']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_custom_msgs) by extension 'ros'
+[0.249s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hexapod_custom_msgs' with type 'ros.ament_cmake' and name 'hexapod_custom_msgs'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extensions ['ignore', 'ignore_ament_install']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extension 'ignore'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extension 'ignore_ament_install'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extensions ['colcon_pkg']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extension 'colcon_pkg'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extensions ['colcon_meta']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extension 'colcon_meta'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extensions ['ros']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_description) by extension 'ros'
+[0.250s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hexapod_description' with type 'ros.ament_cmake' and name 'hexapod_description'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extensions ['ignore', 'ignore_ament_install']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extension 'ignore'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extension 'ignore_ament_install'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extensions ['colcon_pkg']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extension 'colcon_pkg'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extensions ['colcon_meta']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extension 'colcon_meta'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extensions ['ros']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_hardware) by extension 'ros'
+[0.253s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hexapod_hardware' with type 'ros.ament_cmake' and name 'hexapod_hardware'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extension 'ignore'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extension 'ignore_ament_install'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extensions ['colcon_pkg']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extension 'colcon_pkg'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extensions ['colcon_meta']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extension 'colcon_meta'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extensions ['ros']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(src/hexapod_teleop) by extension 'ros'
+[0.255s] DEBUG:colcon.colcon_core.package_identification:Package 'src/hexapod_teleop' with type 'ros.ament_cmake' and name 'hexapod_teleop'
+[0.255s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.255s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.255s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.255s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.255s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'cmake_target' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'hexapod_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.279s] DEBUG:colcon.colcon_core.verb:Building package 'hexapod_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/hexapod/ros2_ws/build/hexapod_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/hexapod/ros2_ws/install/hexapod_bringup', 'merge_install': False, 'path': '/home/hexapod/ros2_ws/src/hexapod_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'cmake_target' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_custom_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.280s] DEBUG:colcon.colcon_core.verb:Building package 'hexapod_custom_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs', 'merge_install': False, 'path': '/home/hexapod/ros2_ws/src/hexapod_custom_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'cmake_target' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'hexapod_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.280s] DEBUG:colcon.colcon_core.verb:Building package 'hexapod_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/hexapod/ros2_ws/build/hexapod_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/hexapod/ros2_ws/install/hexapod_description', 'merge_install': False, 'path': '/home/hexapod/ros2_ws/src/hexapod_description', 'symlink_install': False, 'test_result_base': None}
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'cmake_target' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.281s] DEBUG:colcon.colcon_core.verb:Building package 'hexapod_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/hexapod/ros2_ws/build/hexapod_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/hexapod/ros2_ws/install/hexapod_control', 'merge_install': False, 'path': '/home/hexapod/ros2_ws/src/hexapod_control', 'symlink_install': False, 'test_result_base': None}
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'cmake_target' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'cmake_clean_cache' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'cmake_clean_first' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'cmake_force_configure' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'ament_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_hardware' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'hexapod_hardware' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/hexapod/ros2_ws/build/hexapod_hardware', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/hexapod/ros2_ws/install/hexapod_hardware', 'merge_install': False, 'path': '/home/hexapod/ros2_ws/src/hexapod_hardware', 'symlink_install': False, 'test_result_base': None}
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'hexapod_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'hexapod_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/hexapod/ros2_ws/build/hexapod_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/hexapod/ros2_ws/install/hexapod_teleop', 'merge_install': False, 'path': '/home/hexapod/ros2_ws/src/hexapod_teleop', 'symlink_install': False, 'test_result_base': None}
+[0.282s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.284s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.284s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/hexapod/ros2_ws/src/hexapod_custom_msgs' with build type 'ament_cmake'
+[0.284s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/hexapod/ros2_ws/src/hexapod_custom_msgs'
+[0.287s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.287s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.288s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/hexapod/ros2_ws/install/hexapod_core' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.289s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/hexapod/ros2_ws/install/hexapod_core' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.295s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/hexapod/ros2_ws/src/hexapod_bringup' with build type 'ament_cmake'
+[0.295s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/hexapod/ros2_ws/src/hexapod_bringup'
+[0.295s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.300s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/hexapod/ros2_ws/src/hexapod_description' with build type 'ament_cmake'
+[0.301s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/hexapod/ros2_ws/src/hexapod_description'
+[0.301s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.313s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_custom_msgs -- -j4 -l4
+[0.317s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_bringup -- -j4 -l4
+[0.325s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_description -- -j4 -l4
+[0.392s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_bringup -- -j4 -l4
+[0.420s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_bringup
+[0.429s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_description -- -j4 -l4
+[0.429s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_description
+[0.440s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_bringup)
+[0.445s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_bringup
+[0.447s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup' for CMake module files
+[0.448s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup' for CMake config files
+[0.449s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_bringup', 'cmake_prefix_path')
+[0.449s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/hook/cmake_prefix_path.dsv'
+[0.450s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/hook/cmake_prefix_path.sh'
+[0.456s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/bin'
+[0.456s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/lib/pkgconfig/hexapod_bringup.pc'
+[0.468s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/lib/python3.12/site-packages'
+[0.472s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/bin'
+[0.473s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.dsv'
+[0.474s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.sh'
+[0.479s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.bash'
+[0.484s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.zsh'
+[0.485s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_bringup/share/colcon-core/packages/hexapod_bringup)
+[0.486s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_bringup)
+[0.487s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup' for CMake module files
+[0.488s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup' for CMake config files
+[0.488s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_bringup', 'cmake_prefix_path')
+[0.489s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/hook/cmake_prefix_path.dsv'
+[0.490s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/hook/cmake_prefix_path.sh'
+[0.492s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/bin'
+[0.492s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/lib/pkgconfig/hexapod_bringup.pc'
+[0.493s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/lib/python3.12/site-packages'
+[0.493s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_bringup/bin'
+[0.494s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.dsv'
+[0.495s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.sh'
+[0.496s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.bash'
+[0.497s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_bringup/share/hexapod_bringup/package.zsh'
+[0.498s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_bringup/share/colcon-core/packages/hexapod_bringup)
+[0.499s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_description)
+[0.500s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_description
+[0.500s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description' for CMake module files
+[0.501s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description' for CMake config files
+[0.502s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_description', 'cmake_prefix_path')
+[0.502s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/hook/cmake_prefix_path.dsv'
+[0.503s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/hook/cmake_prefix_path.sh'
+[0.504s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/bin'
+[0.504s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/lib/pkgconfig/hexapod_description.pc'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/lib/python3.12/site-packages'
+[0.505s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/bin'
+[0.506s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.dsv'
+[0.507s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.sh'
+[0.508s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.bash'
+[0.509s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.zsh'
+[0.510s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_description/share/colcon-core/packages/hexapod_description)
+[0.511s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_description)
+[0.512s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description' for CMake module files
+[0.513s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description' for CMake config files
+[0.513s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_description', 'cmake_prefix_path')
+[0.514s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/hook/cmake_prefix_path.dsv'
+[0.515s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/hook/cmake_prefix_path.sh'
+[0.516s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/bin'
+[0.517s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/lib/pkgconfig/hexapod_description.pc'
+[0.517s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/lib/python3.12/site-packages'
+[0.518s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_description/bin'
+[0.518s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.dsv'
+[0.519s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.sh'
+[0.520s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.bash'
+[0.521s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.zsh'
+[0.522s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_description/share/colcon-core/packages/hexapod_description)
+[1.440s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_custom_msgs -- -j4 -l4
+[1.443s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_custom_msgs
+[1.607s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_custom_msgs)
+[1.608s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs' for CMake module files
+[1.610s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_custom_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_custom_msgs
+[1.611s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs' for CMake config files
+[1.613s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_custom_msgs', 'cmake_prefix_path')
+[1.614s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/cmake_prefix_path.dsv'
+[1.615s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/cmake_prefix_path.sh'
+[1.616s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib'
+[1.616s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_custom_msgs', 'ld_library_path_lib')
+[1.617s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/ld_library_path_lib.dsv'
+[1.617s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/ld_library_path_lib.sh'
+[1.618s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/bin'
+[1.618s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/pkgconfig/hexapod_custom_msgs.pc'
+[1.619s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages'
+[1.619s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_custom_msgs', 'pythonpath')
+[1.619s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/pythonpath.dsv'
+[1.620s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/pythonpath.sh'
+[1.621s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/bin'
+[1.622s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.dsv'
+[1.623s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.sh'
+[1.623s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.bash'
+[1.633s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.zsh'
+[1.633s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/colcon-core/packages/hexapod_custom_msgs)
+[1.635s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_custom_msgs)
+[1.635s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs' for CMake module files
+[1.639s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs' for CMake config files
+[1.641s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_custom_msgs', 'cmake_prefix_path')
+[1.642s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/cmake_prefix_path.dsv'
+[1.642s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/cmake_prefix_path.sh'
+[1.643s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib'
+[1.644s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_custom_msgs', 'ld_library_path_lib')
+[1.644s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/ld_library_path_lib.dsv'
+[1.645s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/ld_library_path_lib.sh'
+[1.645s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/bin'
+[1.646s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/pkgconfig/hexapod_custom_msgs.pc'
+[1.646s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages'
+[1.646s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_custom_msgs', 'pythonpath')
+[1.646s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/pythonpath.dsv'
+[1.647s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/hook/pythonpath.sh'
+[1.648s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/bin'
+[1.649s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.dsv'
+[1.650s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.sh'
+[1.651s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.bash'
+[1.652s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.zsh'
+[1.652s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/colcon-core/packages/hexapod_custom_msgs)
+[1.654s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/hexapod/ros2_ws/src/hexapod_control' with build type 'ament_cmake'
+[1.654s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/hexapod/ros2_ws/src/hexapod_control'
+[1.654s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.659s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/hexapod/ros2_ws/src/hexapod_hardware' with build type 'ament_cmake'
+[1.659s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/hexapod/ros2_ws/src/hexapod_hardware'
+[1.660s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.668s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/hexapod/ros2_ws/src/hexapod_teleop' with build type 'ament_cmake'
+[1.668s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/hexapod/ros2_ws/src/hexapod_teleop'
+[1.668s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.683s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_control': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_control -- -j4 -l4
+[1.696s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_hardware': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_hardware -- -j4 -l4
+[1.708s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[1.943s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_hardware' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_hardware -- -j4 -l4
+[1.945s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_hardware': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_hardware
+[2.007s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_hardware)
+[2.007s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware' for CMake module files
+[2.008s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware' for CMake config files
+[2.009s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_hardware', 'cmake_prefix_path')
+[2.009s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/hook/cmake_prefix_path.dsv'
+[2.010s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_hardware' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_hardware
+[2.011s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/hook/cmake_prefix_path.sh'
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/lib'
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/bin'
+[2.017s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/lib/pkgconfig/hexapod_hardware.pc'
+[2.018s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/lib/python3.12/site-packages'
+[2.018s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/bin'
+[2.019s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.dsv'
+[2.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.sh'
+[2.024s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.bash'
+[2.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.zsh'
+[2.028s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_hardware/share/colcon-core/packages/hexapod_hardware)
+[2.029s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_hardware)
+[2.029s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware' for CMake module files
+[2.033s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware' for CMake config files
+[2.034s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_hardware', 'cmake_prefix_path')
+[2.034s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/hook/cmake_prefix_path.dsv'
+[2.035s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/hook/cmake_prefix_path.sh'
+[2.039s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/lib'
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/bin'
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/lib/pkgconfig/hexapod_hardware.pc'
+[2.040s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/lib/python3.12/site-packages'
+[2.042s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_hardware/bin'
+[2.045s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.dsv'
+[2.046s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.sh'
+[2.051s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.bash'
+[2.057s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/package.zsh'
+[2.058s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_hardware/share/colcon-core/packages/hexapod_hardware)
+[2.064s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_teleop' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_teleop -- -j4 -l4
+[2.065s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_teleop': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_teleop
+[2.121s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_teleop)
+[2.122s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop' for CMake module files
+[2.125s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop' for CMake config files
+[2.126s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_teleop', 'cmake_prefix_path')
+[2.127s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/hook/cmake_prefix_path.dsv'
+[2.127s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_teleop' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_teleop
+[2.128s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/hook/cmake_prefix_path.sh'
+[2.132s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/lib'
+[2.132s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/bin'
+[2.132s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/lib/pkgconfig/hexapod_teleop.pc'
+[2.133s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/lib/python3.12/site-packages'
+[2.138s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/bin'
+[2.141s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.dsv'
+[2.142s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.sh'
+[2.142s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.bash'
+[2.146s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.zsh'
+[2.147s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_teleop/share/colcon-core/packages/hexapod_teleop)
+[2.151s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_teleop)
+[2.152s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop' for CMake module files
+[2.153s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop' for CMake config files
+[2.153s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_teleop', 'cmake_prefix_path')
+[2.153s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/hook/cmake_prefix_path.dsv'
+[2.157s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/hook/cmake_prefix_path.sh'
+[2.158s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/lib'
+[2.158s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/bin'
+[2.159s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/lib/pkgconfig/hexapod_teleop.pc'
+[2.159s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/lib/python3.12/site-packages'
+[2.161s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_teleop/bin'
+[2.162s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.dsv'
+[2.163s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.sh'
+[2.165s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.bash'
+[2.168s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.zsh'
+[2.169s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_teleop/share/colcon-core/packages/hexapod_teleop)
+[32.388s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_control' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_control -- -j4 -l4
+[32.390s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/hexapod/ros2_ws/build/hexapod_control': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_control
+[32.426s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_control)
+[32.426s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control' for CMake module files
+[32.427s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/hexapod/ros2_ws/build/hexapod_control' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_control
+[32.427s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control' for CMake config files
+[32.428s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_control', 'cmake_prefix_path')
+[32.428s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/hook/cmake_prefix_path.dsv'
+[32.429s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/hook/cmake_prefix_path.sh'
+[32.430s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/lib'
+[32.430s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/bin'
+[32.430s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/lib/pkgconfig/hexapod_control.pc'
+[32.430s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/lib/python3.12/site-packages'
+[32.431s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/bin'
+[32.431s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.dsv'
+[32.432s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.sh'
+[32.432s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.bash'
+[32.433s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.zsh'
+[32.433s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_control/share/colcon-core/packages/hexapod_control)
+[32.434s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(hexapod_control)
+[32.434s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control' for CMake module files
+[32.435s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control' for CMake config files
+[32.435s] Level 1:colcon.colcon_core.shell:create_environment_hook('hexapod_control', 'cmake_prefix_path')
+[32.436s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/hook/cmake_prefix_path.dsv'
+[32.436s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/hook/cmake_prefix_path.sh'
+[32.437s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/lib'
+[32.437s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/bin'
+[32.437s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/lib/pkgconfig/hexapod_control.pc'
+[32.437s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/lib/python3.12/site-packages'
+[32.438s] Level 1:colcon.colcon_core.environment:checking '/home/hexapod/ros2_ws/install/hexapod_control/bin'
+[32.438s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.dsv'
+[32.439s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.sh'
+[32.439s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.bash'
+[32.440s] INFO:colcon.colcon_core.shell:Creating package script '/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/package.zsh'
+[32.440s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/hexapod/ros2_ws/install/hexapod_control/share/colcon-core/packages/hexapod_control)
+[32.440s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[32.441s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[32.441s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[32.441s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[32.442s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[32.442s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/hexapod/ros2_ws/install/local_setup.sh'
+[32.443s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/hexapod/ros2_ws/install/_local_setup_util_sh.py'
+[32.444s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/hexapod/ros2_ws/install/setup.sh'
+[32.446s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/hexapod/ros2_ws/install/local_setup.bash'
+[32.446s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/hexapod/ros2_ws/install/setup.bash'
+[32.448s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/hexapod/ros2_ws/install/local_setup.zsh'
+[32.454s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/hexapod/ros2_ws/install/setup.zsh'

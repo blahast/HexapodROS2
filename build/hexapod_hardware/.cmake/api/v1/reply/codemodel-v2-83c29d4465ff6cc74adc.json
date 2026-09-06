@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-a2b284bdd5bf56dcd228.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "hexapod_hardware",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "buzzer_driver_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-buzzer_driver_node-0fff3bfe18e5f52dd88b.json",
+					"name" : "buzzer_driver_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "buzzer_driver_node_standalone::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-buzzer_driver_node_standalone-9230751ff4b23e3793f9.json",
+					"name" : "buzzer_driver_node_standalone",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hexapod_hardware_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hexapod_hardware_uninstall-f9f037095f01d95eb845.json",
+					"name" : "hexapod_hardware_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-21240ddc21b12ebe72c9.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/hexapod/ros2_ws/build/hexapod_hardware",
+		"source" : "/home/hexapod/ros2_ws/src/hexapod_hardware"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

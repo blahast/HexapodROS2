@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/hexapod/ros2_ws/build/hexapod_control/hexapod_brain_node_standalone" "TARGETS" "hexapod_brain_node_standalone" "DESTINATION" "lib/hexapod_control")

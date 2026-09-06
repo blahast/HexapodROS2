@@ -1,0 +1,33 @@
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)
+-- Found hexapod_hardware: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_hardware/share/hexapod_hardware/cmake)
+-- Found hexapod_control: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_control/share/hexapod_control/cmake)
+-- Configuring incomplete, errors occurred!
+[31mCMake Error at CMakeLists.txt:13 (find_package):
+  By not providing "Findbluetooth_teleop.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "bluetooth_teleop", but CMake did not find one.
+
+  Could not find a package configuration file provided by "bluetooth_teleop"
+  with any of the following names:
+
+    bluetooth_teleopConfig.cmake
+    bluetooth_teleop-config.cmake
+
+  Add the installation prefix of "bluetooth_teleop" to CMAKE_PREFIX_PATH or
+  set "bluetooth_teleop_DIR" to a directory containing one of the above
+  files.  If "bluetooth_teleop" provides a separate development package or
+  SDK, be sure it has been installed.
+
+[0m
+gmake: *** [Makefile:226: cmake_check_build_system] Error 1

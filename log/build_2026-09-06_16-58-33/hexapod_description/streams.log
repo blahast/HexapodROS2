@@ -1,0 +1,23 @@
+[0.017s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_description -- -j4 -l4
+[0.087s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_description -- -j4 -l4
+[0.106s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_description
+[0.119s] -- Install configuration: ""
+[0.120s] -- Execute custom install script
+[0.121s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/urdf/hexapod.urdf.xacro
+[0.138s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/launch/display.launch.py
+[0.157s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/package_run_dependencies/hexapod_description
+[0.174s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/parent_prefix_path/hexapod_description
+[0.196s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.sh
+[0.216s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.dsv
+[0.233s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.sh
+[0.250s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.dsv
+[0.266s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.bash
+[0.282s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.sh
+[0.299s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.zsh
+[0.315s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.dsv
+[0.331s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.dsv
+[0.348s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/packages/hexapod_description
+[0.367s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig.cmake
+[0.384s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig-version.cmake
+[0.404s] -- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.xml
+[0.443s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_description

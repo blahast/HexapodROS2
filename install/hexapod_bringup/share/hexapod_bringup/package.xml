@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>hexapod_bringup</name>
+  <version>0.0.0</version>
+  <description>Shared process executor pro Hexapod</description>
+  <maintainer email="blahast2@cvut.cz">Štěpán Blaha</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>hexapod_custom_msgs</depend>
+  <depend>hexapod_hardware</depend>
+  <depend>hexapod_control</depend>
+  <depend>hexapod_teleop</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,25 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.c.o"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.c.o.d"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_command__type_support.c.o"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_command__type_support.c.o.d"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.c.o"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.c.o.d"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/teleop_event__type_support.c.o"
+  "CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/teleop_event__type_support.c.o.d"
+  "libhexapod_custom_msgs__rosidl_typesupport_introspection_c.pdb"
+  "libhexapod_custom_msgs__rosidl_typesupport_introspection_c.so"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.c"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_command__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_command__type_support.c"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.c"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_introspection_c.h"
+  "rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/teleop_event__type_support.c"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

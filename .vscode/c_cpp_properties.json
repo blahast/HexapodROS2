@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/ros/jazzy/include/**",
+                "${workspaceFolder}/install/**",
+                "${workspaceFolder}/src/hexapod_control/include",
+                "${workspaceFolder}/src/hexapod_hardware/include",
+                "${workspaceFolder}/src/hexapod_teleop/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-arm64"
+        }
+    ],
+    "version": 4
+}

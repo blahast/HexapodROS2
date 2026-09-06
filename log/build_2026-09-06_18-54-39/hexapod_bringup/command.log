@@ -1,0 +1,4 @@
+Invoking command in '/home/hexapod/ros2_ws/build/hexapod_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_bringup -- -j4 -l4
+Invoked command in '/home/hexapod/ros2_ws/build/hexapod_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_bringup -- -j4 -l4
+Invoking command in '/home/hexapod/ros2_ws/build/hexapod_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_bringup
+Invoked command in '/home/hexapod/ros2_ws/build/hexapod_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/hexapod/ros2_ws/build/hexapod_bringup

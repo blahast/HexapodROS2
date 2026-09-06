@@ -1,0 +1,97 @@
+[0.023s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_control': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_control -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_control
+[0.062s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.521s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.535s] -- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.578s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.593s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.613s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.633s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.781s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.793s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.962s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.160s] -- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.249s] -- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)
+[1.298s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.590s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.592s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/hexapod/ros2_ws/src/hexapod_control/include>
+[1.592s] -- Configured cppcheck exclude dirs and/or files: 
+[1.601s] -- Added test 'lint_cmake' to check CMake code style
+[1.601s] -- Added test 'uncrustify' to check C / C++ code style
+[1.601s] -- Configured uncrustify additional arguments: 
+[1.601s] -- Added test 'xmllint' to check XML markup files
+[1.619s] -- Configuring done (1.6s)
+[1.678s] -- Generating done (0.0s)
+[1.690s] -- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_control
+[1.705s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_control' returned '0': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/hexapod/ros2_ws/src/hexapod_control -DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_control
+[1.708s] Invoking command in '/home/hexapod/ros2_ws/build/hexapod_control': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_control -- -j4 -l4
+[1.839s] [ 33%] [32mBuilding CXX object CMakeFiles/hexapod_brain_node.dir/src/main.cpp.o[0m
+[1.844s] [ 66%] [32mBuilding CXX object CMakeFiles/hexapod_brain_node.dir/src/hexapod_brain_node.cpp.o[0m
+[11.244s] [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:[m[K In member function ‘[01m[Kvoid HexapodBrainNode::[01;32m[KsendLocomotionCommand[m[K(uint8_t)[m[K’:
+[11.245s] [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:167:33:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Publisher<hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> > >::publish(hexapod_custom_msgs::msg::LocomotionCommand&)[m[K’
+[11.245s]   167 |     [01;31m[Klocomotion_cmd_pub_->publish(msg)[m[K;
+[11.245s]       |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[11.245s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/topic_statistics/subscription_topic_statistics.hpp:31[m[K,
+[11.246s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/subscription.hpp:50[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/any_executable.hpp:25[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executor_options.hpp:22[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executor.hpp:38[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[11.247s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:176[m[K,
+[11.248s]                  from [01m[K/home/hexapod/ros2_ws/src/hexapod_control/include/hexapod_control/hexapod_brain_node.hpp:4[m[K,
+[11.248s]                  from [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:4[m[K:
+[11.248s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:242:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::enable_if_t<(rosidl_generator_traits::is_message<T>::value && std::is_same<T, typename rclcpp::TypeAdapter<MessageT>::ros_message_type>::value)> rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(std::unique_ptr<T, typename std::conditional<std::is_same<typename std::allocator_traits<typename std::allocator_traits<_Allocator>::rebind_traits<typename rclcpp::TypeAdapter<MessageT, void, void>::ros_message_type>::allocator_type>::rebind_alloc<typename rclcpp::TypeAdapter<MessageT, void, void>::ros_message_type>, std::allocator<typename rclcpp::TypeAdapter<MessageT>::ros_message_type> >::value, std::default_delete<typename rclcpp::TypeAdapter<MessageT>::ros_message_type>, rclcpp::allocator::AllocatorDeleter<typename std::allocator_traits<_Allocator>::rebind_traits<typename rclcpp::TypeAdapter<MessageT, void, void>::ros_message_type>::allocator_type> >::type>) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>][m[K[m[K’
+[11.255s]   242 |   [01;36m[Kpublish[m[K(std::unique_ptr<T, ROSMessageTypeDeleter> msg)
+[11.255s]       |   [01;36m[K^~~~~~~[m[K
+[11.256s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:242:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[11.256s] [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:167:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand_<std::allocator<void> >[m[K’ is not derived from ‘[01m[Kstd::unique_ptr<T, std::default_delete<hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> > > >[m[K’
+[11.256s]   167 |     [01;36m[Klocomotion_cmd_pub_->publish(msg)[m[K;
+[11.256s]       |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[11.256s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:296:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::enable_if_t<(rosidl_generator_traits::is_message<T>::value && std::is_same<T, typename rclcpp::TypeAdapter<MessageT>::ros_message_type>::value)> rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(const T&) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>][m[K[m[K’
+[11.256s]   296 |   [01;36m[Kpublish[m[K(const T & msg)
+[11.256s]       |   [01;36m[K^~~~~~~[m[K
+[11.257s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:296:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[11.257s] In file included from [01m[K/usr/include/c++/13/bits/char_traits.h:50[m[K,
+[11.257s]                  from [01m[K/usr/include/c++/13/string:42[m[K,
+[11.257s]                  from [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:1[m[K:
+[11.257s] /usr/include/c++/13/type_traits: In substitution of ‘[01m[Ktemplate<bool _Cond, class _Tp> using std::enable_if_t = typename std::enable_if::type [35m[K[with bool _Cond = false; _Tp = void][m[K[m[K’:
+[11.257s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:296:3:[m[K   required by substitution of ‘[01m[Ktemplate<class T> std::enable_if_t<(rosidl_generator_traits::is_message<T>::value && std::is_same<T, hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> > >::value), void> rclcpp::Publisher<hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> > >::[01;32m[Kpublish[m[K(const T&) [35m[K[with T = hexapod_custom_msgs::msg::LocomotionCommand_<std::allocator<void> >][m[K[m[K’
+[11.257s] [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:167:33:[m[K   required from here
+[11.257s] [01m[K/usr/include/c++/13/type_traits:2610:11:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::enable_if<false, void>[m[K’
+[11.258s]  2610 |     using [01;31m[Kenable_if_t[m[K = typename enable_if<_Cond, _Tp>::type;
+[11.261s]       |           [01;31m[K^~~~~~~~~~~[m[K
+[11.261s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:326:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::enable_if_t<(typename rclcpp::TypeAdapter<MessageT>::is_specialized::value && std::is_same<T, typename rclcpp::TypeAdapter<MessageT>::custom_type>::value)> rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(std::unique_ptr<T, typename std::conditional<std::is_same<typename std::allocator_traits<typename std::allocator_traits<_Allocator>::rebind_traits<typename rclcpp::TypeAdapter<MessageT, void, void>::custom_type>::allocator_type>::rebind_alloc<typename rclcpp::TypeAdapter<MessageT, void, void>::custom_type>, std::allocator<typename rclcpp::TypeAdapter<MessageT>::custom_type> >::value, std::default_delete<typename rclcpp::TypeAdapter<MessageT>::custom_type>, rclcpp::allocator::AllocatorDeleter<typename std::allocator_traits<_Allocator>::rebind_traits<typename rclcpp::TypeAdapter<MessageT, void, void>::custom_type>::allocator_type> >::type>) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>][m[K[m[K’
+[11.261s]   326 |   [01;36m[Kpublish[m[K(std::unique_ptr<T, PublishedTypeDeleter> msg)
+[11.262s]       |   [01;36m[K^~~~~~~[m[K
+[11.262s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:326:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[11.262s] [01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:167:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand_<std::allocator<void> >[m[K’ is not derived from ‘[01m[Kstd::unique_ptr<T, std::default_delete<hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> > > >[m[K’
+[11.262s]   167 |     [01;36m[Klocomotion_cmd_pub_->publish(msg)[m[K;
+[11.262s]       |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~[m[K
+[11.262s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:376:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::enable_if_t<(typename rclcpp::TypeAdapter<MessageT>::is_specialized::value && std::is_same<T, typename rclcpp::TypeAdapter<MessageT>::custom_type>::value)> rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(const T&) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>][m[K[m[K’
+[11.262s]   376 |   [01;36m[Kpublish[m[K(const T & msg)
+[11.263s]       |   [01;36m[K^~~~~~~[m[K
+[11.263s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:376:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[11.263s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:394:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(const rcl_serialized_message_t&) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>; rcl_serialized_message_t = rcutils_uint8_array_s][m[K[m[K’
+[11.267s]   394 |   [01;36m[Kpublish[m[K(const rcl_serialized_message_t & serialized_msg)
+[11.267s]       |   [01;36m[K^~~~~~~[m[K
+[11.267s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:394:44:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand[m[K’ {aka ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand_<std::allocator<void> >[m[K’} to ‘[01m[Kconst rcl_serialized_message_t&[m[K’ {aka ‘[01m[Kconst rcutils_uint8_array_s&[m[K’}
+[11.267s]   394 |   publish([01;36m[Kconst rcl_serialized_message_t & serialized_msg[m[K)
+[11.268s]       |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[11.268s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:400:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(const rclcpp::SerializedMessage&) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>][m[K[m[K’
+[11.268s]   400 |   [01;36m[Kpublish[m[K(const SerializedMessage & serialized_msg)
+[11.268s]       |   [01;36m[K^~~~~~~[m[K
+[11.268s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:400:37:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand[m[K’ {aka ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand_<std::allocator<void> >[m[K’} to ‘[01m[Kconst rclcpp::SerializedMessage&[m[K’
+[11.268s]   400 |   publish([01;36m[Kconst SerializedMessage & serialized_msg[m[K)
+[11.268s]       |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[11.269s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:414:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid rclcpp::Publisher<MessageT, AllocatorT>::[01;32m[Kpublish[m[K(rclcpp::LoanedMessage<typename rclcpp::TypeAdapter<MessageT>::ros_message_type, AllocatorT>&&) [35m[K[with MessageT = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >; AllocatorT = std::allocator<void>; typename rclcpp::TypeAdapter<MessageT>::ros_message_type = hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >][m[K[m[K’
+[11.269s]   414 |   [01;36m[Kpublish[m[K(rclcpp::LoanedMessage<ROSMessageType, AllocatorT> && loaned_msg)
+[11.269s]       |   [01;36m[K^~~~~~~[m[K
+[11.269s] [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/publisher.hpp:414:64:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand[m[K’ {aka ‘[01m[Khexapod_custom_msgs::msg::LocomotionCommand_<std::allocator<void> >[m[K’} to ‘[01m[Krclcpp::LoanedMessage<hexapod_custom_msgs::msg::LocomotionState_<std::allocator<void> >, std::allocator<void> >&&[m[K’
+[11.269s]   414 |   publish([01;36m[Krclcpp::LoanedMessage<ROSMessageType, AllocatorT> && loaned_msg[m[K)
+[11.269s]       |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+[23.971s] gmake[2]: *** [CMakeFiles/hexapod_brain_node.dir/build.make:90: CMakeFiles/hexapod_brain_node.dir/src/hexapod_brain_node.cpp.o] Error 1
+[23.971s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hexapod_brain_node.dir/all] Error 2
+[23.972s] gmake: *** [Makefile:146: all] Error 2
+[23.975s] Invoked command in '/home/hexapod/ros2_ws/build/hexapod_control' returned '2': AMENT_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy LD_LIBRARY_PATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/hexapod/ros2_ws/build/hexapod_control -- -j4 -l4

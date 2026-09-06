@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<robot name="hexapod" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="base_radius" value="0.078"/>
+  <xacro:property name="l_coxa" value="0.048"/>
+  <xacro:property name="l_femur" value="0.075"/>
+  <xacro:property name="l_tibia" value="0.116"/>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder radius="${base_radius}" length="0.04"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <xacro:macro name="leg" params="prefix angle">
+
+    <joint name="${prefix}_coxa_joint" type="revolute">
+      <parent link="base_link"/>
+      <child link="${prefix}_coxa"/>
+
+      <origin xyz="${base_radius * cos(angle)} ${base_radius * sin(angle)} 0" rpy="0 0 ${angle}"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-1.57" upper="1.57" effort="10" velocity="3"/>
+    </joint>
+
+    <link name="${prefix}_coxa">
+      <visual>
+        <origin xyz="${l_coxa/2} 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${l_coxa} 0.02 0.02"/>
+        </geometry>
+        <material name="red">
+          <color rgba="0.8 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="${prefix}_femur_joint" type="revolute">
+      <parent link="${prefix}_coxa"/>
+      <child link="${prefix}_femur"/>
+      <origin xyz="${l_coxa} 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-1.57" upper="1.57" effort="10" velocity="3"/>
+    </joint>
+
+    <link name="${prefix}_femur">
+      <visual>
+        <origin xyz="${l_femur/2} 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${l_femur} 0.015 0.015"/>
+        </geometry>
+        <material name="green">
+          <color rgba="0 0.8 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+
+    <joint name="${prefix}_tibia_joint" type="revolute">
+      <parent link="${prefix}_femur"/>
+      <child link="${prefix}_tibia"/>
+      <origin xyz="${l_femur} 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-2.0" upper="2.0" effort="10" velocity="3"/>
+    </joint>
+
+    <link name="${prefix}_tibia">
+      <visual>
+        <origin xyz="${l_tibia/2} 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${l_tibia} 0.01 0.01"/>
+        </geometry>
+        <material name="yellow">
+          <color rgba="0.8 0.8 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+  </xacro:macro>
+
+  <xacro:leg prefix="leg0" angle="${pi/6}"/>       <!-- 30° -->
+  <xacro:leg prefix="leg1" angle="${pi/2}"/>       <!-- 90° -->
+  <xacro:leg prefix="leg2" angle="${5*pi/6}"/>     <!-- 150° -->
+  <xacro:leg prefix="leg3" angle="${7*pi/6}"/>     <!-- 210° -->
+  <xacro:leg prefix="leg4" angle="${3*pi/2}"/>     <!-- 270° -->
+  <xacro:leg prefix="leg5" angle="${11*pi/6}"/>    <!-- 330° -->
+
+</robot>

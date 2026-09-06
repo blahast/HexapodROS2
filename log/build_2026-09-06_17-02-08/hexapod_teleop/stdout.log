@@ -1,0 +1,22 @@
+[ 33%] [32mBuilding CXX object CMakeFiles/bluetooth_teleop_node.dir/src/bluetooth_teleop_node.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable bluetooth_teleop_node[0m
+[100%] Built target bluetooth_teleop_node
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/lib/hexapod_teleop/bluetooth_teleop_node
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/launch/hexapod_teleop.launch.py
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/package_run_dependencies/hexapod_teleop
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/parent_prefix_path/hexapod_teleop
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/ament_prefix_path.sh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/ament_prefix_path.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/path.sh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/environment/path.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.bash
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.sh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.zsh
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/local_setup.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.dsv
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/ament_index/resource_index/packages/hexapod_teleop
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/hexapod_teleopConfig.cmake
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/cmake/hexapod_teleopConfig-version.cmake
+-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_teleop/share/hexapod_teleop/package.xml

@@ -1,0 +1,1 @@
+/home/hexapod/ros2_ws/build/hexapod_control/ament_cmake_environment_hooks/local_setup.sh

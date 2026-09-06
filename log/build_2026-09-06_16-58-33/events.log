@@ -1,0 +1,771 @@
+[0.000000] (-) TimerEvent: {}
+[0.000782] (hexapod_custom_msgs) JobQueued: {'identifier': 'hexapod_custom_msgs', 'dependencies': OrderedDict()}
+[0.001008] (hexapod_description) JobQueued: {'identifier': 'hexapod_description', 'dependencies': OrderedDict()}
+[0.001269] (hexapod_control) JobQueued: {'identifier': 'hexapod_control', 'dependencies': OrderedDict({'hexapod_custom_msgs': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs'})}
+[0.001387] (hexapod_hardware) JobQueued: {'identifier': 'hexapod_hardware', 'dependencies': OrderedDict({'hexapod_custom_msgs': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs'})}
+[0.001484] (hexapod_teleop) JobQueued: {'identifier': 'hexapod_teleop', 'dependencies': OrderedDict({'hexapod_custom_msgs': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs'})}
+[0.001595] (hexapod_custom_msgs) JobStarted: {'identifier': 'hexapod_custom_msgs'}
+[0.010240] (hexapod_description) JobStarted: {'identifier': 'hexapod_description'}
+[0.016409] (hexapod_custom_msgs) JobProgress: {'identifier': 'hexapod_custom_msgs', 'progress': 'cmake'}
+[0.017533] (hexapod_custom_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/hexapod/ros2_ws/src/hexapod_custom_msgs', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_custom_msgs'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[0.023222] (hexapod_description) JobProgress: {'identifier': 'hexapod_description', 'progress': 'cmake'}
+[0.024037] (hexapod_description) JobProgress: {'identifier': 'hexapod_description', 'progress': 'build'}
+[0.024845] (hexapod_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hexapod/ros2_ws/build/hexapod_description', '--', '-j4', '-l4'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_description', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_description', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[0.042607] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.096793] (hexapod_description) CommandEnded: {'returncode': 0}
+[0.097629] (hexapod_description) JobProgress: {'identifier': 'hexapod_description', 'progress': 'install'}
+[0.099716] (-) TimerEvent: {}
+[0.115553] (hexapod_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/hexapod/ros2_ws/build/hexapod_description'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_description', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_description', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[0.129453] (hexapod_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.130178] (hexapod_description) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[0.131060] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/urdf/hexapod.urdf.xacro\n'}
+[0.147654] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/launch/display.launch.py\n'}
+[0.165769] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/package_run_dependencies/hexapod_description\n'}
+[0.183931] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/parent_prefix_path/hexapod_description\n'}
+[0.200246] (-) TimerEvent: {}
+[0.205981] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.sh\n'}
+[0.225950] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/ament_prefix_path.dsv\n'}
+[0.243041] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.sh\n'}
+[0.259818] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/environment/path.dsv\n'}
+[0.275849] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.bash\n'}
+[0.292123] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.sh\n'}
+[0.300379] (-) TimerEvent: {}
+[0.308804] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.zsh\n'}
+[0.325097] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/local_setup.dsv\n'}
+[0.340777] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.dsv\n'}
+[0.357593] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/ament_index/resource_index/packages/hexapod_description\n'}
+[0.376798] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig.cmake\n'}
+[0.394139] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/cmake/hexapod_descriptionConfig-version.cmake\n'}
+[0.400522] (-) TimerEvent: {}
+[0.414377] (hexapod_description) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_description/share/hexapod_description/package.xml\n'}
+[0.419226] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.444222] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.452439] (hexapod_description) CommandEnded: {'returncode': 0}
+[0.455007] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.500634] (-) TimerEvent: {}
+[0.532490] (hexapod_description) JobEnded: {'identifier': 'hexapod_description', 'rc': 0}
+[0.557149] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.603379] (-) TimerEvent: {}
+[0.607560] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.703507] (-) TimerEvent: {}
+[0.803941] (-) TimerEvent: {}
+[0.904328] (-) TimerEvent: {}
+[1.004703] (-) TimerEvent: {}
+[1.105843] (-) TimerEvent: {}
+[1.206254] (-) TimerEvent: {}
+[1.306631] (-) TimerEvent: {}
+[1.406988] (-) TimerEvent: {}
+[1.507383] (-) TimerEvent: {}
+[1.539555] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[1.607485] (-) TimerEvent: {}
+[1.707857] (-) TimerEvent: {}
+[1.808255] (-) TimerEvent: {}
+[1.908611] (-) TimerEvent: {}
+[2.013941] (-) TimerEvent: {}
+[2.115679] (-) TimerEvent: {}
+[2.216170] (-) TimerEvent: {}
+[2.265487] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.316289] (-) TimerEvent: {}
+[2.416719] (-) TimerEvent: {}
+[2.517092] (-) TimerEvent: {}
+[2.617556] (-) TimerEvent: {}
+[2.717979] (-) TimerEvent: {}
+[2.819460] (-) TimerEvent: {}
+[2.920625] (-) TimerEvent: {}
+[3.021887] (-) TimerEvent: {}
+[3.122420] (-) TimerEvent: {}
+[3.186899] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.193628] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[3.222520] (-) TimerEvent: {}
+[3.322877] (-) TimerEvent: {}
+[3.399109] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[3.422973] (-) TimerEvent: {}
+[3.523331] (-) TimerEvent: {}
+[3.623756] (-) TimerEvent: {}
+[3.724172] (-) TimerEvent: {}
+[3.824576] (-) TimerEvent: {}
+[3.927736] (-) TimerEvent: {}
+[4.028108] (-) TimerEvent: {}
+[4.128750] (-) TimerEvent: {}
+[4.229654] (-) TimerEvent: {}
+[4.330395] (-) TimerEvent: {}
+[4.348431] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[4.430496] (-) TimerEvent: {}
+[4.447406] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[4.471326] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Configuring done (4.4s)\n'}
+[4.530746] (-) TimerEvent: {}
+[4.537484] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[4.554469] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_custom_msgs\n'}
+[4.563969] (hexapod_custom_msgs) CommandEnded: {'returncode': 0}
+[4.564762] (hexapod_custom_msgs) JobProgress: {'identifier': 'hexapod_custom_msgs', 'progress': 'build'}
+[4.565874] (hexapod_custom_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', '--', '-j4', '-l4'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[4.631678] (-) TimerEvent: {}
+[4.661876] (hexapod_custom_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[4.662252] (hexapod_custom_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[4.676419] (hexapod_custom_msgs) StdoutLine: {'line': b'[  3%] Built target ament_cmake_python_symlink_hexapod_custom_msgs\n'}
+[4.731753] (-) TimerEvent: {}
+[4.832144] (-) TimerEvent: {}
+[4.933138] (-) TimerEvent: {}
+[5.035327] (-) TimerEvent: {}
+[5.050058] (hexapod_custom_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[5.051354] (hexapod_custom_msgs) StdoutLine: {'line': b'creating hexapod_custom_msgs.egg-info\n'}
+[5.075809] (hexapod_custom_msgs) StdoutLine: {'line': b'writing hexapod_custom_msgs.egg-info/PKG-INFO\n'}
+[5.076264] (hexapod_custom_msgs) StdoutLine: {'line': b'writing dependency_links to hexapod_custom_msgs.egg-info/dependency_links.txt\n'}
+[5.076531] (hexapod_custom_msgs) StdoutLine: {'line': b'writing top-level names to hexapod_custom_msgs.egg-info/top_level.txt\n'}
+[5.076758] (hexapod_custom_msgs) StdoutLine: {'line': b"writing manifest file 'hexapod_custom_msgs.egg-info/SOURCES.txt'\n"}
+[5.135817] (-) TimerEvent: {}
+[5.171832] (hexapod_custom_msgs) StdoutLine: {'line': b"reading manifest file 'hexapod_custom_msgs.egg-info/SOURCES.txt'\n"}
+[5.172282] (hexapod_custom_msgs) StdoutLine: {'line': b'[  3%] Built target hexapod_custom_msgs__rosidl_generator_type_description\n'}
+[5.172519] (hexapod_custom_msgs) StdoutLine: {'line': b"writing manifest file 'hexapod_custom_msgs.egg-info/SOURCES.txt'\n"}
+[5.228727] (hexapod_custom_msgs) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[5.229236] (hexapod_custom_msgs) StdoutLine: {'line': b'[  5%] Built target hexapod_custom_msgs__rs\n'}
+[5.232577] (hexapod_custom_msgs) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[5.235944] (-) TimerEvent: {}
+[5.266333] (hexapod_custom_msgs) StdoutLine: {'line': b'[  7%] Built target ament_cmake_python_build_hexapod_custom_msgs_egg\n'}
+[5.337803] (-) TimerEvent: {}
+[5.439752] (-) TimerEvent: {}
+[5.540139] (-) TimerEvent: {}
+[5.640484] (-) TimerEvent: {}
+[5.740867] (-) TimerEvent: {}
+[5.842765] (-) TimerEvent: {}
+[5.943291] (-) TimerEvent: {}
+[5.994338] (hexapod_custom_msgs) StdoutLine: {'line': b'[  7%] Built target hexapod_custom_msgs__cpp\n'}
+[6.043944] (-) TimerEvent: {}
+[6.099884] (hexapod_custom_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/teleop_event__description.c.o\x1b[0m\n'}
+[6.108760] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/teleop_event__functions.c.o\x1b[0m\n'}
+[6.111756] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/teleop_event__type_support.c.o\x1b[0m\n'}
+[6.113136] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/buzzer_command__description.c.o\x1b[0m\n'}
+[6.144071] (-) TimerEvent: {}
+[6.217627] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.c.o\x1b[0m\n'}
+[6.226150] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/buzzer_command__functions.c.o\x1b[0m\n'}
+[6.230573] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/locomotion_state__description.c.o\x1b[0m\n'}
+[6.244210] (-) TimerEvent: {}
+[6.302987] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/locomotion_state__functions.c.o\x1b[0m\n'}
+[6.312923] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_c.dir/rosidl_generator_c/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.c.o\x1b[0m\n'}
+[6.344338] (-) TimerEvent: {}
+[6.410518] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32m\x1b[1mLinking C shared library libhexapod_custom_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[6.444482] (-) TimerEvent: {}
+[6.481535] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 25%] Built target hexapod_custom_msgs__rosidl_generator_c\n'}
+[6.502643] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 27%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[6.513759] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[6.521848] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 30%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[6.528187] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[6.544594] (-) TimerEvent: {}
+[6.647749] (-) TimerEvent: {}
+[6.748157] (-) TimerEvent: {}
+[6.848909] (-) TimerEvent: {}
+[6.953738] (-) TimerEvent: {}
+[7.054390] (-) TimerEvent: {}
+[7.115719] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hexapod_custom_msgs/msg/teleop_event__type_support.cpp.o\x1b[0m\n'}
+[7.154529] (-) TimerEvent: {}
+[7.256248] (-) TimerEvent: {}
+[7.277148] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hexapod_custom_msgs/msg/detail/dds_fastrtps/teleop_event__type_support.cpp.o\x1b[0m\n'}
+[7.277758] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hexapod_custom_msgs/msg/teleop_event__type_support.cpp.o\x1b[0m\n'}
+[7.358781] (-) TimerEvent: {}
+[7.367101] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hexapod_custom_msgs/msg/buzzer_command__type_support.cpp.o\x1b[0m\n'}
+[7.458917] (-) TimerEvent: {}
+[7.462329] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/teleop_event__type_support.c.o\x1b[0m\n'}
+[7.480099] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/hexapod_custom_msgs/msg/locomotion_state__type_support.cpp.o\x1b[0m\n'}
+[7.546840] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.c.o\x1b[0m\n'}
+[7.561819] (-) TimerEvent: {}
+[7.565386] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32m\x1b[1mLinking CXX shared library libhexapod_custom_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[7.634247] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.c.o\x1b[0m\n'}
+[7.656760] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 49%] Built target hexapod_custom_msgs__rosidl_typesupport_c\n'}
+[7.664795] (-) TimerEvent: {}
+[7.676858] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hexapod_custom_msgs/msg/buzzer_command__type_support.cpp.o\x1b[0m\n'}
+[7.717928] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32m\x1b[1mLinking C shared library libhexapod_custom_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[7.765264] (-) TimerEvent: {}
+[7.784103] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 52%] Built target hexapod_custom_msgs__rosidl_typesupport_introspection_c\n'}
+[7.807868] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/hexapod_custom_msgs/msg/locomotion_state__type_support.cpp.o\x1b[0m\n'}
+[7.816329] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hexapod_custom_msgs/msg/detail/dds_fastrtps/buzzer_command__type_support.cpp.o\x1b[0m\n'}
+[7.866770] (-) TimerEvent: {}
+[7.967375] (-) TimerEvent: {}
+[8.071168] (-) TimerEvent: {}
+[8.171842] (-) TimerEvent: {}
+[8.273017] (-) TimerEvent: {}
+[8.348485] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/hexapod_custom_msgs/msg/detail/dds_fastrtps/locomotion_state__type_support.cpp.o\x1b[0m\n'}
+[8.373491] (-) TimerEvent: {}
+[8.475299] (-) TimerEvent: {}
+[8.561222] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 60%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[8.575776] (-) TimerEvent: {}
+[8.579404] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libhexapod_custom_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[8.667570] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 61%] Built target hexapod_custom_msgs__rosidl_typesupport_cpp\n'}
+[8.675942] (-) TimerEvent: {}
+[8.690881] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 63%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[8.777287] (-) TimerEvent: {}
+[8.880414] (-) TimerEvent: {}
+[8.980877] (-) TimerEvent: {}
+[9.084729] (-) TimerEvent: {}
+[9.185354] (-) TimerEvent: {}
+[9.285916] (-) TimerEvent: {}
+[9.363917] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.cpp.o\x1b[0m\n'}
+[9.366493] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hexapod_custom_msgs/msg/detail/teleop_event__type_support.cpp.o\x1b[0m\n'}
+[9.386056] (-) TimerEvent: {}
+[9.445697] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32m\x1b[1mLinking CXX shared library libhexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[9.488787] (-) TimerEvent: {}
+[9.495792] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hexapod_custom_msgs/msg/detail/teleop_event__type_support_c.cpp.o\x1b[0m\n'}
+[9.577777] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 70%] Built target hexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[9.590787] (-) TimerEvent: {}
+[9.622403] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.cpp.o\x1b[0m\n'}
+[9.692793] (-) TimerEvent: {}
+[9.793748] (-) TimerEvent: {}
+[9.896789] (-) TimerEvent: {}
+[9.997312] (-) TimerEvent: {}
+[10.030340] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hexapod_custom_msgs/msg/detail/buzzer_command__type_support_c.cpp.o\x1b[0m\n'}
+[10.098771] (-) TimerEvent: {}
+[10.195767] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_custom_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/hexapod_custom_msgs/msg/detail/locomotion_state__type_support_c.cpp.o\x1b[0m\n'}
+[10.198887] (-) TimerEvent: {}
+[10.299793] (-) TimerEvent: {}
+[10.400352] (-) TimerEvent: {}
+[10.417149] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32m\x1b[1mLinking CXX shared library libhexapod_custom_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[10.501906] (-) TimerEvent: {}
+[10.575082] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 78%] Built target hexapod_custom_msgs__rosidl_typesupport_introspection_cpp\n'}
+[10.604760] (-) TimerEvent: {}
+[10.705195] (-) TimerEvent: {}
+[10.805739] (-) TimerEvent: {}
+[10.906993] (-) TimerEvent: {}
+[11.009100] (-) TimerEvent: {}
+[11.109642] (-) TimerEvent: {}
+[11.202520] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX shared library libhexapod_custom_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[11.209763] (-) TimerEvent: {}
+[11.285993] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 80%] Built target hexapod_custom_msgs__rosidl_typesupport_fastrtps_c\n'}
+[11.309886] (-) TimerEvent: {}
+[11.319171] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 80%] Built target hexapod_custom_msgs\n'}
+[11.351766] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 81%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[11.410002] (-) TimerEvent: {}
+[11.510383] (-) TimerEvent: {}
+[11.614774] (-) TimerEvent: {}
+[11.715217] (-) TimerEvent: {}
+[11.816942] (-) TimerEvent: {}
+[11.917334] (-) TimerEvent: {}
+[12.017885] (-) TimerEvent: {}
+[12.118501] (-) TimerEvent: {}
+[12.120422] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 81%] Built target hexapod_custom_msgs__py\n'}
+[12.155902] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_py.dir/rosidl_generator_py/hexapod_custom_msgs/msg/_teleop_event_s.c.o\x1b[0m\n'}
+[12.156316] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_py.dir/rosidl_generator_py/hexapod_custom_msgs/msg/_buzzer_command_s.c.o\x1b[0m\n'}
+[12.159297] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs__rosidl_generator_py.dir/rosidl_generator_py/hexapod_custom_msgs/msg/_locomotion_state_s.c.o\x1b[0m\n'}
+[12.218983] (-) TimerEvent: {}
+[12.320348] (-) TimerEvent: {}
+[12.421249] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32m\x1b[1mLinking C shared library libhexapod_custom_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[12.421897] (-) TimerEvent: {}
+[12.495310] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 89%] Built target hexapod_custom_msgs__rosidl_generator_py\n'}
+[12.522042] (-) TimerEvent: {}
+[12.532316] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[12.539817] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[12.544810] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[12.624777] (-) TimerEvent: {}
+[12.725245] (-) TimerEvent: {}
+[12.734863] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[12.755046] (hexapod_custom_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[12.785761] (hexapod_custom_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[12.805439] (hexapod_custom_msgs) StdoutLine: {'line': b'[100%] Built target hexapod_custom_msgs_s__rosidl_typesupport_c\n'}
+[12.824907] (hexapod_custom_msgs) StdoutLine: {'line': b'[100%] Built target hexapod_custom_msgs_s__rosidl_typesupport_introspection_c\n'}
+[12.825344] (-) TimerEvent: {}
+[12.843230] (hexapod_custom_msgs) StdoutLine: {'line': b'[100%] Built target hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c\n'}
+[12.866378] (hexapod_custom_msgs) CommandEnded: {'returncode': 0}
+[12.867319] (hexapod_custom_msgs) JobProgress: {'identifier': 'hexapod_custom_msgs', 'progress': 'install'}
+[12.867633] (hexapod_custom_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/hexapod/ros2_ws/build/hexapod_custom_msgs'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_custom_msgs', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[12.881390] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[12.882469] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[12.882982] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/rosidl_interfaces/hexapod_custom_msgs\n'}
+[12.899026] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/TeleopEvent.json\n'}
+[12.914119] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/BuzzerCommand.json\n'}
+[12.925475] (-) TimerEvent: {}
+[12.929506] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionState.json\n'}
+[12.945924] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/buzzer_command.h\n'}
+[12.960838] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__functions.h\n'}
+[12.975605] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__struct.h\n'}
+[12.991067] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.h\n'}
+[13.007025] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__functions.h\n'}
+[13.021539] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__struct.h\n'}
+[13.025610] (-) TimerEvent: {}
+[13.039002] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.h\n'}
+[13.055550] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__functions.h\n'}
+[13.070417] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__struct.h\n'}
+[13.085325] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__type_support.h\n'}
+[13.099991] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/locomotion_state.h\n'}
+[13.115189] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[13.125731] (-) TimerEvent: {}
+[13.130246] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/teleop_event.h\n'}
+[13.145311] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/library_path.sh\n'}
+[13.160770] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/library_path.dsv\n'}
+[13.176792] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_fastrtps_c.h\n'}
+[13.191329] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_fastrtps_c.h\n'}
+[13.206267] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_fastrtps_c.h\n'}
+[13.221264] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[13.225837] (-) TimerEvent: {}
+[13.237890] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_introspection_c.h\n'}
+[13.251970] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_introspection_c.h\n'}
+[13.268545] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_introspection_c.h\n'}
+[13.282882] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[13.299111] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/buzzer_command.hpp\n'}
+[13.318450] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__builder.hpp\n'}
+[13.325993] (-) TimerEvent: {}
+[13.333822] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__struct.hpp\n'}
+[13.349204] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__traits.hpp\n'}
+[13.365614] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__type_support.hpp\n'}
+[13.380744] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__builder.hpp\n'}
+[13.396218] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__struct.hpp\n'}
+[13.411759] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__traits.hpp\n'}
+[13.426107] (-) TimerEvent: {}
+[13.426764] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__type_support.hpp\n'}
+[13.440943] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__builder.hpp\n'}
+[13.456051] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__struct.hpp\n'}
+[13.471438] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__traits.hpp\n'}
+[13.486478] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__type_support.hpp\n'}
+[13.500964] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/locomotion_state.hpp\n'}
+[13.516364] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[13.526229] (-) TimerEvent: {}
+[13.531810] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/teleop_event.hpp\n'}
+[13.547211] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.573078] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.587491] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[13.603545] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[13.619274] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/buzzer_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.626332] (-) TimerEvent: {}
+[13.634889] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/locomotion_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.649930] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/include/hexapod_custom_msgs/hexapod_custom_msgs/msg/detail/teleop_event__rosidl_typesupport_introspection_cpp.hpp\n'}
+[13.664579] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/pythonpath.sh\n'}
+[13.679692] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/pythonpath.dsv\n'}
+[13.695324] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/PKG-INFO\n'}
+[13.710724] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/SOURCES.txt\n'}
+[13.725072] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/dependency_links.txt\n'}
+[13.726421] (-) TimerEvent: {}
+[13.740280] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs-0.0.1-py3.12.egg-info/top_level.txt\n'}
+[13.760961] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/__init__.py\n'}
+[13.776640] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[13.793182] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[13.808507] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/_hexapod_custom_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[13.825588] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_c.so\n'}
+[13.827114] (-) TimerEvent: {}
+[13.842417] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[13.859334] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[13.876333] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/__init__.py\n'}
+[13.892842] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_buzzer_command.py\n'}
+[13.908356] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_buzzer_command_s.c\n'}
+[13.922942] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_state.py\n'}
+[13.927233] (-) TimerEvent: {}
+[13.940081] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_state_s.c\n'}
+[13.954729] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_teleop_event.py\n'}
+[13.970817] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_teleop_event_s.c\n'}
+[13.985493] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[13.986023] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[13.986320] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Up-to-date symlink: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_c.so\n'}
+[13.986726] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/rust_packages/hexapod_custom_msgs\n'}
+[14.002677] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/Cargo.toml\n'}
+[14.017247] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/build.rs\n'}
+[14.027348] (-) TimerEvent: {}
+[14.032569] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/src/lib.rs\n'}
+[14.047949] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/src/msg.rs\n'}
+[14.063924] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/rust/src/msg/rmw.rs\n'}
+[14.079558] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/TeleopEvent.idl\n'}
+[14.094163] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/BuzzerCommand.idl\n'}
+[14.109641] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionState.idl\n'}
+[14.124797] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/TeleopEvent.msg\n'}
+[14.127441] (-) TimerEvent: {}
+[14.140258] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/BuzzerCommand.msg\n'}
+[14.155373] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/msg/LocomotionState.msg\n'}
+[14.170837] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/package_run_dependencies/hexapod_custom_msgs\n'}
+[14.186124] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/parent_prefix_path/hexapod_custom_msgs\n'}
+[14.201333] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/ament_prefix_path.sh\n'}
+[14.216557] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/ament_prefix_path.dsv\n'}
+[14.227568] (-) TimerEvent: {}
+[14.231942] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/path.sh\n'}
+[14.247225] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/environment/path.dsv\n'}
+[14.263102] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.bash\n'}
+[14.278058] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.sh\n'}
+[14.293334] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.zsh\n'}
+[14.309105] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/local_setup.dsv\n'}
+[14.327714] (-) TimerEvent: {}
+[14.328548] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.dsv\n'}
+[14.345568] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/ament_index/resource_index/packages/hexapod_custom_msgs\n'}
+[14.361265] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[14.376354] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[14.392196] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[14.408276] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[14.423597] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[14.427799] (-) TimerEvent: {}
+[14.438894] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[14.454145] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[14.469257] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[14.484859] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgsConfig.cmake\n'}
+[14.500206] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgsConfig-version.cmake\n'}
+[14.515056] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Symlinking: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/package.xml\n'}
+[14.527918] (-) TimerEvent: {}
+[14.532740] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_generator_c.so\n'}
+[14.532992] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_generator_c.so" to ""\n'}
+[14.533113] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[14.533209] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[14.533301] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_introspection_c.so\n'}
+[14.533394] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[14.534068] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_c.so\n'}
+[14.534870] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_c.so" to ""\n'}
+[14.535602] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[14.536165] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[14.536302] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[14.536616] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[14.537093] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_cpp.so\n'}
+[14.537432] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[14.607469] (hexapod_custom_msgs) StdoutLine: {'line': b"Listing '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs'...\n"}
+[14.607841] (hexapod_custom_msgs) StdoutLine: {'line': b"Compiling '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/__init__.py'...\n"}
+[14.608073] (hexapod_custom_msgs) StdoutLine: {'line': b"Listing '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg'...\n"}
+[14.608270] (hexapod_custom_msgs) StdoutLine: {'line': b"Compiling '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/__init__.py'...\n"}
+[14.608433] (hexapod_custom_msgs) StdoutLine: {'line': b"Compiling '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_buzzer_command.py'...\n"}
+[14.608561] (hexapod_custom_msgs) StdoutLine: {'line': b"Compiling '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_locomotion_state.py'...\n"}
+[14.608944] (hexapod_custom_msgs) StdoutLine: {'line': b"Compiling '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages/hexapod_custom_msgs/msg/_teleop_event.py'...\n"}
+[14.628212] (-) TimerEvent: {}
+[14.643695] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_generator_py.so\n'}
+[14.644120] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/libhexapod_custom_msgs__rosidl_generator_py.so" to ""\n'}
+[14.644788] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_cExport.cmake\n'}
+[14.645485] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[14.645833] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[14.647546] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[14.647792] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[14.647904] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[14.649589] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cExport.cmake\n'}
+[14.650011] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[14.652002] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_cppExport.cmake\n'}
+[14.652124] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[14.652222] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[14.652643] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[14.653099] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[14.653390] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[14.653526] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/hexapod_custom_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[14.653615] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_pyExport.cmake\n'}
+[14.653726] (hexapod_custom_msgs) StdoutLine: {'line': b'-- Installing: /home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake/export_hexapod_custom_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[14.657630] (hexapod_custom_msgs) CommandEnded: {'returncode': 0}
+[14.686746] (hexapod_custom_msgs) JobEnded: {'identifier': 'hexapod_custom_msgs', 'rc': 0}
+[14.690070] (hexapod_control) JobStarted: {'identifier': 'hexapod_control'}
+[14.690620] (hexapod_hardware) JobStarted: {'identifier': 'hexapod_hardware'}
+[14.696026] (hexapod_teleop) JobStarted: {'identifier': 'hexapod_teleop'}
+[14.704920] (hexapod_control) JobProgress: {'identifier': 'hexapod_control', 'progress': 'cmake'}
+[14.706460] (hexapod_control) Command: {'cmd': ['/usr/bin/cmake', '/home/hexapod/ros2_ws/src/hexapod_control', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_control'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_control', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_control', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[14.712150] (hexapod_hardware) JobProgress: {'identifier': 'hexapod_hardware', 'progress': 'cmake'}
+[14.715155] (hexapod_hardware) Command: {'cmd': ['/usr/bin/cmake', '/home/hexapod/ros2_ws/src/hexapod_hardware', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_hardware'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_hardware', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_hardware', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[14.727694] (hexapod_teleop) JobProgress: {'identifier': 'hexapod_teleop', 'progress': 'cmake'}
+[14.727847] (hexapod_teleop) Command: {'cmd': ['/usr/bin/cmake', '/home/hexapod/ros2_ws/src/hexapod_teleop', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/hexapod/ros2_ws/install/hexapod_teleop'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_teleop', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_teleop', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[14.729376] (-) TimerEvent: {}
+[14.833851] (-) TimerEvent: {}
+[14.846849] (hexapod_control) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[14.861087] (hexapod_hardware) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[14.865755] (hexapod_teleop) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[14.936832] (-) TimerEvent: {}
+[15.001969] (hexapod_hardware) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[15.004301] (hexapod_control) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[15.007733] (hexapod_teleop) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[15.033691] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[15.036984] (-) TimerEvent: {}
+[15.044783] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[15.045106] (hexapod_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[15.137123] (-) TimerEvent: {}
+[15.240992] (-) TimerEvent: {}
+[15.285898] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[15.295443] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[15.298469] (hexapod_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[15.303244] (hexapod_hardware) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[15.304196] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[15.306750] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[15.316974] (hexapod_teleop) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[15.317397] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[15.318341] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[15.319886] (hexapod_control) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[15.321730] (hexapod_control) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[15.322155] (hexapod_control) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[15.323106] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[15.341103] (-) TimerEvent: {}
+[15.342101] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[15.344987] (hexapod_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[15.441237] (-) TimerEvent: {}
+[15.543214] (-) TimerEvent: {}
+[15.584693] (hexapod_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[15.585221] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[15.599799] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[15.604908] (hexapod_hardware) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[15.605203] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[15.606147] (hexapod_hardware) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[15.610068] (hexapod_hardware) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[15.618144] (hexapod_teleop) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[15.618430] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[15.618544] (hexapod_teleop) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[15.620585] (hexapod_teleop) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[15.634072] (hexapod_control) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[15.634456] (hexapod_control) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[15.634592] (hexapod_control) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[15.643756] (hexapod_control) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[15.644152] (-) TimerEvent: {}
+[15.745220] (-) TimerEvent: {}
+[15.847705] (-) TimerEvent: {}
+[15.948494] (-) TimerEvent: {}
+[15.952551] (hexapod_hardware) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[15.979878] (hexapod_teleop) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[16.002246] (hexapod_control) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[16.048622] (-) TimerEvent: {}
+[16.111880] (hexapod_hardware) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[16.136303] (hexapod_teleop) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[16.148773] (-) TimerEvent: {}
+[16.160310] (hexapod_control) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[16.166227] (hexapod_hardware) StdoutLine: {'line': b'-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[16.173941] (hexapod_teleop) StdoutLine: {'line': b'-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[16.193121] (hexapod_control) StdoutLine: {'line': b'-- Found rclcpp: 28.1.21 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[16.212157] (hexapod_hardware) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[16.217919] (hexapod_teleop) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[16.229799] (hexapod_hardware) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[16.239818] (hexapod_teleop) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[16.242913] (hexapod_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[16.248897] (-) TimerEvent: {}
+[16.252761] (hexapod_hardware) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[16.258392] (hexapod_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[16.268549] (hexapod_teleop) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[16.279625] (hexapod_hardware) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[16.281491] (hexapod_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[16.295076] (hexapod_teleop) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[16.305949] (hexapod_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[16.349005] (-) TimerEvent: {}
+[16.386829] (hexapod_hardware) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[16.389966] (hexapod_hardware) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[16.398785] (hexapod_teleop) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[16.403068] (hexapod_teleop) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[16.407530] (hexapod_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[16.412775] (hexapod_control) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[16.449776] (-) TimerEvent: {}
+[16.540784] (hexapod_hardware) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[16.546735] (hexapod_teleop) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[16.549921] (-) TimerEvent: {}
+[16.557538] (hexapod_control) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[16.567744] (hexapod_hardware) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[16.569366] (hexapod_teleop) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[16.582839] (hexapod_control) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[16.603514] (hexapod_hardware) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[16.608400] (hexapod_teleop) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[16.617839] (hexapod_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[16.650029] (-) TimerEvent: {}
+[16.714125] (hexapod_teleop) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[16.716152] (hexapod_hardware) StdoutLine: {'line': b'-- Found std_msgs: 5.3.8 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[16.723449] (hexapod_control) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.8 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[16.739845] (hexapod_hardware) StdoutLine: {'line': b'-- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)\n'}
+[16.750215] (-) TimerEvent: {}
+[16.768769] (hexapod_teleop) StdoutLine: {'line': b'-- Found tf2: 0.36.21 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[16.770908] (hexapod_control) StdoutLine: {'line': b'-- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)\n'}
+[16.778043] (hexapod_teleop) StdoutLine: {'line': b'-- Found hexapod_custom_msgs: 0.0.1 (/home/hexapod/ros2_ws/install/hexapod_custom_msgs/share/hexapod_custom_msgs/cmake)\n'}
+[16.793863] (hexapod_control) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[16.801580] (hexapod_teleop) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[16.850316] (-) TimerEvent: {}
+[16.950850] (-) TimerEvent: {}
+[16.962712] (hexapod_hardware) StdoutLine: {'line': b'-- Configuring done (2.2s)\n'}
+[16.993431] (hexapod_hardware) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[17.024272] (hexapod_control) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[17.024774] (hexapod_control) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/hexapod/ros2_ws/src/hexapod_control/include>\n'}
+[17.025043] (hexapod_control) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[17.026072] (hexapod_control) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[17.028144] (hexapod_control) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[17.029336] (hexapod_control) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[17.029463] (hexapod_control) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[17.031739] (hexapod_control) StdoutLine: {'line': b'-- Configuring done (2.3s)\n'}
+[17.035011] (hexapod_teleop) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[17.035446] (hexapod_teleop) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/hexapod/ros2_ws/src/hexapod_teleop/include>\n'}
+[17.035757] (hexapod_teleop) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[17.036542] (hexapod_teleop) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[17.036897] (hexapod_teleop) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[17.037840] (hexapod_teleop) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[17.038871] (hexapod_teleop) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[17.040537] (hexapod_teleop) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[17.040915] (hexapod_teleop) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[17.041893] (hexapod_teleop) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[17.044793] (hexapod_teleop) StdoutLine: {'line': b'-- Configuring done (2.3s)\n'}
+[17.045686] (hexapod_hardware) StdoutLine: {'line': b'-- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_hardware\n'}
+[17.050974] (-) TimerEvent: {}
+[17.057980] (hexapod_control) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[17.072112] (hexapod_hardware) CommandEnded: {'returncode': 0}
+[17.076247] (hexapod_hardware) JobProgress: {'identifier': 'hexapod_hardware', 'progress': 'build'}
+[17.076310] (hexapod_control) StdoutLine: {'line': b'-- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_control\n'}
+[17.076598] (hexapod_hardware) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hexapod/ros2_ws/build/hexapod_hardware', '--', '-j4', '-l4'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_hardware', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_hardware', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[17.083936] (hexapod_teleop) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[17.095766] (hexapod_teleop) StdoutLine: {'line': b'-- Build files have been written to: /home/hexapod/ros2_ws/build/hexapod_teleop\n'}
+[17.098112] (hexapod_control) CommandEnded: {'returncode': 0}
+[17.099393] (hexapod_control) JobProgress: {'identifier': 'hexapod_control', 'progress': 'build'}
+[17.101296] (hexapod_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hexapod/ros2_ws/build/hexapod_control', '--', '-j4', '-l4'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_control', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_control', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[17.118782] (hexapod_teleop) CommandEnded: {'returncode': 0}
+[17.121359] (hexapod_teleop) JobProgress: {'identifier': 'hexapod_teleop', 'progress': 'build'}
+[17.121403] (hexapod_teleop) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/hexapod/ros2_ws/build/hexapod_teleop', '--', '-j4', '-l4'], 'cwd': '/home/hexapod/ros2_ws/build/hexapod_teleop', 'env': OrderedDict({'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'hexapod', 'SSH_CLIENT': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/lib', 'BROWSER': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/helpers/browser.sh', 'HOME': '/home/hexapod', 'OLDPWD': '/home/hexapod/ros2_ws', 'TERM_PROGRAM_VERSION': '1.132.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-4bab6016-94f9-4f7f-8cdd-6d8f475f9514.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/node', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/hexapod/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'hexapod', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'PATH': '/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/hexapod/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/hexapod/.vscode-server/cli/servers/Stable-df53daabb18cd157bdb08c7f01c34df936cf12f4/server/bin/remote-cli:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/bundled/scripts/noConfigScripts', 'XDG_RUNTIME_DIR': '/run/user/1000', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/hexapod/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-9a7f9bd1c11299b6.txt', 'LANG': 'en_US.UTF-8', 'PYTHONSTARTUP': '/home/hexapod/.vscode-server/data/User/workspaceStorage/e8384244572626c3af6d3251f5d72ddd/ms-python.python/pythonrc.py', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-4fbdedb2db.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/hexapod/ros2_ws/build/hexapod_teleop', 'LC_ALL': 'en_US.UTF-8', 'COPILOT_DEBUG_NONCE': '71defb732f6f18cd56b096b15b74c049', 'SSH_CONNECTION': '2a00:1028:83bc:302e:419f:6907:764d:b089 52634 2a00:1028:83bc:302e:2dad:cdb1:fac2:906c 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/hexapod/ros2_ws/install/hexapod_custom_msgs:/home/hexapod/ros2_ws/install/hexapod_control:/home/hexapod/ros2_ws/install/hexapod_teleop:/home/hexapod/ros2_ws/install/hexapod_hardware:/home/hexapod/ros2_ws/install/hexapod_description:/home/hexapod/ros2_ws/install/hexapod_core:/opt/ros/jazzy'}), 'shell': False}
+[17.151100] (-) TimerEvent: {}
+[17.175134] (hexapod_hardware) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/buzzer_driver_node.dir/src/buzzer_driver_node.cpp.o\x1b[0m\n'}
+[17.175518] (hexapod_hardware) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/buzzer_driver_node.dir/src/main.cpp.o\x1b[0m\n'}
+[17.211561] (hexapod_control) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_brain_node.dir/src/hexapod_brain_node.cpp.o\x1b[0m\n'}
+[17.211898] (hexapod_control) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/hexapod_brain_node.dir/src/main.cpp.o\x1b[0m\n'}
+[17.228917] (hexapod_teleop) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/bluetooth_teleop_node.dir/src/main.cpp.o\x1b[0m\n'}
+[17.230244] (hexapod_teleop) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/bluetooth_teleop_node.dir/src/bluetooth_teleop_node.cpp.o\x1b[0m\n'}
+[17.252786] (-) TimerEvent: {}
+[17.353433] (-) TimerEvent: {}
+[17.457753] (-) TimerEvent: {}
+[17.558616] (-) TimerEvent: {}
+[17.662744] (-) TimerEvent: {}
+[17.736569] (hexapod_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:5:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Khexapod_interfaces/msg/teleop_event.hpp: No such file or directory\n'}
+[17.737349] (hexapod_control) StderrLine: {'line': b'    5 | #include \x1b[01;31m\x1b[K"hexapod_interfaces/msg/teleop_event.hpp"\x1b[m\x1b[K\n'}
+[17.737517] (hexapod_control) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[17.737629] (hexapod_control) StderrLine: {'line': b'compilation terminated.\n'}
+[17.755789] (hexapod_control) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/hexapod_brain_node.dir/build.make:90: CMakeFiles/hexapod_brain_node.dir/src/hexapod_brain_node.cpp.o] Error 1\n'}
+[17.756229] (hexapod_control) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[17.762871] (-) TimerEvent: {}
+[17.863527] (-) TimerEvent: {}
+[17.967140] (-) TimerEvent: {}
+[18.067647] (-) TimerEvent: {}
+[18.124774] (hexapod_teleop) StderrLine: {'line': b'\x1b[01m\x1b[K/home/hexapod/ros2_ws/src/hexapod_teleop/src/bluetooth_teleop_node.cpp:10:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Khexapod_interfaces/msg/teleop_event.hpp: No such file or directory\n'}
+[18.125207] (hexapod_teleop) StderrLine: {'line': b'   10 | #include \x1b[01;31m\x1b[K"hexapod_interfaces/msg/teleop_event.hpp"\x1b[m\x1b[K\n'}
+[18.125380] (hexapod_teleop) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[18.125499] (hexapod_teleop) StderrLine: {'line': b'compilation terminated.\n'}
+[18.134896] (hexapod_teleop) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/bluetooth_teleop_node.dir/build.make:90: CMakeFiles/bluetooth_teleop_node.dir/src/bluetooth_teleop_node.cpp.o] Error 1\n'}
+[18.135250] (hexapod_teleop) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[18.170785] (-) TimerEvent: {}
+[18.271335] (-) TimerEvent: {}
+[18.371763] (-) TimerEvent: {}
+[18.472247] (-) TimerEvent: {}
+[18.572773] (-) TimerEvent: {}
+[18.676003] (-) TimerEvent: {}
+[18.776514] (-) TimerEvent: {}
+[18.877022] (-) TimerEvent: {}
+[18.977514] (-) TimerEvent: {}
+[19.079818] (-) TimerEvent: {}
+[19.180266] (-) TimerEvent: {}
+[19.283170] (-) TimerEvent: {}
+[19.383695] (-) TimerEvent: {}
+[19.484201] (-) TimerEvent: {}
+[19.584733] (-) TimerEvent: {}
+[19.686993] (-) TimerEvent: {}
+[19.787620] (-) TimerEvent: {}
+[19.890169] (-) TimerEvent: {}
+[19.990683] (-) TimerEvent: {}
+[20.091265] (-) TimerEvent: {}
+[20.196356] (-) TimerEvent: {}
+[20.298806] (-) TimerEvent: {}
+[20.399257] (-) TimerEvent: {}
+[20.499760] (-) TimerEvent: {}
+[20.601762] (-) TimerEvent: {}
+[20.702254] (-) TimerEvent: {}
+[20.803010] (-) TimerEvent: {}
+[20.905966] (-) TimerEvent: {}
+[21.006433] (-) TimerEvent: {}
+[21.106909] (-) TimerEvent: {}
+[21.207590] (-) TimerEvent: {}
+[21.309315] (-) TimerEvent: {}
+[21.412122] (-) TimerEvent: {}
+[21.512559] (-) TimerEvent: {}
+[21.613247] (-) TimerEvent: {}
+[21.716771] (-) TimerEvent: {}
+[21.817511] (-) TimerEvent: {}
+[21.918439] (-) TimerEvent: {}
+[22.020084] (-) TimerEvent: {}
+[22.123119] (-) TimerEvent: {}
+[22.225001] (-) TimerEvent: {}
+[22.328879] (-) TimerEvent: {}
+[22.429522] (-) TimerEvent: {}
+[22.530186] (-) TimerEvent: {}
+[22.634949] (-) TimerEvent: {}
+[22.735731] (-) TimerEvent: {}
+[22.836733] (-) TimerEvent: {}
+[22.940960] (-) TimerEvent: {}
+[23.044780] (-) TimerEvent: {}
+[23.145236] (-) TimerEvent: {}
+[23.245899] (-) TimerEvent: {}
+[23.346368] (-) TimerEvent: {}
+[23.448995] (-) TimerEvent: {}
+[23.549437] (-) TimerEvent: {}
+[23.651779] (-) TimerEvent: {}
+[23.752785] (-) TimerEvent: {}
+[23.856641] (-) TimerEvent: {}
+[23.957195] (-) TimerEvent: {}
+[24.060769] (-) TimerEvent: {}
+[24.161362] (-) TimerEvent: {}
+[24.210824] (hexapod_teleop) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/bluetooth_teleop_node.dir/all] Error 2\n'}
+[24.212476] (hexapod_teleop) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[24.218442] (hexapod_teleop) CommandEnded: {'returncode': 2}
+[24.232408] (hexapod_teleop) JobEnded: {'identifier': 'hexapod_teleop', 'rc': 2}
+[24.263765] (-) TimerEvent: {}
+[24.364196] (-) TimerEvent: {}
+[24.464595] (-) TimerEvent: {}
+[24.565091] (-) TimerEvent: {}
+[24.615011] (hexapod_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hexapod_brain_node.dir/all] Error 2\n'}
+[24.616632] (hexapod_control) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[24.622023] (hexapod_control) JobEnded: {'identifier': 'hexapod_control', 'rc': 'SIGINT'}
+[24.665198] (-) TimerEvent: {}
+[24.765701] (-) TimerEvent: {}
+[24.866749] (-) TimerEvent: {}
+[24.967711] (-) TimerEvent: {}
+[25.068235] (-) TimerEvent: {}
+[25.168689] (-) TimerEvent: {}
+[25.269079] (-) TimerEvent: {}
+[25.369496] (-) TimerEvent: {}
+[25.470033] (-) TimerEvent: {}
+[25.570739] (-) TimerEvent: {}
+[25.671406] (-) TimerEvent: {}
+[25.771834] (-) TimerEvent: {}
+[25.872240] (-) TimerEvent: {}
+[25.972645] (-) TimerEvent: {}
+[26.073003] (-) TimerEvent: {}
+[26.173375] (-) TimerEvent: {}
+[26.273742] (-) TimerEvent: {}
+[26.374111] (-) TimerEvent: {}
+[26.474473] (-) TimerEvent: {}
+[26.574877] (-) TimerEvent: {}
+[26.675266] (-) TimerEvent: {}
+[26.775618] (-) TimerEvent: {}
+[26.876004] (-) TimerEvent: {}
+[26.976398] (-) TimerEvent: {}
+[27.076804] (-) TimerEvent: {}
+[27.177361] (-) TimerEvent: {}
+[27.277738] (-) TimerEvent: {}
+[27.378109] (-) TimerEvent: {}
+[27.478510] (-) TimerEvent: {}
+[27.578899] (-) TimerEvent: {}
+[27.679287] (-) TimerEvent: {}
+[27.779711] (-) TimerEvent: {}
+[27.880056] (-) TimerEvent: {}
+[27.980409] (-) TimerEvent: {}
+[28.080746] (-) TimerEvent: {}
+[28.181142] (-) TimerEvent: {}
+[28.281506] (-) TimerEvent: {}
+[28.381877] (-) TimerEvent: {}
+[28.482237] (-) TimerEvent: {}
+[28.582611] (-) TimerEvent: {}
+[28.682992] (-) TimerEvent: {}
+[28.783352] (-) TimerEvent: {}
+[28.883758] (-) TimerEvent: {}
+[28.984128] (-) TimerEvent: {}
+[29.084491] (-) TimerEvent: {}
+[29.184856] (-) TimerEvent: {}
+[29.285205] (-) TimerEvent: {}
+[29.385583] (-) TimerEvent: {}
+[29.485944] (-) TimerEvent: {}
+[29.586301] (-) TimerEvent: {}
+[29.686654] (-) TimerEvent: {}
+[29.787016] (-) TimerEvent: {}
+[29.887367] (-) TimerEvent: {}
+[29.987740] (-) TimerEvent: {}
+[30.088081] (-) TimerEvent: {}
+[30.188449] (-) TimerEvent: {}
+[30.288814] (-) TimerEvent: {}
+[30.389181] (-) TimerEvent: {}
+[30.489777] (-) TimerEvent: {}
+[30.590133] (-) TimerEvent: {}
+[30.690505] (-) TimerEvent: {}
+[30.790912] (-) TimerEvent: {}
+[30.891305] (-) TimerEvent: {}
+[30.991749] (-) TimerEvent: {}
+[31.092419] (-) TimerEvent: {}
+[31.192861] (-) TimerEvent: {}
+[31.293298] (-) TimerEvent: {}
+[31.393733] (-) TimerEvent: {}
+[31.494222] (-) TimerEvent: {}
+[31.594734] (-) TimerEvent: {}
+[31.695151] (-) TimerEvent: {}
+[31.795649] (-) TimerEvent: {}
+[31.827481] (hexapod_hardware) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable buzzer_driver_node\x1b[0m\n'}
+[31.895762] (-) TimerEvent: {}
+[31.996249] (-) TimerEvent: {}
+[32.096773] (-) TimerEvent: {}
+[32.197415] (-) TimerEvent: {}
+[32.298301] (-) TimerEvent: {}
+[32.398680] (-) TimerEvent: {}
+[32.500745] (-) TimerEvent: {}
+[32.545773] (hexapod_hardware) StdoutLine: {'line': b'[100%] Built target buzzer_driver_node\n'}
+[32.568191] (hexapod_hardware) JobEnded: {'identifier': 'hexapod_hardware', 'rc': 'SIGINT'}
+[32.571044] (-) EventReactorShutdown: {}

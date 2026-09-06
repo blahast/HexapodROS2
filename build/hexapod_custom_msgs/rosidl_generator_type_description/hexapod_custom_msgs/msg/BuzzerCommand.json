@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "hexapod_custom_msgs/msg/BuzzerCommand",
+      "fields": [
+        {
+          "name": "command_id",
+          "type": {
+            "type_id": 3,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "hexapod_custom_msgs/msg/BuzzerCommand",
+      "hash_string": "RIHS01_38130717b85e4d0e2b1f5691277a1a9a39e4c4dc4cf2300b5dee27d3ccbcc7d9"
+    }
+  ]
+}
