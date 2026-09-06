@@ -1,0 +1,14 @@
+build/
+install/
+log/
+.colcon/
+colcon.meta
+*.o
+*.so
+*.a
+__pycache__/
+*.py[cod]
+*.log
+rosbags/
+.vscode/
+.idea/

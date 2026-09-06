@@ -1,9 +1,0 @@
-uint8 BEEP=1
-uint8 STARTUP=2
-uint8 SHUTDOWN=3
-uint8 ERROR=4
-uint8 MELODY=5
-uint8 BT_CONNECTED=6
-uint8 BT_DISCONNECTED=7
-
-uint8 command_id

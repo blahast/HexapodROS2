@@ -1,8 +1,0 @@
-msg/BuzzerCommand.idl
-msg/BuzzerCommand.msg
-msg/LocomotionCommand.idl
-msg/LocomotionCommand.msg
-msg/LocomotionState.idl
-msg/LocomotionState.msg
-msg/TeleopEvent.idl
-msg/TeleopEvent.msg

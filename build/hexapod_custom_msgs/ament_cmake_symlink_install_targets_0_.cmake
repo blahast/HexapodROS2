@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/hexapod/ros2_ws/build/hexapod_custom_msgs/rosidl_generator_py/hexapod_custom_msgs/hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c.so" "TARGETS" "hexapod_custom_msgs_s__rosidl_typesupport_fastrtps_c" "DESTINATION" "lib/python3.12/site-packages/hexapod_custom_msgs")

@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/hexapod/ros2_ws/build/hexapod_hardware/buzzer_driver_node_standalone" "TARGETS" "buzzer_driver_node_standalone" "DESTINATION" "lib/hexapod_hardware")

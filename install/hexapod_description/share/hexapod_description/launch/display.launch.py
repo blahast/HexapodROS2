@@ -1,1 +1,0 @@
-/home/hexapod/ros2_ws/src/hexapod_description/launch/display.launch.py

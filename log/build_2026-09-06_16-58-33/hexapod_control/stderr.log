@@ -1,8 +1,0 @@
-[01m[K/home/hexapod/ros2_ws/src/hexapod_control/src/hexapod_brain_node.cpp:5:10:[m[K [01;31m[Kfatal error: [m[Khexapod_interfaces/msg/teleop_event.hpp: No such file or directory
-    5 | #include [01;31m[K"hexapod_interfaces/msg/teleop_event.hpp"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/hexapod_brain_node.dir/build.make:90: CMakeFiles/hexapod_brain_node.dir/src/hexapod_brain_node.cpp.o] Error 1
-gmake[2]: *** Waiting for unfinished jobs....
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hexapod_brain_node.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2
