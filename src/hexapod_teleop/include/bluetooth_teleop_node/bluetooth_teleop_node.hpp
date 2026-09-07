@@ -1,6 +1,11 @@
 #ifndef BLUETOOTH_TELEOP_NODE_HPP
 #define BLUETOOTH_TELEOP_NODE_HPP
 
+#include <termios.h>
+#include <atomic>
+#include <string>
+#include <thread>
+
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <geometry_msgs/msg/pose.hpp>
@@ -8,12 +13,12 @@
 #include <std_msgs/msg/string.hpp>
 #include <tf2/LinearMath/Quaternion.h>
 
-#include <termios.h>
-#include <atomic>
-#include <string>
-#include <thread>
-
 #include "hexapod_custom_msgs/msg/teleop_event.hpp"
+
+
+// Reads a custom serial protocol from a Bluetooth remote control device,
+// decodes joystick and potentiometer data,
+// publishes ROS messages for hexapod_brain_node.
 
 class BluetoothTeleopNode : public rclcpp::Node {
 public:
@@ -21,30 +26,30 @@ public:
     ~BluetoothTeleopNode();
 
 private:
-    // Publishers
+    // Publishers for teleop output
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr velocity_publisher_;
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr pose_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr walking_params_publisher_;
     rclcpp::Publisher<hexapod_custom_msgs::msg::TeleopEvent>::SharedPtr event_publisher_;
 
-    // Parameters
+    // ROS parameters
     std::string port_name_;
     int baud_rate_;
     float joystick_center_value_;
     float joystick_deadzone_;
-    float potentiometer_denominator_;
+    float potentiometer_denominator_;   // derived from center value
 
-    // State variables
-    bool is_crab_walk_active_ = false;
-    bool is_rpy_offset_active_ = false;
+    // State
+    bool is_crab_walk_active_ = false;      // Lateral vs rotational control
+    bool is_rpy_offset_active_ = false;     // Position vs orientation control
     uint8_t previous_button_state_ = 0;
 
-    // Thread and atomic variables
+    // Thread handling
     std::thread serial_thread_;
     std::atomic<bool> is_running_;
-    std::atomic<int> serial_file_descriptor_;
+    std::atomic<int> serial_file_descriptor_;   // -1 when not open
 
-    // Helper methods
+    // Internal helpers
     speed_t getBaudRateMacro(int baud);
     void configureSerialRawMode(struct termios* tty_config);
     int openSerialPort(const char* device_path, int baud_rate);
@@ -53,7 +58,7 @@ private:
     float normalizePotentiometer(uint16_t raw_value);
     void processTelemetryPacket(const uint8_t* payload);
     void publishTeleopEvent(uint8_t event_id);
-    void serialReadLoop();
+    void serialReadLoop();   // Runs in separate thread
 };
 
 #endif

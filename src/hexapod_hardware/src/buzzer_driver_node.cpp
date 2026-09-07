@@ -7,7 +7,7 @@
 
 BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options) 
     : Node("buzzer_driver", options) {
-    // Read GPIO pin parameter (default 0)
+    // Read GPIO pin from ROS parameter (default pin 0)
     this->declare_parameter<int>("buzzer_pin", 0);
     buzzer_pin_ = this->get_parameter("buzzer_pin").as_int();
 
@@ -16,12 +16,12 @@ BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options)
         RCLCPP_ERROR(this->get_logger(), "Failed to initialize wiringPi.");
     }
     
-    // Configure pin
+    // Configure pin for software PWM tone generation
     if (softToneCreate(buzzer_pin_) != 0) {
         RCLCPP_ERROR(this->get_logger(), "Failed to initialize softTone on pin %d", buzzer_pin_);
     }
 
-    // Subscriber for buzzer commands
+    // Subscribe to buzzer command messages
     command_subscriber_ = this->create_subscription<hexapod_custom_msgs::msg::BuzzerCommand>(
         "play_melody", 10,
         [this](const hexapod_custom_msgs::msg::BuzzerCommand::SharedPtr msg) {
@@ -31,18 +31,18 @@ BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options)
 
     RCLCPP_INFO(this->get_logger(), "Buzzer driver node initialized on pin %d.", buzzer_pin_);
 
-    // Start thread for playing melodies
+    // Start the background thread that processes the melody queue
     is_running_ = true;
     play_thread_ = std::thread(&BuzzerDriverNode::playLoop, this);
 
-    // Play startup melody
+    // Play a startup melody
     hexapod_custom_msgs::msg::BuzzerCommand startup_msg;
     startup_msg.command_id = hexapod_custom_msgs::msg::BuzzerCommand::STARTUP;
     commandCallback(std::make_shared<hexapod_custom_msgs::msg::BuzzerCommand>(startup_msg));
 }
 
 BuzzerDriverNode::~BuzzerDriverNode() {
-    // Signal thread to exit and wake it up if waiting
+    // Signal the playback thread to exit and wake it if it is waiting
     is_running_ = false;
     queue_cv_.notify_all();
 
@@ -50,12 +50,12 @@ BuzzerDriverNode::~BuzzerDriverNode() {
         play_thread_.join();
     }
     
-    // Turn off buzzer on shutdown
+    // Turn off the buzzer
     softToneWrite(buzzer_pin_, 0);
 }
 
+// Push the command ID to the queue and notify the playback thread
 void BuzzerDriverNode::commandCallback(const hexapod_custom_msgs::msg::BuzzerCommand::SharedPtr msg) {
-    // Push command to queue
     std::lock_guard<std::mutex> lock(queue_mutex_);
     melody_queue_.push(msg->command_id);
     queue_cv_.notify_one();
@@ -67,7 +67,7 @@ void BuzzerDriverNode::playLoop() {
         uint8_t current_command = 0;
         {
             std::unique_lock<std::mutex> lock(queue_mutex_);
-            // Wait until queue has data or shutdown requested
+            // Wait until there is a command or shutdown is requested
             queue_cv_.wait(lock, [this]() { return !melody_queue_.empty() || !is_running_; });
             if (!is_running_ && melody_queue_.empty()) break;
             
@@ -75,7 +75,7 @@ void BuzzerDriverNode::playLoop() {
             melody_queue_.pop();
         }
 
-        // Play melody
+        // Play the melody corresponding to the command ID
         switch(current_command) {
             case Cmd::BEEP: playBeep(); break;
             case Cmd::STARTUP: playStartupMelody(); break;
@@ -89,7 +89,7 @@ void BuzzerDriverNode::playLoop() {
     }
 }
 
-// Low-level tone player
+// Low-level tone player, plays a frequency for a given duration
 void BuzzerDriverNode::playTone(int freq_hz, int duration_ms) {
     if (freq_hz <= 0) {
         softToneWrite(buzzer_pin_, 0);
@@ -99,11 +99,12 @@ void BuzzerDriverNode::playTone(int freq_hz, int duration_ms) {
     softToneWrite(buzzer_pin_, freq_hz);
     delay(duration_ms);
     softToneWrite(buzzer_pin_, 0);
-    delay(5);
+    delay(5);   // small gap between notes
 }
 
 // --- Predefined melody sequences ---
 
+// Two quick beeps
 void BuzzerDriverNode::playBeep() {
     playTone(2000, 80);
     delay(40);
