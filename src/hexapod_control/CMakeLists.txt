@@ -9,59 +9,64 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(hexapod_custom_msgs REQUIRED)
 
-# 1. Knihovna pro sdílený proces
 add_library(hexapod_brain_node SHARED
   src/hexapod_brain_node.cpp
 )
-
-target_include_directories(hexapod_brain_node
-  PUBLIC
+target_include_directories(hexapod_brain_node PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-
 ament_target_dependencies(hexapod_brain_node
-  rclcpp
-  geometry_msgs
-  std_msgs
-  hexapod_custom_msgs
+  rclcpp geometry_msgs std_msgs hexapod_custom_msgs
+)
+
+add_library(hexapod_locomotion_node SHARED
+  src/hexapod_locomotion_node.cpp
+)
+target_include_directories(hexapod_locomotion_node PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(hexapod_locomotion_node
+  rclcpp geometry_msgs std_msgs tf2 tf2_geometry_msgs sensor_msgs hexapod_custom_msgs
 )
 
 ament_export_include_directories(include)
-ament_export_libraries(hexapod_brain_node)
+ament_export_libraries(hexapod_brain_node hexapod_locomotion_node)
 ament_export_dependencies(
   rclcpp
   geometry_msgs
   std_msgs
+  sensor_msgs
+  tf2
+  tf2_geometry_msgs
   hexapod_custom_msgs
 )
 
-# 2. Samostatně spustitelný uzel
-add_executable(hexapod_brain_node_standalone
-  src/main.cpp
-)
+add_executable(hexapod_brain_standalone src/brain_main.cpp)
+target_link_libraries(hexapod_brain_standalone hexapod_brain_node)
+ament_target_dependencies(hexapod_brain_standalone rclcpp)
 
-target_link_libraries(hexapod_brain_node_standalone
-  hexapod_brain_node
-)
+add_executable(hexapod_locomotion_standalone src/locomotion_main.cpp)
+target_link_libraries(hexapod_locomotion_standalone hexapod_locomotion_node)
+ament_target_dependencies(hexapod_locomotion_standalone rclcpp)
 
-ament_target_dependencies(hexapod_brain_node_standalone
-  rclcpp
-  geometry_msgs
-  std_msgs
-  hexapod_custom_msgs
-)
-
-# 3. Instalace
-install(TARGETS hexapod_brain_node
+install(TARGETS 
+  hexapod_brain_node 
+  hexapod_locomotion_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
-install(TARGETS hexapod_brain_node_standalone
+install(TARGETS 
+  hexapod_brain_standalone
+  hexapod_locomotion_standalone
   DESTINATION lib/${PROJECT_NAME}
 )
 

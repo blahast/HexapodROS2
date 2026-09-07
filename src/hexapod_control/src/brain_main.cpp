@@ -1,5 +1,4 @@
 #include <rclcpp/rclcpp.hpp>
-
 #include "hexapod_control/hexapod_brain_node.hpp"
 
 int main(int argc, char **argv) {

@@ -5,13 +5,13 @@ from launch_ros.actions import Node
 import xacro
 
 def generate_launch_description():
-    pkg_name = 'hexapod_description'
-    pkg_path = os.path.join(get_package_share_directory(pkg_name))
-    xacro_file = os.path.join(pkg_path, 'urdf', 'hexapod.urdf.xacro')
-    
+    # Load and process the xacro file to get the robot description
+    pkg_description = get_package_share_directory('hexapod_description')
+    xacro_file = os.path.join(pkg_description, 'urdf', 'hexapod.urdf.xacro')
     doc = xacro.process_file(xacro_file)
     robot_description = {'robot_description': doc.toxml()}
 
+    # Robot State Publisher
     rsp_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -19,14 +19,14 @@ def generate_launch_description():
         parameters=[robot_description]
     )
 
-    jsp_node = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        name='joint_state_publisher',
-        parameters=[robot_description]
+    # Hexapod main node
+    hexapod_main_node = Node(
+        package='hexapod_bringup',
+        executable='hexapod_shared_process',
+        output='screen'
     )
 
     return LaunchDescription([
         rsp_node,
-        jsp_node,
+        hexapod_main_node
     ])

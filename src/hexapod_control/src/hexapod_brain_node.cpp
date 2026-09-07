@@ -56,7 +56,7 @@ HexapodBrainNode::HexapodBrainNode(const rclcpp::NodeOptions & options)
             walkingParamsCallback(msg);
         });
 
-    RCLCPP_INFO(this->get_logger(), "Hexapod brain node (State Machine & Multiplexer) initialized.");
+    RCLCPP_INFO(this->get_logger(), "Hexapod brain node initialized.");
 }
 
 // --- Continuous data callbacks ---
@@ -79,7 +79,7 @@ void HexapodBrainNode::walkingParamsCallback(const std_msgs::msg::Float32MultiAr
     loc_params_pub_->publish(*msg);
 }
 
-// --- Discrete event handling ---
+// --- Discrete event callbacks ---
 
 void HexapodBrainNode::teleopEventCallback(const hexapod_custom_msgs::msg::TeleopEvent::SharedPtr msg) {
     using Evt = hexapod_custom_msgs::msg::TeleopEvent;
@@ -89,23 +89,29 @@ void HexapodBrainNode::teleopEventCallback(const hexapod_custom_msgs::msg::Teleo
     switch (msg->event_id) {
         
         case Evt::BT_CONNECTED:
+            RCLCPP_INFO(this->get_logger(), "BT_CONNECTED received");
             playBuzzer(Buz::BT_CONNECTED);
             break;
 
         case Evt::BT_DISCONNECTED:
+            RCLCPP_WARN(this->get_logger(), "BT_DISCONNECTED received - EMERGENCY STOP");
             playBuzzer(Buz::BT_DISCONNECTED);
-            emergencyStop();   // Force stop on disconnection
+            emergencyStop();
             break;
 
         case Evt::TOGGLE_STAND:
             // Toggle between sitting and standing
             if (current_state_ == State::SITTING) {
+                RCLCPP_INFO(this->get_logger(), "TOGGLE_STAND: Standing up");
                 playBuzzer(Buz::BEEP);
                 sendLocomotionCommand(LocCmd::CMD_STAND_UP);
             } else if (current_state_ == State::STANDING) {
+                RCLCPP_INFO(this->get_logger(), "TOGGLE_STAND: Sitting down");
                 playBuzzer(Buz::BEEP);
                 sendLocomotionCommand(LocCmd::CMD_SIT_DOWN);
             } else {
+                RCLCPP_WARN(this->get_logger(), "TOGGLE_STAND: REJECTED: robot is in state '%s' (must be SITTING or STANDING)",
+                            stateToString(current_state_).c_str());
                 playBuzzer(Buz::ERROR);
             }
             break;
@@ -113,24 +119,30 @@ void HexapodBrainNode::teleopEventCallback(const hexapod_custom_msgs::msg::Teleo
         case Evt::CHANGE_GAIT:
             // Change gait only when sitting or standing
             if (current_state_ == State::SITTING || current_state_ == State::STANDING) {
+                RCLCPP_INFO(this->get_logger(), "TOGGLE_GAIT: Changing gait");
                 sendLocomotionCommand(LocCmd::CMD_CHANGE_GAIT);
                 playBuzzer(Buz::BEEP);
             } else {
+                RCLCPP_WARN(this->get_logger(), "TOGGLE_GAIT: REJECTED: robot is in state '%s' (must be SITTING or STANDING)",
+                            stateToString(current_state_).c_str());
                 playBuzzer(Buz::ERROR);
             }
             break;
 
         case Evt::PLAY_ANIMATION:
             if (current_state_ == State::STANDING) {
+                RCLCPP_INFO(this->get_logger(), "TOGGLE_ANIMATION: Play animation: ACCEPTED");
                 playBuzzer(Buz::BEEP);
                 sendLocomotionCommand(LocCmd::CMD_PLAY_ANIMATION);
             } else {
+                RCLCPP_WARN(this->get_logger(), "TOGGLE_ANIMATION: REJECTED: robot is in state '%s' (must be STANDING)",
+                            stateToString(current_state_).c_str());
                 playBuzzer(Buz::ERROR);
             }
             break;
 
         default:
-            RCLCPP_WARN(this->get_logger(), "Přijat neznámý event_id: %d", msg->event_id);
+            RCLCPP_WARN(this->get_logger(), "Received unknown event_id: %d", msg->event_id);
             break;
     }
 }
