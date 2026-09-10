@@ -9,7 +9,9 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(hexapod_custom_msgs REQUIRED)
-find_library(WIRINGPI_LIBRARIES NAMES wiringPi)
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GPIOD REQUIRED IMPORTED_TARGET libgpiodcxx)
 
 include_directories(include)
 
@@ -23,29 +25,43 @@ target_include_directories(buzzer_driver_node PUBLIC
 )
 
 ament_target_dependencies(buzzer_driver_node rclcpp std_msgs hexapod_custom_msgs)
+target_link_libraries(buzzer_driver_node PkgConfig::GPIOD)
 
-if(WIRINGPI_LIBRARIES)
-  target_link_libraries(buzzer_driver_node ${WIRINGPI_LIBRARIES})
-else()
-  message(FATAL_ERROR "wiringPi library not found. Please install it (e.g., sudo apt install wiringpi).")
-endif()
+add_library(servo_driver_node SHARED
+  src/servo_driver_node.cpp
+)
+
+target_include_directories(servo_driver_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+ament_target_dependencies(servo_driver_node rclcpp std_msgs)
+target_link_libraries(servo_driver_node PkgConfig::GPIOD)
 
 ament_export_include_directories(include)
-ament_export_libraries(buzzer_driver_node)
+ament_export_libraries(buzzer_driver_node servo_driver_node)
 ament_export_dependencies(rclcpp std_msgs hexapod_custom_msgs)
 
-add_executable(buzzer_driver_node_standalone src/main.cpp)
-
+add_executable(buzzer_driver_node_standalone src/buzzer_main.cpp)
 target_link_libraries(buzzer_driver_node_standalone buzzer_driver_node)
 ament_target_dependencies(buzzer_driver_node_standalone rclcpp hexapod_custom_msgs)
 
-install(TARGETS buzzer_driver_node
+add_executable(servo_driver_node_standalone src/servo_main.cpp)
+target_link_libraries(servo_driver_node_standalone servo_driver_node)
+ament_target_dependencies(servo_driver_node_standalone rclcpp)
+
+install(TARGETS
+  buzzer_driver_node
+  servo_driver_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
-install(TARGETS buzzer_driver_node_standalone
+install(TARGETS
+  buzzer_driver_node_standalone
+  servo_driver_node_standalone
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -56,5 +72,12 @@ install(DIRECTORY include/
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  set(ament_cmake_copyright_FOUND TRUE)
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
 
 ament_package()

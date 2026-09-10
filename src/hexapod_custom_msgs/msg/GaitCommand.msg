@@ -1,0 +1,6 @@
+uint8 GAIT_TRIPOD=0
+uint8 GAIT_TETRAPOD=1
+uint8 GAIT_RIPPLE=2
+uint8 NUM_OF_GAITS=3
+
+uint8 gait_id

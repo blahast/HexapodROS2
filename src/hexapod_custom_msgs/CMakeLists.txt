@@ -13,6 +13,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/BuzzerCommand.msg"
   "msg/LocomotionState.msg"
   "msg/LocomotionCommand.msg"
+  "msg/GaitCommand.msg"
 )
 
 ament_package()

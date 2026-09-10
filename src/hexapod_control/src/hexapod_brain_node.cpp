@@ -1,7 +1,7 @@
 #include "hexapod_control/hexapod_brain_node.hpp"
 
 HexapodBrainNode::HexapodBrainNode(const rclcpp::NodeOptions & options) 
-    : Node("hexapod_brain", options), current_state_(State::INIT), current_gait_id_(0) {
+    : Node("hexapod_brain", options), current_state_(State::INIT), current_gait_id_(hexapod_custom_msgs::msg::GaitCommand::GAIT_TRIPOD) {
     
     // Reliable QoS for commands and state feedback, best effort for high frequency motion data
     auto reliable_qos = rclcpp::QoS(10).reliable();
@@ -10,7 +10,7 @@ HexapodBrainNode::HexapodBrainNode(const rclcpp::NodeOptions & options)
     // Publishers for buzzer and locomotion commands
     buzzer_pub_ = this->create_publisher<hexapod_custom_msgs::msg::BuzzerCommand>("play_melody", reliable_qos);
     locomotion_cmd_pub_ = this->create_publisher<hexapod_custom_msgs::msg::LocomotionCommand>("locomotion_command", reliable_qos);
-    loc_gait_pub_ = this->create_publisher<std_msgs::msg::UInt8>("locomotion/set_gait", reliable_qos);
+    loc_gait_pub_ = this->create_publisher<hexapod_custom_msgs::msg::GaitCommand>("locomotion/set_gait", reliable_qos);
 
     // Publishers for motion commands
     loc_vel_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("locomotion/cmd_vel", best_effort_qos);
@@ -67,6 +67,7 @@ void HexapodBrainNode::teleopEventCallback(const hexapod_custom_msgs::msg::Teleo
     using Evt = hexapod_custom_msgs::msg::TeleopEvent;
     using Buz = hexapod_custom_msgs::msg::BuzzerCommand;
     using LocCmd = hexapod_custom_msgs::msg::LocomotionCommand;
+    using GaitSel = hexapod_custom_msgs::msg::GaitCommand;
 
     switch (msg->event_id) {
         case Evt::BT_CONNECTED:
@@ -99,8 +100,8 @@ void HexapodBrainNode::teleopEventCallback(const hexapod_custom_msgs::msg::Teleo
         case Evt::CHANGE_GAIT:
             // Gait change is allowed when not in an animation or transition
             if (current_state_ == State::SITTING || current_state_ == State::STANDING || current_state_ == State::WALKING) {
-                current_gait_id_ = (current_gait_id_ + 1) % 3; // Cycle through 3 gaits
-                RCLCPP_INFO(this->get_logger(), "TOGGLE_GAIT: Changing gait to ID %d", current_gait_id_);
+                current_gait_id_ = (current_gait_id_ + 1) % GaitSel::NUM_OF_GAITS; // Cycle through gaits
+                RCLCPP_INFO(this->get_logger(), "TOGGLE_GAIT: Changing gait to %s", gaitToString(current_gait_id_));
                 sendGaitCommand(current_gait_id_);
                 playBuzzer(Buz::BEEP);
             } else {
@@ -161,8 +162,8 @@ void HexapodBrainNode::sendLocomotionCommand(uint8_t command_id) {
 
 // Helper to change the gait
 void HexapodBrainNode::sendGaitCommand(uint8_t gait_id) {
-    std_msgs::msg::UInt8 msg;
-    msg.data = gait_id;
+    hexapod_custom_msgs::msg::GaitCommand msg;
+    msg.gait_id = gait_id;
     loc_gait_pub_->publish(msg);
 }
 
@@ -180,6 +181,16 @@ const char* HexapodBrainNode::stateToString(State state) {
         case State::STANDING: return "STANDING";
         case State::WALKING: return "WALKING";
         case State::ANIMATING: return "ANIMATING";
+        default: return "UNKNOWN";
+    }
+}
+
+// Convert enum to readable string
+const char* HexapodBrainNode::gaitToString(uint8_t gait_id) {
+    switch (gait_id) {
+        case hexapod_custom_msgs::msg::GaitCommand::GAIT_TRIPOD: return "TRIPOD";
+        case hexapod_custom_msgs::msg::GaitCommand::GAIT_TETRAPOD: return "TETRAPOD";
+        case hexapod_custom_msgs::msg::GaitCommand::GAIT_RIPPLE: return "RIPPLE";
         default: return "UNKNOWN";
     }
 }

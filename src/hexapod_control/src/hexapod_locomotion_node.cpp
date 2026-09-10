@@ -20,12 +20,12 @@ inline double wrap01(double x) { return x - std::floor(x); }
 // 7th order smooth interpolation
 double smooth_interp_7(double start, double end, double t) {
     t = std::clamp(t, 0.0, 1.0);
-    double t2 = t*t; double t3 = t2*t; double t4 = t2*t2;
+    double t2 = t*t, t3 = t2*t, t4 = t2*t2;
     double t_ease = -20.0*t4*t3 + 70.0*t4*t2 - 84.0*t4*t + 35.0*t4;
     return lerp(start, end, t_ease);
 }
 
-// 5th order smoothstep for swing trajectory
+// 5th order interpolation for swing trajectory
 double smoothstep5(double tau) {
     double t2 = tau*tau, t3 = t2*tau;
     return 6.0*t3*t2 - 15.0*t2*t2 + 10.0*t3;
@@ -38,32 +38,10 @@ inline double smooth_var(double current, double target, double dt, double tc, do
     return alpha * current + (1.0 - alpha) * target;
 }
 
-// Update leg position in stance phase
-Vec2 stance_map_step(Vec2 p, double dt, double vx, double vy, double omega) {
-    double wdt = omega * dt;
-    if (std::abs(wdt) < 1e-6) {
-        return {p.x - vx * dt, p.y - vy * dt};
-    }
-    double s, c, S, C;
-    double a = std::abs(wdt);
-    if (a < 1e-3) {
-        double w2 = wdt * wdt; double w3 = w2 * wdt;
-        double w4 = w2 * w2; double w5 = w4 * wdt;
-        s = wdt - (w3 / 6.0) + (w5 / 120.0);
-        c = 1.0 - 0.5 * w2 + (w4 / 24.0);
-        S = dt * (1.0 - (w2 / 6.0) + (w4 / 120.0));
-        C = dt * (0.5 * wdt - (w3 / 24.0) + (w5 / 720.0));
-    } else {
-        s = std::sin(wdt); c = std::cos(wdt);
-        S = s / omega; C = (1.0 - c) / omega;
-    }
-    return {p.x * c - p.y * s - vx * S + vy * C, p.y * c + p.x * s - vy * S - vx * C};
-}
-
 HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options) 
     : Node("hexapod_locomotion", options)
 {
-    this->declare_parameter("loop_rate", 50.0);
+    this->declare_parameter("loop_rate", DEFAULT_LOOP_RATE_HZ);
     loop_rate_hz_ = this->get_parameter("loop_rate").as_double();
     loop_period_s_ = 1.0 / loop_rate_hz_;
 
@@ -78,9 +56,9 @@ HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options)
         "locomotion_command", reliable_qos, 
         [this](const hexapod_custom_msgs::msg::LocomotionCommand::SharedPtr msg) { this->cmdCallback(msg); });
 
-    gait_sub_ = this->create_subscription<std_msgs::msg::UInt8>(
+    gait_sub_ = this->create_subscription<hexapod_custom_msgs::msg::GaitCommand>(
         "locomotion/set_gait", reliable_qos, 
-        [this](const std_msgs::msg::UInt8::SharedPtr msg) { this->gaitCallback(msg); });
+        [this](const hexapod_custom_msgs::msg::GaitCommand::SharedPtr msg) { this->gaitCallback(msg); });
 
     vel_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
         "locomotion/cmd_vel", best_effort_qos, 
@@ -107,41 +85,45 @@ HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options)
     current_beta_ = gaits[0].beta;
     for (int i = 0; i < NUM_OF_LEGS; i++) current_phase_offsets_[i] = gaits[0].phaseOffsets[i];
 
-    // Use ROS timer instead of a separate thread
+    // ROS timer
     timer_ = this->create_wall_timer(
         std::chrono::milliseconds(static_cast<int>(1000.0 / loop_rate_hz_)),
-        std::bind(&HexapodLocomotionNode::locomotionLoopStep, this)
+        [this]() { this->locomotionLoopStep(); }
     );
+
+    inverseKinematics({current_off_x_, current_off_y_, current_off_z_}, {current_roll_, current_pitch_, current_yaw_});
+    publishAngles();
     
     RCLCPP_INFO(this->get_logger(), "Locomotion Node initialized. Timer running at %.1f Hz", loop_rate_hz_);
 }
 
-void HexapodLocomotionNode::gaitCallback(const std_msgs::msg::UInt8::SharedPtr msg) {
-    std::lock_guard<std::mutex> lock(data_mutex_);
-    target_gait_ = msg->data % 3;
+void HexapodLocomotionNode::gaitCallback(const hexapod_custom_msgs::msg::GaitCommand::SharedPtr msg) {
+    if (msg->gait_id >= msg->hexapod_custom_msgs::msg::GaitCommand::NUM_OF_GAITS) { 
+        RCLCPP_WARN(this->get_logger(), "Received invalid gait index %d (max %d); ignoring.", msg->gait_id, msg->hexapod_custom_msgs::msg::GaitCommand::NUM_OF_GAITS - 1);
+        return;
+    }
+
+    target_gait_ = msg->gait_id;
 }
 
 void HexapodLocomotionNode::cmdCallback(const hexapod_custom_msgs::msg::LocomotionCommand::SharedPtr msg) {
-    std::lock_guard<std::mutex> lock(data_mutex_);
     pending_command_ = msg->command_id;
 }
 
 void HexapodLocomotionNode::velCallback(const geometry_msgs::msg::Twist::SharedPtr msg) {
-    std::lock_guard<std::mutex> lock(data_mutex_);
     target_vx_ = map_norm(msg->linear.x, gaits[target_gait_].max_speed);
     target_vy_ = map_norm(msg->linear.y, gaits[target_gait_].max_speed);
     target_omega_ = map_norm(msg->angular.z, gaits[target_gait_].max_turning_speed);
 }
 
 void HexapodLocomotionNode::poseCallback(const geometry_msgs::msg::Pose::SharedPtr msg) {
-    std::lock_guard<std::mutex> lock(data_mutex_);
     
-    // Pose message carries [-1,1] values; map to physical limits
+    // Map to physical limits
     target_off_x_ = map_norm(msg->position.x, MAX_X_OFF);
     target_off_y_ = map_norm(msg->position.y, MAX_Y_OFF);
     target_off_z_ = map_norm(msg->position.z, MAX_Z_OFF);
     
-    // Convert quaternion to RPY and clamp via mapping
+    // Convert quaternion to RPY and map to physical limits
     tf2::Quaternion q(msg->orientation.x, msg->orientation.y, msg->orientation.z, msg->orientation.w);
     tf2::Matrix3x3 m(q);
     double r, p, y;
@@ -154,7 +136,6 @@ void HexapodLocomotionNode::poseCallback(const geometry_msgs::msg::Pose::SharedP
 
 void HexapodLocomotionNode::paramsCallback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
     if (msg->data.size() >= 2) {
-        std::lock_guard<std::mutex> lock(data_mutex_);
         target_freq_ = map_range(msg->data[0], MIN_FREQ, MAX_FREQ);
         target_step_h_ = map_range(msg->data[1], MIN_STEP_H, MAX_STEP_H);
     }
@@ -174,7 +155,7 @@ void HexapodLocomotionNode::publishState(State s) {
     current_state_ = s;
 }
 
-// Main control loop – called periodically by the timer
+// Main control loop, called periodically by the timer
 void HexapodLocomotionNode::locomotionLoopStep() {
     static bool first_run = true;
     if (first_run) {
@@ -188,7 +169,6 @@ void HexapodLocomotionNode::locomotionLoopStep() {
     int tgait;
     
     {
-        std::lock_guard<std::mutex> lock(data_mutex_);
         cmd = pending_command_;
         pending_command_ = -1;
         
@@ -199,7 +179,7 @@ void HexapodLocomotionNode::locomotionLoopStep() {
         tgait = target_gait_;
     }
 
-    // --- Process locomotion commands (start animations) ---
+    // Process animation commands
     using namespace hexapod_custom_msgs::msg;
     if (cmd == LocomotionCommand::CMD_STAND_UP && current_state_ == State::SITTING) {
         buildStandUpAnimation();
@@ -210,20 +190,12 @@ void HexapodLocomotionNode::locomotionLoopStep() {
         buildWaveAnimation();
     }
 
-    // --- Active animation handling (non‑blocking state machine) ---
-    if (current_state_ == State::ANIMATING) {
-        // Smooth body offsets to zero while animating legs
-        current_off_x_ = smooth_var(current_off_x_, 0.0, loop_period_s_, 0.2, 1e-3);
-        current_off_y_ = smooth_var(current_off_y_, 0.0, loop_period_s_, 0.2, 1e-3);
-        current_off_z_ = smooth_var(current_off_z_, 0.0, loop_period_s_, 0.2, 1e-3);
-        current_roll_ = smooth_var(current_roll_, 0.0, loop_period_s_, 0.2, 1e-4);
-        current_pitch_ = smooth_var(current_pitch_, 0.0, loop_period_s_, 0.2, 1e-4);
-        current_yaw_ = smooth_var(current_yaw_, 0.0, loop_period_s_, 0.2, 1e-4);
+    // Animation handling
 
+    if (current_state_ == State::ANIMATING) {
         if (current_anim_frame_ < anim_sequence_.size()) {
             const auto& frame = anim_sequence_[current_anim_frame_];
-            anim_t_ += loop_period_s_ / std::max(frame.duration_s, 0.01);
-            
+            anim_t_ += loop_period_s_ / std::max(frame.duration_s, 0.001);
             bool frame_done = false;
             if (anim_t_ >= 1.0) {
                 anim_t_ = 1.0;
@@ -231,15 +203,29 @@ void HexapodLocomotionNode::locomotionLoopStep() {
             }
 
             double t_eased = frame.ease ? smooth_interp_7(0.0, 1.0, anim_t_) : anim_t_;
+
             for (int i = 0; i < NUM_OF_LEGS; ++i) {
                 leg_pos_[i].x = lerp(anim_start_pos_[i].x, frame.leg_targets[i].x, t_eased);
                 leg_pos_[i].y = lerp(anim_start_pos_[i].y, frame.leg_targets[i].y, t_eased);
                 leg_pos_[i].z = lerp(anim_start_pos_[i].z, frame.leg_targets[i].z, t_eased);
             }
 
+            current_roll_  = lerp(anim_start_roll_,  frame.body_roll,  t_eased);
+            current_pitch_ = lerp(anim_start_pitch_, frame.body_pitch, t_eased);
+            current_yaw_   = lerp(anim_start_yaw_,   frame.body_yaw,   t_eased);
+            current_off_x_ = lerp(anim_start_off_x_, frame.body_off_x, t_eased);
+            current_off_y_ = lerp(anim_start_off_y_, frame.body_off_y, t_eased);
+            current_off_z_ = lerp(anim_start_off_z_, frame.body_off_z, t_eased);
+
             if (frame_done) {
                 anim_t_ = 0.0;
                 for (int i = 0; i < NUM_OF_LEGS; ++i) anim_start_pos_[i] = leg_pos_[i];
+                anim_start_roll_  = current_roll_;
+                anim_start_pitch_ = current_pitch_;
+                anim_start_yaw_   = current_yaw_;
+                anim_start_off_x_ = current_off_x_;
+                anim_start_off_y_ = current_off_y_;
+                anim_start_off_z_ = current_off_z_;
                 current_anim_frame_++;
             }
         } else {
@@ -251,39 +237,39 @@ void HexapodLocomotionNode::locomotionLoopStep() {
         return; // Skip locomotion
     }
 
-    // --- Locomotion and walking ---
+    // Locomotion and walking
     if (current_state_ == State::STANDING || current_state_ == State::WALKING) {
         
         // Exponential smoothing of locomotion parameters
-        current_freq_    = smooth_var(current_freq_, tfreq, loop_period_s_, 0.3, 1e-2);
-        current_vx_      = smooth_var(current_vx_, tvx, loop_period_s_, 0.3, 1e-2);
-        current_vy_      = smooth_var(current_vy_, tvy, loop_period_s_, 0.3, 1e-2);
-        current_omega_   = smooth_var(current_omega_, tom, loop_period_s_, 0.3, 1e-4);
-        current_swing_h_ = smooth_var(current_swing_h_, tsw, loop_period_s_, 0.3, 1e-2);
+        current_freq_    = smooth_var(current_freq_, tfreq, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-2);
+        current_vx_      = smooth_var(current_vx_, tvx, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-2);
+        current_vy_      = smooth_var(current_vy_, tvy, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-2);
+        current_omega_   = smooth_var(current_omega_, tom, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-4);
+        current_swing_h_ = smooth_var(current_swing_h_, tsw, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-2);
         
-        current_off_x_ = smooth_var(current_off_x_, tox, loop_period_s_, 0.3, 0.1);
-        current_off_y_ = smooth_var(current_off_y_, toy, loop_period_s_, 0.3, 0.1);
-        current_off_z_ = smooth_var(current_off_z_, toz, loop_period_s_, 0.3, 0.1);
-        current_roll_  = smooth_var(current_roll_, tr, loop_period_s_, 0.3, 1e-4);
-        current_pitch_ = smooth_var(current_pitch_, tp, loop_period_s_, 0.3, 1e-4);
-        current_yaw_   = smooth_var(current_yaw_, ty, loop_period_s_, 0.3, 1e-4);
+        current_off_x_ = smooth_var(current_off_x_, tox, loop_period_s_, PARAMETER_SMOOTHING_TC, 0.1);
+        current_off_y_ = smooth_var(current_off_y_, toy, loop_period_s_, PARAMETER_SMOOTHING_TC, 0.1);
+        current_off_z_ = smooth_var(current_off_z_, toz, loop_period_s_, PARAMETER_SMOOTHING_TC, 0.1);
+        current_roll_  = smooth_var(current_roll_, tr, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-4);
+        current_pitch_ = smooth_var(current_pitch_, tp, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-4);
+        current_yaw_   = smooth_var(current_yaw_, ty, loop_period_s_, PARAMETER_SMOOTHING_TC, 1e-4);
 
-        // --- Exponential gait transition smoothing (during walking) ---
-        double tc_gait = 0.5; // smoothing time constant
-        current_beta_ = smooth_var(current_beta_, gaits[tgait].beta, loop_period_s_, tc_gait, 1e-4);
+        // Exponential gait transition smoothing
+        current_beta_ = smooth_var(current_beta_, gaits[tgait].beta, loop_period_s_, GAIT_SMOOTHING_TC, 1e-4);
         for (int l = 0; l < NUM_OF_LEGS; ++l) {
             double diff = gaits[tgait].phaseOffsets[l] - current_phase_offsets_[l];
+
             // Correct for shortest circular path [0,1]
             if (diff > 0.5) diff -= 1.0;
             else if (diff < -0.5) diff += 1.0;
             
-            current_phase_offsets_[l] += diff * (1.0 - std::exp(-loop_period_s_ / tc_gait));
+            current_phase_offsets_[l] += diff * (1.0 - std::exp(-loop_period_s_ / GAIT_SMOOTHING_TC));
             current_phase_offsets_[l] = wrap01(current_phase_offsets_[l]);
         }
-        // ----------------------------------------------------
 
         bool want_to_walk = (std::abs(tvx) > 0.01 || std::abs(tvy) > 0.01 || std::abs(tom) > 0.01);
         
+        // Handle walking state transitions
         if (want_to_walk && !is_walking_) {
             is_walking_ = true;
             stopping_ = false;
@@ -329,7 +315,29 @@ void HexapodLocomotionNode::locomotionLoopStep() {
     }
 }
 
-// Generate one step point for a given leg (based on phase and gait parameters)
+// Update leg position in stance phase
+Vec2 stance_map_step(Vec2 p, double dt, double vx, double vy, double omega) {
+    double wdt = omega * dt;
+    if (std::abs(wdt) < 1e-6) {
+        return {p.x - vx * dt, p.y - vy * dt};
+    }
+    double s, c, S, C;
+    double a = std::abs(wdt);
+    if (a < 1e-3) {
+        double w2 = wdt * wdt; double w3 = w2 * wdt;
+        double w4 = w2 * w2; double w5 = w4 * wdt;
+        s = wdt - (w3 / 6.0) + (w5 / 120.0);
+        c = 1.0 - 0.5 * w2 + (w4 / 24.0);
+        S = dt * (1.0 - (w2 / 6.0) + (w4 / 120.0));
+        C = dt * (0.5 * wdt - (w3 / 24.0) + (w5 / 720.0));
+    } else {
+        s = std::sin(wdt); c = std::cos(wdt);
+        S = s / omega; C = (1.0 - c) / omega;
+    }
+    return {p.x * c - p.y * s - vx * S + vy * C, p.y * c + p.x * s - vy * S - vx * C};
+}
+
+// Generate next step point for a given leg
 void HexapodLocomotionNode::generateStepPoint(int leg, double phase, double dt, double beta, double T, 
                        double omega, double vx, double vy, double h, double swing_h, bool stopping) 
 {
@@ -349,8 +357,8 @@ void HexapodLocomotionNode::generateStepPoint(int leg, double phase, double dt, 
         if (stopping) { stopping_swings_[leg]++; return; }
     }
 
+    // Stance phase
     if (now_stance) {
-        // Stance: follow body motion
         Vec2 p = stance_map_step({cur_x, cur_y}, dt, vx, vy, omega);
         leg_pos_[leg].x = p.x;
         leg_pos_[leg].y = p.y;
@@ -375,13 +383,15 @@ void HexapodLocomotionNode::generateStepPoint(int leg, double phase, double dt, 
     double s_rel = smoothstep5(tau_rel);
     double s_abs = smoothstep5(tau);
     
-    // Interpolate horizontal movement and add vertical arc
+    // XY movement
     leg_pos_[leg].x = lerp(sw.x_lo, sw.x_td, s_rel);
     leg_pos_[leg].y = lerp(sw.y_lo, sw.y_td, s_rel);
+
+    // Horizontal movement
     leg_pos_[leg].z = h + 4.0 * swing_h * s_abs * (1.0 - s_abs);
 }
 
-// Rotate point by negative RPY and translate (inverse of body transformation)
+// Rotate point by negative RPY and translate
 void HexapodLocomotionNode::rotateNegRPYAndTranslate(const Vector3& p, const Vector3& off_xyz, const Vector3& off_rpy, 
                               double &x_ee, double &y_ee, double &z_ee) 
 {
@@ -393,7 +403,7 @@ void HexapodLocomotionNode::rotateNegRPYAndTranslate(const Vector3& p, const Vec
     double ct = std::cos(off_rpy.y), st = std::sin(off_rpy.y);
     double cpsi = std::cos(off_rpy.z), spsi = std::sin(off_rpy.z);
 
-    // Rotate by -yaw, -pitch, -roll (inverse of body orientation)
+    // Rotate by -yaw, -pitch, -roll
     double x1 = dx*cpsi + dy*spsi;
     double y1 = -dx*spsi + dy*cpsi;
     double z1 = dz;
@@ -407,7 +417,7 @@ void HexapodLocomotionNode::rotateNegRPYAndTranslate(const Vector3& p, const Vec
     z_ee = y2*sp - z2*cp;
 }
 
-// Compute joint angles from leg target positions using inverse kinematics
+// Compute joint angles from leg target positions
 void HexapodLocomotionNode::inverseKinematics(const Vector3& off_xyz, const Vector3& off_rpy) {
     for (int leg = 0; leg < NUM_OF_LEGS; ++leg) {
         double x_ee, y_ee, z_ee;
@@ -419,7 +429,7 @@ void HexapodLocomotionNode::inverseKinematics(const Vector3& off_xyz, const Vect
         double delta_x = x_ee - xc;
         double delta_y = y_ee - yc;
         
-        // Coxa angle
+        // Coxa
         double th_coxa = std::atan2(delta_y, delta_x) - leg_alpha_[leg];
         th_coxa = std::remainder(th_coxa, 2.0 * M_PI);
 
@@ -437,6 +447,9 @@ void HexapodLocomotionNode::inverseKinematics(const Vector3& off_xyz, const Vect
             target_angles_rad_[leg][0] = th_coxa;
             target_angles_rad_[leg][1] = th_femur;
             target_angles_rad_[leg][2] = th_tibia;
+        } else {
+            // Unreachable position, keep previous angles
+            RCLCPP_WARN(this->get_logger(), "Leg %d target position unreachable (R=%.2f, rho=%.2f)", leg, R, rho);
         }
     }
 }
@@ -454,18 +467,29 @@ void HexapodLocomotionNode::publishAngles() {
         for (int j = 0; j < JOINTS_PER_LEG; ++j) {
             js_msg.name.push_back("leg" + std::to_string(l) + "_" + prefixes[j] + "_joint");
             
-            // Multiply by URDF signs to align RViz visualisation with ROS convention
             if (j == 0) js_msg.position.push_back(target_angles_rad_[l][j] * URDF_COXA_SIGN);
             else if (j == 1) js_msg.position.push_back(target_angles_rad_[l][j] * URDF_FEMUR_SIGN);
             else js_msg.position.push_back(target_angles_rad_[l][j] * URDF_TIBIA_SIGN);
             
-            // Hardware angles are absolute and include offset/inversion as per servo config
             double deg = target_angles_rad_[l][j] * 180.0 / M_PI;
             const auto& cfg = servo_config[l][j];
             double hw_ang = deg + cfg.angle_offset;
             if (cfg.inverted) hw_ang = 180.0 - hw_ang;
-            hw_ang = std::clamp(hw_ang, cfg.min_angle, cfg.max_angle);
-            
+
+            // Check servo limits
+            if (hw_ang < cfg.min_angle || hw_ang > cfg.max_angle) {
+                const double exceeded_min = cfg.min_angle - hw_ang; // >0 if below min
+                const double exceeded_max = hw_ang - cfg.max_angle; // >0 if above max
+                const double worst = std::max(exceeded_min, exceeded_max);
+
+                RCLCPP_WARN( this->get_logger(),
+                    "Servo leg%d_%s out of range: %.2f deg (limits [%.2f, %.2f], exceeded by %.2f deg). Clamping.",
+                    l, prefixes[j].c_str(), hw_ang,
+                    cfg.min_angle, cfg.max_angle, worst);
+
+                hw_ang = std::clamp(hw_ang, cfg.min_angle, cfg.max_angle);
+            }
+
             hw_msg.data.push_back(hw_ang);
         }
     }
@@ -473,7 +497,7 @@ void HexapodLocomotionNode::publishAngles() {
     hw_angles_pub_->publish(hw_msg);
 }
 
-// --- Non‑blocking animation system ---
+// Animation handling functions
 
 void HexapodLocomotionNode::startAnimation(const std::vector<AnimKeyframe>& sequence, State next_state) {
     anim_sequence_ = sequence;
@@ -481,6 +505,14 @@ void HexapodLocomotionNode::startAnimation(const std::vector<AnimKeyframe>& sequ
     anim_t_ = 0.0;
     state_after_anim_ = next_state;
     for(int i = 0; i < NUM_OF_LEGS; i++) anim_start_pos_[i] = leg_pos_[i];
+    
+    anim_start_roll_  = current_roll_;
+    anim_start_pitch_ = current_pitch_;
+    anim_start_yaw_   = current_yaw_;
+    anim_start_off_x_ = current_off_x_;
+    anim_start_off_y_ = current_off_y_;
+    anim_start_off_z_ = current_off_z_;
+
     publishState(State::ANIMATING);
 }
 
@@ -508,20 +540,55 @@ void HexapodLocomotionNode::buildSitDownAnimation() {
 }
 
 void HexapodLocomotionNode::buildWaveAnimation() {
-    // Wave animation: move leg 5 in a waving pattern using Cartesian targets (IK handles joint limits)
+    const double wave_x_distance = 200.0;
+    const double wave_y_out = -120.0;
+    const double wave_y_in = -60.0;
+    const double wave_z_up = 100.0;
+    const double wave_z_down = 60.0;
+    const double rapid_duration = 0.25;
+
     std::vector<AnimKeyframe> seq(6);
     
     for (int k=0; k<6; ++k) {
         for (int l=0; l<NUM_OF_LEGS; ++l) seq[k].leg_targets[l] = default_leg_pos_[l];
+        seq[k].body_roll = 0.0; seq[k].body_pitch = 0.0;
     }
     
-    // Leg index 5 (last leg) performs the wave
-    seq[0].leg_targets[5] = {160.0, -90.0, 80.0};  seq[0].duration_s = 1.5;  seq[0].ease = true;   // Lift
-    seq[1].leg_targets[5] = {160.0, -120.0, 80.0}; seq[1].duration_s = 0.25; seq[1].ease = false;  // Swing left
-    seq[2].leg_targets[5] = {160.0, -60.0, 80.0};  seq[2].duration_s = 0.25; seq[2].ease = false;  // Swing right
-    seq[3].leg_targets[5] = {160.0, -120.0, 80.0}; seq[3].duration_s = 0.25; seq[3].ease = false;  // Swing left
-    seq[4].leg_targets[5] = {160.0, -60.0, 80.0};  seq[4].duration_s = 0.25; seq[4].ease = false;  // Swing right
-    seq[5].leg_targets[5] = default_leg_pos_[5];   seq[5].duration_s = 1.5;  seq[5].ease = true;   // Lower
+    seq[0].leg_targets[5] = {wave_x_distance, wave_y_out, wave_z_up};
+    seq[0].duration_s = 1.5;
+    seq[0].ease = true;
+    seq[0].body_pitch = -0.20;
+    seq[0].body_roll = -0.20;
+
+    seq[1].leg_targets[5] = {wave_x_distance, wave_y_in, wave_z_down};
+    seq[1].duration_s = rapid_duration;
+    seq[1].ease = false;
+    seq[1].body_pitch = -0.20;
+    seq[1].body_roll = -0.20;
+
+    seq[2].leg_targets[5] = {wave_x_distance, wave_y_out, wave_z_up};
+    seq[2].duration_s = rapid_duration;
+    seq[2].ease = false;
+    seq[2].body_pitch = -0.20;
+    seq[2].body_roll = -0.20;
+
+    seq[3].leg_targets[5] = {wave_x_distance, wave_y_in, wave_z_down};
+    seq[3].duration_s = rapid_duration;
+    seq[3].ease = false;
+    seq[3].body_pitch = -0.20;
+    seq[3].body_roll = -0.20;
+
+    seq[4].leg_targets[5] = {wave_x_distance, wave_y_out, wave_z_up};
+    seq[4].duration_s = rapid_duration;
+    seq[4].ease = false;
+    seq[4].body_pitch = -0.20;
+    seq[4].body_roll = -0.20;
+
+    seq[5].leg_targets[5] = default_leg_pos_[5];
+    seq[5].duration_s = 1.5;
+    seq[5].ease = true;
+    seq[5].body_pitch = 0.0;
+    seq[5].body_roll = 0.0;
     
     startAnimation(seq, State::STANDING);
 }

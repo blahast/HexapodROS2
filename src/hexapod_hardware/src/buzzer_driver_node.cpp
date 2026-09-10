@@ -1,48 +1,48 @@
-#include <wiringPi.h>
-#include <softTone.h>
+#include <chrono>
 
 #include "hexapod_hardware/buzzer_driver_node.hpp"
 #include "hexapod_hardware/notes.hpp"
-#include "hexapod_hardware/buzzer_driver_node.hpp"
 
 BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options) 
     : Node("buzzer_driver", options) {
-    // Read GPIO pin from ROS parameter (default pin 0)
-    this->declare_parameter<int>("buzzer_pin", 0);
+    
+    // Raspberry Pi 5 uses gpiochip4 for the main header pins
+    this->declare_parameter<std::string>("buzzer_chip", DEFAULT_GPIO_CHIP_BUZZER);
+    buzzer_chip_name_ = this->get_parameter("buzzer_chip").as_string();
+
+    this->declare_parameter<int>("buzzer_pin", DEFAULT_BUZZER_PIN);
     buzzer_pin_ = this->get_parameter("buzzer_pin").as_int();
 
-    // Initialize WiringPi library for GPIO access
-    if (wiringPiSetup() == -1) {
-        RCLCPP_ERROR(this->get_logger(), "Failed to initialize wiringPi.");
-    }
-    
-    // Configure pin for software PWM tone generation
-    if (softToneCreate(buzzer_pin_) != 0) {
-        RCLCPP_ERROR(this->get_logger(), "Failed to initialize softTone on pin %d", buzzer_pin_);
+    // Initialize libgpiod for GPIO access
+    try {
+        gpio_chip_ = std::make_unique<gpiod::chip>(buzzer_chip_name_);
+        buzzer_line_ = gpio_chip_->get_line(buzzer_pin_);
+        
+        // Configure pin for output
+        buzzer_line_.request({"buzzer_driver", gpiod::line_request::DIRECTION_OUTPUT, 0}, 0);
+    } catch (const std::exception& e) {
+        RCLCPP_ERROR(this->get_logger(), "Failed to initialize gpiod on %s pin %d: %s", 
+                     buzzer_chip_name_.c_str(), buzzer_pin_, e.what());
     }
 
     // Subscribe to buzzer command messages
     command_subscriber_ = this->create_subscription<hexapod_custom_msgs::msg::BuzzerCommand>(
         "play_melody", 10,
-        [this](const hexapod_custom_msgs::msg::BuzzerCommand::SharedPtr msg) {
-            commandCallback(msg);
-        }
-    );
+        [this](const hexapod_custom_msgs::msg::BuzzerCommand::SharedPtr msg) { commandCallback(msg); });
 
-    RCLCPP_INFO(this->get_logger(), "Buzzer driver node initialized on pin %d.", buzzer_pin_);
+    RCLCPP_INFO(this->get_logger(), "Buzzer driver node initialized on %s pin %d.", 
+                buzzer_chip_name_.c_str(), buzzer_pin_);
 
-    // Start the background thread that processes the melody queue
     is_running_ = true;
     play_thread_ = std::thread(&BuzzerDriverNode::playLoop, this);
 
-    // Play a startup melody
-    hexapod_custom_msgs::msg::BuzzerCommand startup_msg;
-    startup_msg.command_id = hexapod_custom_msgs::msg::BuzzerCommand::STARTUP;
-    commandCallback(std::make_shared<hexapod_custom_msgs::msg::BuzzerCommand>(startup_msg));
+    // Play startup melody
+    auto startup_msg = std::make_shared<hexapod_custom_msgs::msg::BuzzerCommand>();
+    startup_msg->command_id = hexapod_custom_msgs::msg::BuzzerCommand::STARTUP;
+    commandCallback(startup_msg);
 }
 
 BuzzerDriverNode::~BuzzerDriverNode() {
-    // Signal the playback thread to exit and wake it if it is waiting
     is_running_ = false;
     queue_cv_.notify_all();
 
@@ -50,11 +50,12 @@ BuzzerDriverNode::~BuzzerDriverNode() {
         play_thread_.join();
     }
     
-    // Turn off the buzzer
-    softToneWrite(buzzer_pin_, 0);
+    if (buzzer_line_) {
+        buzzer_line_.set_value(0);
+        buzzer_line_.release();
+    }
 }
 
-// Push the command ID to the queue and notify the playback thread
 void BuzzerDriverNode::commandCallback(const hexapod_custom_msgs::msg::BuzzerCommand::SharedPtr msg) {
     std::lock_guard<std::mutex> lock(queue_mutex_);
     melody_queue_.push(msg->command_id);
@@ -67,7 +68,6 @@ void BuzzerDriverNode::playLoop() {
         uint8_t current_command = 0;
         {
             std::unique_lock<std::mutex> lock(queue_mutex_);
-            // Wait until there is a command or shutdown is requested
             queue_cv_.wait(lock, [this]() { return !melody_queue_.empty() || !is_running_; });
             if (!is_running_ && melody_queue_.empty()) break;
             
@@ -75,7 +75,6 @@ void BuzzerDriverNode::playLoop() {
             melody_queue_.pop();
         }
 
-        // Play the melody corresponding to the command ID
         switch(current_command) {
             case Cmd::BEEP: playBeep(); break;
             case Cmd::STARTUP: playStartupMelody(); break;
@@ -89,25 +88,40 @@ void BuzzerDriverNode::playLoop() {
     }
 }
 
-// Low-level tone player, plays a frequency for a given duration
+// Low-level tone player with precise timing
 void BuzzerDriverNode::playTone(int freq_hz, int duration_ms) {
+    if (!buzzer_line_) return;
+
     if (freq_hz <= 0) {
-        softToneWrite(buzzer_pin_, 0);
-        delay(duration_ms); // from wiringPi
+        buzzer_line_.set_value(0);
+        std::this_thread::sleep_for(std::chrono::milliseconds(duration_ms));
         return;
     }
-    softToneWrite(buzzer_pin_, freq_hz);
-    delay(duration_ms);
-    softToneWrite(buzzer_pin_, 0);
-    delay(5);   // small gap between notes
+
+    int half_period_us = 1000000 / (freq_hz * 2);
+    auto start_time = std::chrono::steady_clock::now();
+    auto end_time = start_time + std::chrono::milliseconds(duration_ms);
+
+    // Manual software PWM loop using busy-wait for accurate microsecond timing
+    while (std::chrono::steady_clock::now() < end_time && is_running_) {
+        buzzer_line_.set_value(1);
+        auto phase_end = std::chrono::steady_clock::now() + std::chrono::microseconds(half_period_us);
+        while(std::chrono::steady_clock::now() < phase_end) {} // Spin lock pro přesný delay
+
+        buzzer_line_.set_value(0);
+        phase_end = std::chrono::steady_clock::now() + std::chrono::microseconds(half_period_us);
+        while(std::chrono::steady_clock::now() < phase_end) {} // Spin lock pro přesný delay
+    }
+
+    buzzer_line_.set_value(0);
+    std::this_thread::sleep_for(std::chrono::milliseconds(5));
 }
 
 // --- Predefined melody sequences ---
 
-// Two quick beeps
 void BuzzerDriverNode::playBeep() {
     playTone(2000, 80);
-    delay(40);
+    std::this_thread::sleep_for(std::chrono::milliseconds(40));
     playTone(2000, 80);
 }
 

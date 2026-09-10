@@ -15,6 +15,17 @@
 
 #include "hexapod_custom_msgs/msg/teleop_event.hpp"
 
+// Frame protocol: start byte, payload length, 17‑byte payload, checksum
+constexpr uint8_t FRAME_START_BYTE = 0xAA;
+constexpr size_t PAYLOAD_SIZE_BYTES = 17;       // 8 analog (16‑bit) + 1 button byte
+constexpr size_t TOTAL_FRAME_SIZE = 20;         // start + len + payload + checksum
+
+// Default parameters
+constexpr const char* DEFAULT_SERIAL_PORT = "/dev/rfcomm0";
+constexpr int DEFAULT_BAUD_RATE = 115200;
+constexpr float DEFAULT_JOYSTICK_CENTER = 512.0f;
+constexpr float DEFAULT_JOYSTICK_DEADZONE = 20.0f;
+
 
 // Reads a custom serial protocol from a Bluetooth remote control device,
 // decodes joystick and potentiometer data,

@@ -1,6 +1,6 @@
 #include <rclcpp/rclcpp.hpp>
 
-#include "bluetooth_teleop_node/bluetooth_teleop_node.hpp"
+#include "hexapod_teleop/bluetooth_teleop_node.hpp"
 
 int main(int argc, char** argv) {
     rclcpp::init(argc, argv);

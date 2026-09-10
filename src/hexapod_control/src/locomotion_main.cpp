@@ -1,5 +1,4 @@
 #include <rclcpp/rclcpp.hpp>
-#include <memory>
 #include "hexapod_control/hexapod_locomotion_node.hpp"
 
 int main(int argc, char **argv) {

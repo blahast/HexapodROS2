@@ -3,7 +3,6 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/float32_multi_array.hpp>
-#include <std_msgs/msg/u_int8.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 
@@ -11,6 +10,7 @@
 #include "hexapod_custom_msgs/msg/locomotion_state.hpp"
 #include "hexapod_custom_msgs/msg/buzzer_command.hpp"
 #include "hexapod_custom_msgs/msg/locomotion_command.hpp"
+#include "hexapod_custom_msgs/msg/gait_command.hpp"
 
 
 // Central decision making node, state machine, translates teleop events into locomotion commands,
@@ -35,7 +35,7 @@ private:
     // Publishers to the locomotion node and buzzer node
     rclcpp::Publisher<hexapod_custom_msgs::msg::BuzzerCommand>::SharedPtr buzzer_pub_;
     rclcpp::Publisher<hexapod_custom_msgs::msg::LocomotionCommand>::SharedPtr locomotion_cmd_pub_;
-    rclcpp::Publisher<std_msgs::msg::UInt8>::SharedPtr loc_gait_pub_;
+    rclcpp::Publisher<hexapod_custom_msgs::msg::GaitCommand>::SharedPtr loc_gait_pub_;
     
     // Publishers for motion commands (forwarded from teleop)
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr loc_vel_pub_;
@@ -57,6 +57,7 @@ private:
     void sendGaitCommand(uint8_t gait_id);
     void emergencyStop();
     const char* stateToString(State state);
+    const char* gaitToString(uint8_t gait_id);
 };
 
 #endif // HEXAPOD_BRAIN_NODE_HPP

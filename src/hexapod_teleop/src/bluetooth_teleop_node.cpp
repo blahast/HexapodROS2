@@ -6,23 +6,16 @@
 #include <chrono>
 #include <cerrno>
 
-#include "bluetooth_teleop_node/bluetooth_teleop_node.hpp"
-
-// Frame protocol: start byte, payload length, 17‑byte payload, checksum
-namespace {
-    constexpr uint8_t FRAME_START_BYTE = 0xAA;
-    constexpr size_t PAYLOAD_SIZE_BYTES = 17;       // 8 analog (16‑bit) + 1 button byte
-    constexpr size_t TOTAL_FRAME_SIZE = 20;         // start + len + payload + checksum
-}
+#include "hexapod_teleop/bluetooth_teleop_node.hpp"
 
 BluetoothTeleopNode::BluetoothTeleopNode(const rclcpp::NodeOptions & options) 
     : Node("bluetooth_teleop", options) {
 
     // ROS parameters for port and joystick calibration
-    this->declare_parameter<std::string>("port_name", "/dev/rfcomm0");
-    this->declare_parameter<int>("baud_rate", 115200);
-    this->declare_parameter<float>("joy_center", 512.0f);
-    this->declare_parameter<float>("joy_deadzone", 30.0f);
+    this->declare_parameter<std::string>("port_name", DEFAULT_SERIAL_PORT);
+    this->declare_parameter<int>("baud_rate", DEFAULT_BAUD_RATE);
+    this->declare_parameter<float>("joy_center", DEFAULT_JOYSTICK_CENTER);
+    this->declare_parameter<float>("joy_deadzone", DEFAULT_JOYSTICK_DEADZONE);
 
     port_name_ = this->get_parameter("port_name").as_string();
     baud_rate_ = this->get_parameter("baud_rate").as_int();

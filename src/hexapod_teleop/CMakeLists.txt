@@ -12,34 +12,53 @@ find_package(std_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(hexapod_custom_msgs REQUIRED)
 
+# --- BLUETOOTH NODE ---
 add_library(bluetooth_teleop_node SHARED
   src/bluetooth_teleop_node.cpp
 )
-
 target_include_directories(bluetooth_teleop_node
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
-
 ament_target_dependencies(bluetooth_teleop_node rclcpp geometry_msgs std_msgs tf2 hexapod_custom_msgs)
 
+# --- KEYBOARD NODE ---
+add_library(keyboard_teleop_node SHARED
+  src/keyboard_teleop_node.cpp
+)
+target_include_directories(keyboard_teleop_node
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(keyboard_teleop_node rclcpp geometry_msgs std_msgs tf2 hexapod_custom_msgs)
+
 ament_export_include_directories(include)
-ament_export_libraries(bluetooth_teleop_node)
+ament_export_libraries(bluetooth_teleop_node keyboard_teleop_node)
 ament_export_dependencies(rclcpp geometry_msgs std_msgs tf2 hexapod_custom_msgs)
 
-add_executable(bluetooth_teleop_node_standalone src/main.cpp)
 
+# --- STANDALONE EXECUTABLES ---
+add_executable(bluetooth_teleop_node_standalone src/bluetooth_main.cpp)
 target_link_libraries(bluetooth_teleop_node_standalone bluetooth_teleop_node)
 ament_target_dependencies(bluetooth_teleop_node_standalone rclcpp hexapod_custom_msgs)
 
-install(TARGETS bluetooth_teleop_node
+add_executable(keyboard_teleop_node_standalone src/keyboard_main.cpp)
+target_link_libraries(keyboard_teleop_node_standalone keyboard_teleop_node)
+ament_target_dependencies(keyboard_teleop_node_standalone rclcpp hexapod_custom_msgs)
+
+install(TARGETS 
+  bluetooth_teleop_node 
+  keyboard_teleop_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
-install(TARGETS bluetooth_teleop_node_standalone
+install(TARGETS
+  bluetooth_teleop_node_standalone
+  keyboard_teleop_node_standalone
   DESTINATION lib/${PROJECT_NAME}
 )
 
