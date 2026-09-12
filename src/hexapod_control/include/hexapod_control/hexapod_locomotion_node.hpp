@@ -28,8 +28,8 @@ constexpr double ALPHA0 =           30.0 * M_PI / 180.0;   // First leg angular 
 // Default leg positions in body frame (mm)
 constexpr double DEFAULT_DISTANCE = 200.0;
 constexpr double DEFAULT_HEIGHT =   -80.0;
-constexpr double INITIAL_DISTANCE = 172.0;
-constexpr double INITIAL_HEIGHT =   -23.0;
+constexpr double INITIAL_DISTANCE = 169.0;
+constexpr double INITIAL_HEIGHT =   -25.0;
 constexpr double GROUND_HEIGHT =    -28.0;
 
 // Input mapping limits from teleop range [-1, 1]
@@ -55,7 +55,11 @@ constexpr int JOINTS_PER_LEG = 3;
 constexpr double DEFAULT_LOOP_RATE_HZ = 50.0;   // Hz
 
 constexpr double PARAMETER_SMOOTHING_TC = 0.3;  // s
-constexpr double GAIT_SMOOTHING_TC = 0.6;       // s
+constexpr double GAIT_SMOOTHING_TC = 1.0;       // s
+
+constexpr double STOPPING_DISTANCE_DEADZONE = 10.0;  // mm
+constexpr double STOPPING_VELOCITY_DEADZONE = 1.0;  // mm
+constexpr double STOPPING_OMEGA_DEADZONE = 0.2;  // mm
 
 struct Vector3 { double x, y, z; };
 struct Vec2 { double x, y; };
@@ -79,41 +83,41 @@ struct GaitParams {
 // Min angle, max angle, inverted, angle offset
 inline constexpr ServoConfig servo_config[NUM_OF_LEGS][JOINTS_PER_LEG] = {
     // Leg 0 - L1
-    {{45.0, 145.0, false, 90.0},    //L11
-    {-15.0, 205.0, true, 90.0},     //L12
-    {38.0, 200.0, true, 0.0}},      //L13
+    {{35.0, 145.0, false, 90.0},    //L11
+    {-20.0, 194.0, true, 90.0},     //L12
+    {37.0, 197.0, true, 0.0}},      //L13
 
     // Leg 1 - L2
     {{35.0, 145.0, false, 90.0},    //L21
-    {-15.0, 205.0, true, 90.0},     //L22
-    {38.0, 200.0, true, 0.0}},      //L23
+    {-18.0, 198.0, true, 90.0},     //L22
+    {35.0, 191.0, true, 0.0}},      //L23
 
     // Leg 2 - L3
-    {{35.0, 135.0, false, 90.0},    //L31
-    {-15.0, 205.0, true, 90.0},     //L32
-    {38.0, 200.0, true, 0.0}},      //L33
+    {{35.0, 140.0, false, 90.0},    //L31
+    {-18.0, 197.0, true, 90.0},     //L32
+    {35.0, 201.0, true, 0.0}},      //L33
 
     // Leg 3 - R3 
-    {{45.0, 145.0, false, 90.0},    //R31
-    {-15.0, 205.0, false, 90.0},    //R32
-    {38.0, 200.0, false, 0.0}},     //R33
+    {{40.0, 145.0, false, 90.0},    //R31
+    {-15.0, 200.0, false, 90.0},    //R32
+    {-16.0, 144.0, false, 0.0}},     //R33
 
     // Leg 4 - R2
     {{35.0, 145.0, false, 90.0},    //R21
-    {-15.0, 205.0, false, 90.0},    //R22
-    {38.0, 200.0, false, 0.0}},     //R23
+    {-21.0, 197.0, false, 90.0},    //R22
+    {-15.0, 144.0, false, 0.0}},     //R23
 
     // Leg 5 - R1 
     {{35.0, 135.0, false, 90.0},    //R11
-    {-15.0, 205.0, false, 90.0},    //R12
-    {38.0, 200.0, false, 0.0}}      //R13
+    {-17.0, 199.0, false, 90.0},    //R12
+    {-24.0, 145.0, false, 0.0}}      //R13
 };
 
 // Predefined gait patterns: phase offsets, beta, max_speed, max_turning_speed
 inline constexpr GaitParams gaits[] = {
-    {{0.0, 0.5, 0.0, 0.5, 0.0, 0.5}, 0.53, 80.0, 0.6},                          // TRIPOD — 3+3 legs
-    {{0.0, 1.0/3.0, 2.0/3.0, 0.0, 1.0/3.0, 2.0/3.0}, 2.0/3.0, 60.0, 0.4},       // TETRAPOD — three phases with pairs (0,3) (1,4) (2,5)
-    {{0.0, 2.0/6.0, 4.0/6.0, 1.0/6.0, 3.0/6.0, 5.0/6.0}, 5.0/6.0, 40.0, 0.35}   // RIPPLE — one leg at a time
+    {{0.0, 0.5, 0.0, 0.5, 0.0, 0.5}, 0.53, 80.0, 0.5},                          // TRIPOD — 3+3 legs
+    {{0.0, 1.0/3.0, 2.0/3.0, 0.0, 1.0/3.0, 2.0/3.0}, 2.0/3.0, 60.0, 0.3},       // TETRAPOD — three phases with pairs (0,3) (1,4) (2,5)
+    {{0.0, 2.0/6.0, 4.0/6.0, 1.0/6.0, 3.0/6.0, 5.0/6.0}, 5.0/6.0, 40.0, 0.3}   // RIPPLE — one leg at a time
 };
 
 // Animation keyframe: leg target positions
@@ -169,7 +173,6 @@ private:
     double phase_base_ = 0.0;
     bool is_walking_ = false;
     bool stopping_ = false;
-    bool was_stopping_ = false;
 
     // Leg geometry and state
     Vector3 leg_anchor_[NUM_OF_LEGS];           // Coxa pivot points in body frame
@@ -177,7 +180,6 @@ private:
     Vector3 default_leg_pos_[NUM_OF_LEGS];      // Default standing positions
     Vector3 leg_pos_[NUM_OF_LEGS];              // Current target positions
     double target_angles_rad_[NUM_OF_LEGS][JOINTS_PER_LEG];
-    int stopping_swings_[NUM_OF_LEGS] = {0};
 
     // Animation state
     std::vector<AnimKeyframe> anim_sequence_;
@@ -229,7 +231,7 @@ private:
 
     // Gait and kinematics helpers
     void generateStepPoint(int leg, double phase, double dt, double beta, double T, 
-                           double omega, double vx, double vy, double h, double swing_h, bool stopping);
+                           double omega, double vx, double vy, double h, double swing_h);
     void rotateNegRPYAndTranslate(const Vector3& p, const Vector3& off_xyz, const Vector3& off_rpy, 
                                   double &x_ee, double &y_ee, double &z_ee);
     void inverseKinematics(const Vector3& off_xyz, const Vector3& off_rpy);

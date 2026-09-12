@@ -3,8 +3,7 @@
 #include "hexapod_hardware/buzzer_driver_node.hpp"
 #include "hexapod_hardware/notes.hpp"
 
-BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options) 
-    : Node("buzzer_driver", options) {
+BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options) : Node("buzzer_driver", options) {
     
     // Raspberry Pi 5 uses gpiochip4 for the main header pins
     this->declare_parameter<std::string>("buzzer_chip", DEFAULT_GPIO_CHIP_BUZZER);

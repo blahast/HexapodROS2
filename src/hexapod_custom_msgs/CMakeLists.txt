@@ -14,6 +14,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/LocomotionState.msg"
   "msg/LocomotionCommand.msg"
   "msg/GaitCommand.msg"
+  "msg/SwitchEvent.msg"
 )
 
 ament_package()

@@ -10,7 +10,7 @@ KeyboardTeleopNode::KeyboardTeleopNode(const rclcpp::NodeOptions & options)
     this->declare_parameter("loop_rate_hz", DEFAULT_LOOP_RATE_HZ);
     double loop_rate = this->get_parameter("loop_rate_hz").as_double();
 
-    auto best_effort_qos = rclcpp::QoS(10).best_effort();
+    auto best_effort_qos = rclcpp::QoS(1).best_effort();
     auto reliable_qos = rclcpp::QoS(10).reliable();
 
     velocity_publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", best_effort_qos);
@@ -21,7 +21,7 @@ KeyboardTeleopNode::KeyboardTeleopNode(const rclcpp::NodeOptions & options)
     is_running_ = true;
     keyboard_thread_ = std::thread(&KeyboardTeleopNode::keyboardLoop, this);
     
-    RCLCPP_INFO(this->get_logger(), "Keyboard teleop started. (%.1f Hz) Make sure THIS terminal is focused.", loop_rate);
+    RCLCPP_INFO(this->get_logger(), "Keyboard teleop started. (%.1f Hz)", loop_rate);
 }
 
 KeyboardTeleopNode::~KeyboardTeleopNode() {

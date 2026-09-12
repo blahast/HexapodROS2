@@ -26,7 +26,7 @@ BluetoothTeleopNode::BluetoothTeleopNode(const rclcpp::NodeOptions & options)
     potentiometer_denominator_ = (joystick_center_value_ * 2.0f) - 1.0f;
 
     // Reliable QoS for commands and state feedback, best effort for high frequency motion data
-    auto best_effort_qos = rclcpp::QoS(10).best_effort();
+    auto best_effort_qos = rclcpp::QoS(1).best_effort();
     auto reliable_qos = rclcpp::QoS(10).reliable();
 
     // Publishers for teleop output

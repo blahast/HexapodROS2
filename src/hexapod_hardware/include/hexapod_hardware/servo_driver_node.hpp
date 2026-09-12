@@ -12,11 +12,6 @@ constexpr int PCA_ADDR_R = 0x40;
 constexpr int PCA_ADDR_L = 0x41;
 constexpr int PRESCALE_CONST = 121;
 
-// Defaults for Raspberry Pi 5
-constexpr const char* DEFAULT_GPIO_CHIP_SERVO = "gpiochip4";
-constexpr int DEFAULT_OE_PIN = 4; // Output enable for servo power
-constexpr const char* DEFAULT_I2C_BUS = "/dev/i2c-1";
-
 struct ServoHw {
     int addr;
     int channel;
@@ -52,8 +47,13 @@ inline constexpr float kCalAnglesDeg[5] = {0.f, 45.f, 90.f, 135.f, 180.f};
 // Receives hardware angles and drives 18 servos via two PCA9685
 class ServoDriverNode : public rclcpp::Node {
 public:
+    // Defaults for Raspberry Pi 5
+    static constexpr const char* DEFAULT_GPIO_CHIP_SERVO = "gpiochip4";
+    static constexpr int DEFAULT_OE_PIN = 4; // Output enable for servo power
+    static constexpr const char* DEFAULT_I2C_BUS = "/dev/i2c-1";
+
     explicit ServoDriverNode(const rclcpp::NodeOptions &options = rclcpp::NodeOptions());
-    virtual ~ServoDriverNode();
+    ~ServoDriverNode() override;
 
 private:
     int i2c_fd_ = -1;

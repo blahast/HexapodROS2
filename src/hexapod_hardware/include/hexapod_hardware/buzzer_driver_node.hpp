@@ -15,13 +15,13 @@
 
 #include "hexapod_custom_msgs/msg/buzzer_command.hpp"
 
-constexpr const char* DEFAULT_GPIO_CHIP_BUZZER = "gpiochip4";
-constexpr int DEFAULT_BUZZER_PIN = 17;
-
 class BuzzerDriverNode : public rclcpp::Node {
 public:
+    static constexpr const char* DEFAULT_GPIO_CHIP_BUZZER = "gpiochip4";
+    static constexpr int DEFAULT_BUZZER_PIN = 17;
+
     explicit BuzzerDriverNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
-    ~BuzzerDriverNode();
+    ~BuzzerDriverNode() override;
 
 private:
     // Subscriber for incoming buzzer commands

@@ -5,7 +5,7 @@ HexapodBrainNode::HexapodBrainNode(const rclcpp::NodeOptions & options)
     
     // Reliable QoS for commands and state feedback, best effort for high frequency motion data
     auto reliable_qos = rclcpp::QoS(10).reliable();
-    auto best_effort_qos = rclcpp::QoS(10).best_effort();
+    auto best_effort_qos = rclcpp::QoS(1).best_effort();
 
     // Publishers for buzzer and locomotion commands
     buzzer_pub_ = this->create_publisher<hexapod_custom_msgs::msg::BuzzerCommand>("play_melody", reliable_qos);

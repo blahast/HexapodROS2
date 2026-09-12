@@ -46,7 +46,7 @@ HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options)
     loop_period_s_ = 1.0 / loop_rate_hz_;
 
     auto reliable_qos = rclcpp::QoS(10).reliable();
-    auto best_effort_qos = rclcpp::QoS(10).best_effort();
+    auto best_effort_qos = rclcpp::QoS(1).best_effort();
 
     status_pub_ = this->create_publisher<hexapod_custom_msgs::msg::LocomotionState>("locomotion_status", reliable_qos);
     joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states", best_effort_qos);
@@ -78,7 +78,6 @@ HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options)
         leg_anchor_[leg] = {BASE_RADIUS * std::cos(leg_alpha_[leg]), BASE_RADIUS * std::sin(leg_alpha_[leg]), 0.0};
         default_leg_pos_[leg] = {DEFAULT_DISTANCE * std::cos(leg_alpha_[leg]), DEFAULT_DISTANCE * std::sin(leg_alpha_[leg]), DEFAULT_HEIGHT};
         leg_pos_[leg] = {INITIAL_DISTANCE * std::cos(leg_alpha_[leg]), INITIAL_DISTANCE * std::sin(leg_alpha_[leg]), INITIAL_HEIGHT};
-        stopping_swings_[leg] = 0;
     }
 
     // Start with tripod gait
@@ -270,45 +269,60 @@ void HexapodLocomotionNode::locomotionLoopStep() {
         bool want_to_walk = (std::abs(tvx) > 0.01 || std::abs(tvy) > 0.01 || std::abs(tom) > 0.01);
         
         // Handle walking state transitions
-        if (want_to_walk && !is_walking_) {
-            is_walking_ = true;
-            stopping_ = false;
-            phase_base_ = 0.0;
-            for (int l = 0; l < NUM_OF_LEGS; ++l) {
-                stopping_swings_[l] = 0;
-                swing_state_[l] = LegSwingState{};
+        if (want_to_walk) {
+            if (!is_walking_) {
+                is_walking_ = true;
+                phase_base_ = 0.0;
+                for (int l = 0; l < NUM_OF_LEGS; ++l) {
+                    swing_state_[l] = LegSwingState{};
+                }
+                publishState(State::WALKING);
             }
-            publishState(State::WALKING);
-        } else if (!want_to_walk && is_walking_) {
+            stopping_ = false;
+        } else if (is_walking_) {
             stopping_ = true;
-        }
-
-        if (was_stopping_ && !stopping_) {
-            for (int l = 0; l < NUM_OF_LEGS; ++l) stopping_swings_[l] = 0;
         }
 
         if (is_walking_) {
             phase_base_ = wrap01(phase_base_ + current_freq_ * loop_period_s_);
             double T = (current_freq_ > 1e-6) ? (1.0 / current_freq_) : 1e9;
-            int stopping_legs = 0;
+            int legs_home = 0;
 
             for (int l = 0; l < NUM_OF_LEGS; ++l) {
                 double phase = wrap01(phase_base_ + current_phase_offsets_[l]);
-                if (!stopping_ || stopping_swings_[l] < 2) {
+                bool leg_at_home = false;
+
+                // Check, if leg reached default position 
+                if (stopping_) {
+                    double dx = leg_pos_[l].x - default_leg_pos_[l].x;
+                    double dy = leg_pos_[l].y - default_leg_pos_[l].y;
+                    double dz = leg_pos_[l].z - DEFAULT_HEIGHT;
+                    double dist = std::hypot(dx, dy);
+
+                    // Leg reached default position, if it is on the ground and close do default position and velocity is almost zero
+                    if (dist < 5.0 && std::abs(dz) < 1.0 && 
+                        std::abs(current_vx_) < 1.0 && std::abs(current_vy_) < 1.0 && std::abs(current_omega_) < 0.02) 
+                    {
+                        leg_at_home = true;
+                    }
+                }
+
+                if (!leg_at_home) {
+                    // Leg has not reached default position, continue walking
                     generateStepPoint(l, phase, loop_period_s_, current_beta_, T, 
                                       current_omega_, current_vx_, current_vy_, 
-                                      DEFAULT_HEIGHT, current_swing_h_, stopping_);
+                                      DEFAULT_HEIGHT, current_swing_h_);
+                } else {
+                    legs_home++;
                 }
-                if (stopping_ && stopping_swings_[l] >= 2) stopping_legs++;
             }
 
-            if (stopping_ && stopping_legs == NUM_OF_LEGS) {
+            // All the legs reached default position
+            if (stopping_ && legs_home == NUM_OF_LEGS) {
                 is_walking_ = false;
                 publishState(State::STANDING);
             }
-        } 
-        
-        was_stopping_ = stopping_;
+        }
         
         inverseKinematics({current_off_x_, current_off_y_, current_off_z_}, {current_roll_, current_pitch_, current_yaw_});
         publishAngles();
@@ -339,7 +353,7 @@ Vec2 stance_map_step(Vec2 p, double dt, double vx, double vy, double omega) {
 
 // Generate next step point for a given leg
 void HexapodLocomotionNode::generateStepPoint(int leg, double phase, double dt, double beta, double T, 
-                       double omega, double vx, double vy, double h, double swing_h, bool stopping) 
+                       double omega, double vx, double vy, double h, double swing_h) 
 {
     double cur_x = leg_pos_[leg].x;
     double cur_y = leg_pos_[leg].y;
@@ -354,7 +368,6 @@ void HexapodLocomotionNode::generateStepPoint(int leg, double phase, double dt, 
     } else if (now_stance && sw.in_swing) {
         sw.in_swing = false; sw.first_tick = false;
         sw.swings_done++;
-        if (stopping) { stopping_swings_[leg]++; return; }
     }
 
     // Stance phase
@@ -540,12 +553,12 @@ void HexapodLocomotionNode::buildSitDownAnimation() {
 }
 
 void HexapodLocomotionNode::buildWaveAnimation() {
-    const double wave_x_distance = 200.0;
+    const double wave_x_distance = 170.0;
     const double wave_y_out = -120.0;
-    const double wave_y_in = -60.0;
-    const double wave_z_up = 100.0;
+    const double wave_y_in = -80.0;
+    const double wave_z_up = 160.0;
     const double wave_z_down = 60.0;
-    const double rapid_duration = 0.25;
+    const double rapid_duration = 0.35;
 
     std::vector<AnimKeyframe> seq(6);
     

@@ -33,7 +33,7 @@
 class KeyboardTeleopNode : public rclcpp::Node {
 public:
     explicit KeyboardTeleopNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
-    ~KeyboardTeleopNode();
+    ~KeyboardTeleopNode() override;
 
 private:
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr velocity_publisher_;

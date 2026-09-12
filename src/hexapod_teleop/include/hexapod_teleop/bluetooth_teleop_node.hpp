@@ -20,21 +20,20 @@ constexpr uint8_t FRAME_START_BYTE = 0xAA;
 constexpr size_t PAYLOAD_SIZE_BYTES = 17;       // 8 analog (16‑bit) + 1 button byte
 constexpr size_t TOTAL_FRAME_SIZE = 20;         // start + len + payload + checksum
 
-// Default parameters
-constexpr const char* DEFAULT_SERIAL_PORT = "/dev/rfcomm0";
-constexpr int DEFAULT_BAUD_RATE = 115200;
-constexpr float DEFAULT_JOYSTICK_CENTER = 512.0f;
-constexpr float DEFAULT_JOYSTICK_DEADZONE = 20.0f;
-
-
 // Reads a custom serial protocol from a Bluetooth remote control device,
 // decodes joystick and potentiometer data,
 // publishes ROS messages for hexapod_brain_node.
 
 class BluetoothTeleopNode : public rclcpp::Node {
 public:
+    // Default parameters
+    static constexpr const char* DEFAULT_SERIAL_PORT = "/dev/rfcomm0";
+    static constexpr int DEFAULT_BAUD_RATE = 115200;
+    static constexpr float DEFAULT_JOYSTICK_CENTER = 512.0f;
+    static constexpr float DEFAULT_JOYSTICK_DEADZONE = 20.0f;
+
     explicit BluetoothTeleopNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
-    ~BluetoothTeleopNode();
+    ~BluetoothTeleopNode() override;
 
 private:
     // Publishers for teleop output

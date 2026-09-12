@@ -105,7 +105,6 @@ uint8_t ServoDriverNode::i2c_read_reg8(int addr, uint8_t reg) {
 
 // Initialize PCA9685
 bool ServoDriverNode::pca9685_init(int addr) {
-    // Enable auto-increment, sleep
     if (!i2c_write_reg8(addr, 0x01, 0x04 | 0x08)) return false;
     uint8_t mode1 = i2c_read_reg8(addr, 0x00);
     // Set sleep bit to allow prescaler write
