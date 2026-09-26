@@ -8,8 +8,7 @@
 
 #include "hexapod_teleop/bluetooth_teleop_node.hpp"
 
-BluetoothTeleopNode::BluetoothTeleopNode(const rclcpp::NodeOptions & options) 
-    : Node("bluetooth_teleop", options) {
+BluetoothTeleopNode::BluetoothTeleopNode(const rclcpp::NodeOptions & options) : Node("bluetooth_teleop", options) {
 
     // ROS parameters for port and joystick calibration
     this->declare_parameter<std::string>("port_name", DEFAULT_SERIAL_PORT);
@@ -324,8 +323,7 @@ void BluetoothTeleopNode::serialReadLoop() {
                     // Non fatal read error, retry
                     if (errno == EAGAIN || errno == EWOULDBLOCK || errno == EINTR) continue;
                     
-                    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, 
-                        "Read error on serial port: %s", strerror(errno));
+                    RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, "Read error on serial port: %s", strerror(errno));
                     break;
                 }
             } 

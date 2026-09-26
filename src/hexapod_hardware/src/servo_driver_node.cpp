@@ -7,8 +7,7 @@
 
 #include "hexapod_hardware/servo_driver_node.hpp"
 
-ServoDriverNode::ServoDriverNode(const rclcpp::NodeOptions &options) 
-    : Node("servo_driver_node", options) 
+ServoDriverNode::ServoDriverNode(const rclcpp::NodeOptions &options) : Node("servo_driver_node", options) 
 {
     // Initialise PWM cache to -1
     for(int l=0; l<6; ++l)

@@ -4,61 +4,83 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <string>
+#include <vector>
+#include <array>
+#include <cstdint>
 
-// BNO055 protocol constants
-constexpr uint8_t BNO055_START_BYTE     = 0xAA;  // host -> sensor
-constexpr uint8_t BNO055_RESPONSE_BYTE  = 0xBB;  // sensor -> host
-constexpr uint8_t BNO055_WRITE_OP       = 0x00;  // write operation
-constexpr uint8_t BNO055_READ_OP        = 0x01;  // read operation
+// SHTP (Sensor Hub Transport Protocol)
+constexpr uint8_t SHTP_START_FLAG  = 0x7E;
+constexpr uint8_t SHTP_ESCAPE_CHAR = 0x7D;
+constexpr uint8_t SHTP_ESCAPE_XOR  = 0x20;
+constexpr uint8_t SHTP_PROTOCOL_ID = 0x01;
 
-// Register addresses
-constexpr uint8_t BNO055_OPR_MODE_ADDR                = 0x3D;
-constexpr uint8_t BNO055_QUATERNION_DATA_W_LSB_ADDR   = 0x20;
+constexpr uint8_t SHTP_CHANNEL_COMMAND       = 0x00;
+constexpr uint8_t SHTP_CHANNEL_EXECUTABLE    = 0x01;
+constexpr uint8_t SHTP_CHANNEL_CONTROL       = 0x02;
+constexpr uint8_t SHTP_CHANNEL_REPORTS       = 0x03;
+constexpr uint8_t SHTP_CHANNEL_WAKE_REPORTS  = 0x04;
 
-// Operation modes
-constexpr uint8_t OPERATION_MODE_CONFIG = 0x00;
-constexpr uint8_t OPERATION_MODE_NDOF   = 0x0C;
+constexpr uint8_t SH2_ROTATION_VECTOR_REPORT_ID = 0x05;
+constexpr uint8_t SHTP_EXEC_RESET               = 0x01;
+constexpr uint8_t SH2_SET_FEATURE_CMD           = 0xFD;
 
-// Frame sizes
-constexpr size_t BNO055_WRITE_CMD_SIZE       = 5;   // start + op + addr + len + data
-constexpr size_t BNO055_READ_CMD_SIZE        = 4;   // start + op + addr + len
-constexpr size_t BNO055_RESPONSE_SIZE        = 10;  // header + 8 bytes quaternion
+// Frame / buffer sizes
+constexpr size_t SHTP_HEADER_SIZE         = 4;    // length(2) + channel(1) + seq(1)
+constexpr size_t SHTP_MAX_PACKET_SIZE     = 128;  // payload + header
+constexpr size_t SHTP_MAX_RAW_SIZE        = 512;  // escaped data + margin
+constexpr size_t SHTP_MAX_RX_BUFFER       = 4096; // safety limit
+constexpr size_t SHTP_RX_CHUNK_SIZE       = 1024; // single read() size
+constexpr size_t SHTP_RX_RESERVE          = 2048; // initial reserve for rx_buffer_
+constexpr size_t SHTP_TX_OVERHEAD_BYTES   = 3;    // start flag + protocol ID + end flag
+constexpr size_t SHTP_FRAME_MIN_SIZE      = 3;    // 0x7E + protocol ID + 0x7E
+constexpr size_t SHTP_FEATURE_CARGO_SIZE  = 17;   // Set Feature command payload
+constexpr int    SHTP_MAX_PACKETS_PER_TICK = 64;  // flood guard per timer tick
 
-// Payload length
-constexpr uint8_t BNO055_QUATERNION_DATA_LENGTH = 0x08;
+// Timing constants
+constexpr int IMU_PUBLISH_INTERVAL_MS = 10;      // 100 Hz timer
+constexpr int SHTP_RESET_DELAY_MS     = 300;
+constexpr int SHTP_BYTE_DELAY_US      = 100;     // min gap between bytes on UART
+constexpr int SHTP_REPORT_INTERVAL_US = 10000;   // 100 Hz report period
 
-// Timing and behaviour constants
-constexpr int IMU_PUBLISH_INTERVAL_MS        = 10;      // timer period
-constexpr int BNO055_MODE_SWITCH_DELAY_US    = 25000;   // wait after entering CONFIG
-constexpr int BNO055_MODE_SWITCH_DELAY_NDOF_US = 30000; // wait after entering NDOF
-constexpr int BNO055_READ_TIMEOUT_US         = 2000;    // per‑attempt select() timeout
-constexpr int BNO055_MAX_READ_ATTEMPTS       = 5;       // partial‑read retry budget
-
-// Quaternion output scale (BNO055 reports int16 = q * 2^14)
-constexpr double BNO055_QUATERNION_SCALE = 16384.0;
-
-// Error handling
-constexpr int kMaxConsecutiveFailures = 20;   // triggers port re‑init
-constexpr int LOG_THROTTLE_MS         = 2000; // throttle for warning logs
+// Quaternion reported as int16 fixed point with scale 2^14
+constexpr double SH2_QUATERNION_SCALE    = 16384.0;
+constexpr int    kMaxConsecutiveFailures = 100;   // ~1 s without data → reinit
 
 
-// Reads quaternion data from a BNO055 IMU over a serial port
-
+// Reads quaternion data from a BNO085 IMU over UART using the SHTP
 class ImuNode : public rclcpp::Node {
 public:
     static constexpr const char* DEFAULT_PORT_NAME = "/dev/ttyAMA0";
-    explicit ImuNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
+
+    explicit ImuNode(const rclcpp::NodeOptions& options = rclcpp::NodeOptions());
     ~ImuNode() override;
 
 private:
     void timer_callback();
     bool init_serial(const std::string& port_name);
-    bool set_ndof_mode();
+    bool init_sensor();
+
+    // SHTP framing / deframing
+    bool send_shtp_packet(uint8_t channel, const uint8_t* payload, size_t payload_len);
+    bool read_shtp_packet(uint8_t& out_channel, uint8_t* out_payload, size_t& out_len);
+    bool process_rx_buffer(uint8_t& out_channel, uint8_t* out_payload, size_t& out_len);
+
+    static size_t escape_bytes(const uint8_t* input, size_t input_len, uint8_t* output, size_t output_max);
+    static size_t unescape_bytes(const uint8_t* input, size_t input_len, uint8_t* output, size_t output_max);
+    static size_t sh2_report_length(uint8_t report_id);
+
+    bool parse_rotation_vector(const uint8_t* cargo, size_t len, sensor_msgs::msg::Imu& msg);
 
     std::string port_name_;
+    int serial_fd_ = -1;
     int consecutive_failures_ = 0;
 
-    int serial_fd_;
+    // SHTP requires an independent sequence number per channel (0–5)
+    std::array<uint8_t, 6> sequence_number_{};
+
+    // Buffer for efficient UART reading
+    std::vector<uint8_t> rx_buffer_;
+
     rclcpp::Publisher<sensor_msgs::msg::Imu>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 };

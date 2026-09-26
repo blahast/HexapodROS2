@@ -38,12 +38,31 @@ inline double smooth_var(double current, double target, double dt, double tc, do
     return alpha * current + (1.0 - alpha) * target;
 }
 
-HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options) 
-    : Node("hexapod_locomotion", options)
+HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options) : Node("hexapod_locomotion", options)
 {
     this->declare_parameter("loop_rate", DEFAULT_LOOP_RATE_HZ);
+    
+    // PID parameters declaration
+    this->declare_parameter("pid_roll_kp", 0.5);
+    this->declare_parameter("pid_roll_ki", 0.0);
+    this->declare_parameter("pid_roll_kd", 0.0);
+    this->declare_parameter("pid_pitch_kp", 0.5);
+    this->declare_parameter("pid_pitch_ki", 0.0);
+    this->declare_parameter("pid_pitch_kd", 0.0);
+
     loop_rate_hz_ = this->get_parameter("loop_rate").as_double();
     loop_period_s_ = 1.0 / loop_rate_hz_;
+
+    // Initialize PID values
+    roll_pid_.kp = this->get_parameter("pid_roll_kp").as_double();
+    roll_pid_.ki = this->get_parameter("pid_roll_ki").as_double();
+    roll_pid_.kd = this->get_parameter("pid_roll_kd").as_double();
+    roll_pid_.output_limit = MAX_ROLL * 1.5; // Allow headroom for compensation
+
+    pitch_pid_.kp = this->get_parameter("pid_pitch_kp").as_double();
+    pitch_pid_.ki = this->get_parameter("pid_pitch_ki").as_double();
+    pitch_pid_.kd = this->get_parameter("pid_pitch_kd").as_double();
+    pitch_pid_.output_limit = MAX_PITCH * 1.5; // Allow headroom for compensation
 
     auto reliable_qos = rclcpp::QoS(10).reliable();
     auto best_effort_qos = rclcpp::QoS(1).best_effort();
@@ -72,12 +91,34 @@ HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options)
         "locomotion/walking_params", best_effort_qos, 
         [this](const std_msgs::msg::Float32MultiArray::SharedPtr msg) { this->paramsCallback(msg); });
 
+    imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
+        "/imu/data", best_effort_qos, 
+        [this](const sensor_msgs::msg::Imu::SharedPtr msg) { this->imuCallback(msg); });
+
+    // Switch events subscription (reliable_qos matches publisher in switch_node)
+    switch_sub_ = this->create_subscription<hexapod_custom_msgs::msg::SwitchEvent>(
+        "switch_events", reliable_qos, 
+        [this](const hexapod_custom_msgs::msg::SwitchEvent::SharedPtr msg) { this->switchCallback(msg); });
+
     // Initialise leg geometry and default positions
     for (int leg = 0; leg < NUM_OF_LEGS; ++leg) {
         leg_alpha_[leg] = ALPHA0 + (M_PI * leg / 3.0);
         leg_anchor_[leg] = {BASE_RADIUS * std::cos(leg_alpha_[leg]), BASE_RADIUS * std::sin(leg_alpha_[leg]), 0.0};
         default_leg_pos_[leg] = {DEFAULT_DISTANCE * std::cos(leg_alpha_[leg]), DEFAULT_DISTANCE * std::sin(leg_alpha_[leg]), DEFAULT_HEIGHT};
         leg_pos_[leg] = {INITIAL_DISTANCE * std::cos(leg_alpha_[leg]), INITIAL_DISTANCE * std::sin(leg_alpha_[leg]), INITIAL_HEIGHT};
+    }
+
+    // Prealocate messages
+    prealloc_js_msg_.name.resize(NUM_OF_LEGS * JOINTS_PER_LEG);
+    prealloc_js_msg_.position.resize(NUM_OF_LEGS * JOINTS_PER_LEG);
+    prealloc_hw_msg_.data.resize(NUM_OF_LEGS * JOINTS_PER_LEG);
+
+    const std::string prefixes[] = {"coxa", "femur", "tibia"};
+    for (int l = 0; l < NUM_OF_LEGS; ++l) {
+        for (int j = 0; j < JOINTS_PER_LEG; ++j) {
+            int idx = l * 3 + j;
+            prealloc_js_msg_.name[idx] = "leg" + std::to_string(l) + "_" + prefixes[j] + "_joint";
+        }
     }
 
     // Start with tripod gait
@@ -94,6 +135,46 @@ HexapodLocomotionNode::HexapodLocomotionNode(const rclcpp::NodeOptions &options)
     publishAngles();
     
     RCLCPP_INFO(this->get_logger(), "Locomotion Node initialized. Timer running at %.1f Hz", loop_rate_hz_);
+}
+
+void HexapodLocomotionNode::switchCallback(const hexapod_custom_msgs::msg::SwitchEvent::SharedPtr msg) {
+    if (msg->leg_index < NUM_OF_LEGS) {
+        leg_contact_[msg->leg_index] = msg->pressed; 
+    }
+}
+
+// IMU Callback - converts quaternion to Euler angles for PID feedback
+void HexapodLocomotionNode::imuCallback(const sensor_msgs::msg::Imu::SharedPtr msg) {
+    tf2::Quaternion q(
+        msg->orientation.x,
+        msg->orientation.y,
+        msg->orientation.z,
+        msg->orientation.w
+    );
+
+    // Ignore invalid zero quaternions
+    if (q.length2() < 1e-6) {
+        return;
+    }
+    q.normalize();
+
+    // Store initial orientation as the level reference frame
+    if (!imu_initialized_) {
+        initial_imu_q_ = q;
+        imu_initialized_ = true;
+        RCLCPP_INFO(this->get_logger(), "IMU reference orientation initialized.");
+    }
+
+    // Compute orientation relative to the initial frame
+    tf2::Quaternion q_rel = initial_imu_q_.inverse() * q;
+    q_rel.normalize();
+
+    tf2::Matrix3x3 m(q_rel);
+    double r, p, y;
+    m.getRPY(r, p, y);
+
+    measured_roll_ = r;
+    measured_pitch_ = p;
 }
 
 void HexapodLocomotionNode::gaitCallback(const hexapod_custom_msgs::msg::GaitCommand::SharedPtr msg) {
@@ -190,7 +271,6 @@ void HexapodLocomotionNode::locomotionLoopStep() {
     }
 
     // Animation handling
-
     if (current_state_ == State::ANIMATING) {
         if (current_anim_frame_ < anim_sequence_.size()) {
             const auto& frame = anim_sequence_[current_anim_frame_];
@@ -231,7 +311,13 @@ void HexapodLocomotionNode::locomotionLoopStep() {
             publishState(state_after_anim_); // Animation finished
         }
         
-        inverseKinematics({current_off_x_, current_off_y_, current_off_z_}, {current_roll_, current_pitch_, current_yaw_});
+        double roll_correction = roll_pid_.compute(current_roll_, measured_roll_, loop_period_s_);
+        double pitch_correction = pitch_pid_.compute(current_pitch_, measured_pitch_, loop_period_s_);
+
+        double final_roll = current_roll_ + roll_correction;
+        double final_pitch = current_pitch_ + pitch_correction;
+
+        inverseKinematics({current_off_x_, current_off_y_, current_off_z_}, {final_roll, final_pitch, current_yaw_});
         publishAngles();
         return; // Skip locomotion
     }
@@ -258,7 +344,6 @@ void HexapodLocomotionNode::locomotionLoopStep() {
         for (int l = 0; l < NUM_OF_LEGS; ++l) {
             double diff = gaits[tgait].phaseOffsets[l] - current_phase_offsets_[l];
 
-            // Correct for shortest circular path [0,1]
             if (diff > 0.5) diff -= 1.0;
             else if (diff < -0.5) diff += 1.0;
             
@@ -275,6 +360,11 @@ void HexapodLocomotionNode::locomotionLoopStep() {
                 phase_base_ = 0.0;
                 for (int l = 0; l < NUM_OF_LEGS; ++l) {
                     swing_state_[l] = LegSwingState{};
+                    current_leg_z_[l] = leg_pos_[l].z; // Synchronize Z height
+                    leg_early_stance_[l] = false;      // Reset early stance flag
+                    leg_late_touchdown_[l] = false;    // Reset late touchdown flag
+                    lost_contact_ticks_[l] = 0;        // Reset contact loss hysteresis counter
+                    leg_vz_[l] = 0.0;                  // Reset vertical velocity tracker
                 }
                 publishState(State::WALKING);
             }
@@ -292,14 +382,12 @@ void HexapodLocomotionNode::locomotionLoopStep() {
                 double phase = wrap01(phase_base_ + current_phase_offsets_[l]);
                 bool leg_at_home = false;
 
-                // Check, if leg reached default position 
                 if (stopping_) {
                     double dx = leg_pos_[l].x - default_leg_pos_[l].x;
                     double dy = leg_pos_[l].y - default_leg_pos_[l].y;
                     double dz = leg_pos_[l].z - DEFAULT_HEIGHT;
                     double dist = std::hypot(dx, dy);
 
-                    // Leg reached default position, if it is on the ground and close do default position and velocity is almost zero
                     if (dist < 5.0 && std::abs(dz) < 1.0 && 
                         std::abs(current_vx_) < 1.0 && std::abs(current_vy_) < 1.0 && std::abs(current_omega_) < 0.02) 
                     {
@@ -308,12 +396,41 @@ void HexapodLocomotionNode::locomotionLoopStep() {
                 }
 
                 if (!leg_at_home) {
-                    // Leg has not reached default position, continue walking
                     generateStepPoint(l, phase, loop_period_s_, current_beta_, T, 
                                       current_omega_, current_vx_, current_vy_, 
                                       DEFAULT_HEIGHT, current_swing_h_);
                 } else {
                     legs_home++;
+                }
+            }
+
+            // Body heigh adaptation
+            double avg_z = 0.0;
+            int contact_count = 0;
+            for (int l = 0; l < NUM_OF_LEGS; ++l) {
+                if (leg_contact_[l]) {
+                    avg_z += current_leg_z_[l];
+                    contact_count++;
+                }
+            }
+
+            if (contact_count > 0) {
+                avg_z /= contact_count;
+                double z_error = DEFAULT_HEIGHT - avg_z;
+                
+                double target_z_velocity = z_error * 1.5;
+                target_z_velocity = std::clamp(target_z_velocity, -Z_ADAPTATION_SPEED, Z_ADAPTATION_SPEED);
+
+                current_z_velocity_ = smooth_var(current_z_velocity_, target_z_velocity, loop_period_s_, 0.1, 0.1);
+
+                double correction = current_z_velocity_ * loop_period_s_;
+
+                for (int l = 0; l < NUM_OF_LEGS; ++l) {
+                    current_leg_z_[l] += correction;
+                    leg_pos_[l].z += correction;
+                    if (swing_state_[l].in_swing) {
+                        swing_state_[l].z_lo += correction;
+                    }
                 }
             }
 
@@ -323,8 +440,14 @@ void HexapodLocomotionNode::locomotionLoopStep() {
                 publishState(State::STANDING);
             }
         }
-        
-        inverseKinematics({current_off_x_, current_off_y_, current_off_z_}, {current_roll_, current_pitch_, current_yaw_});
+
+        double roll_correction = roll_pid_.compute(current_roll_, measured_roll_, loop_period_s_);
+        double pitch_correction = pitch_pid_.compute(current_pitch_, measured_pitch_, loop_period_s_);
+
+        double final_roll = current_roll_ + roll_correction;
+        double final_pitch = current_pitch_ + pitch_correction;
+
+        inverseKinematics({current_off_x_, current_off_y_, current_off_z_}, {final_roll, final_pitch, current_yaw_});
         publishAngles();
     }
 }
@@ -351,57 +474,138 @@ Vec2 stance_map_step(Vec2 p, double dt, double vx, double vy, double omega) {
     return {p.x * c - p.y * s - vx * S + vy * C, p.y * c + p.x * s - vy * S - vx * C};
 }
 
-// Generate next step point for a given leg
+// Generate next step point for a given leg with terrain adaptation, hysteresis, and overshoot compensation
 void HexapodLocomotionNode::generateStepPoint(int leg, double phase, double dt, double beta, double T, 
                        double omega, double vx, double vy, double h, double swing_h) 
 {
     double cur_x = leg_pos_[leg].x;
     double cur_y = leg_pos_[leg].y;
-    bool now_stance = (phase < beta);
-    bool now_swing = !now_stance;
+    bool global_stance = (phase < beta);
+    bool global_swing = !global_stance;
 
     auto &sw = swing_state_[leg];
+    bool contact = leg_contact_[leg];
 
-    // Detect transitions
-    if (now_swing && !sw.in_swing) {
-        sw.in_swing = true; sw.first_tick = true;
-    } else if (now_stance && sw.in_swing) {
-        sw.in_swing = false; sw.first_tick = false;
+    // Phase transition detection
+    if (global_swing && !sw.in_swing) {
+        sw.in_swing = true; 
+        sw.first_tick = true;
+        leg_early_stance_[leg] = false;
+        leg_late_touchdown_[leg] = false;
+        lost_contact_ticks_[leg] = 0;
+    } else if (global_stance && sw.in_swing) {
+        sw.in_swing = false; 
+        sw.first_tick = false;
         sw.swings_done++;
+        leg_early_stance_[leg] = false;
+        lost_contact_ticks_[leg] = 0;
+        
+        // Swing finished without ground contact -> enter late touchdown search
+        if (!contact) {
+            leg_late_touchdown_[leg] = true;
+        }
     }
 
-    // Stance phase
-    if (now_stance) {
-        Vec2 p = stance_map_step({cur_x, cur_y}, dt, vx, vy, omega);
-        leg_pos_[leg].x = p.x;
-        leg_pos_[leg].y = p.y;
-        leg_pos_[leg].z = h;
+    // Transition from late touchdown to normal stance upon ground contact
+    if (leg_late_touchdown_[leg] && contact) {
+        leg_late_touchdown_[leg] = false;
+        lost_contact_ticks_[leg] = 0;
+        
+        // Compensate vertical overshoot caused by switch and loop latency
+        current_leg_z_[leg] += SEEK_SPEED * LATENCY;
+        leg_vz_[leg] = 0.0;
+    }
+
+    bool effective_stance = global_stance || leg_early_stance_[leg];
+
+    // Stance phase handling
+    if (effective_stance) {
+        if (leg_late_touchdown_[leg]) {
+            // Move straight down to find the ground while keeping XY constant
+            current_leg_z_[leg] -= SEEK_SPEED * dt;
+            leg_vz_[leg] = -SEEK_SPEED;
+        } else {
+            // Normal stance XY movement
+            Vec2 p = stance_map_step({cur_x, cur_y}, dt, vx, vy, omega);
+            leg_pos_[leg].x = p.x;
+            leg_pos_[leg].y = p.y;
+
+            if (!contact) {
+                // Increment hysteresis counter when contact is lost during stance
+                lost_contact_ticks_[leg]++;
+                
+                // Start moving downward only after contact is lost for N consecutive ticks
+                if (lost_contact_ticks_[leg] >= CONTACT_LOSS_HYSTERESIS_TICKS) {
+                    current_leg_z_[leg] -= SEEK_SPEED * dt;
+                    leg_vz_[leg] = -SEEK_SPEED;
+                } else {
+                    leg_vz_[leg] = 0.0;
+                }
+            } else {
+                // Contact regained during stance
+                if (lost_contact_ticks_[leg] >= CONTACT_LOSS_HYSTERESIS_TICKS) {
+                    // Apply overshoot compensation if the leg was actively descending
+                    current_leg_z_[leg] += SEEK_SPEED * LATENCY;
+                }
+                lost_contact_ticks_[leg] = 0;
+                leg_vz_[leg] = 0.0;
+            }
+        }
+        leg_pos_[leg].z = current_leg_z_[leg];
         return;
     }
 
-    // Swing phase
+    // Swing phase handling
     double tau = (phase - beta) / (1.0 - beta);
     if (sw.first_tick) {
-        // Capture lift‑off position and pre‑compute touch‑down position
-        sw.x_lo = cur_x; sw.y_lo = cur_y; sw.tau0 = tau;
+        sw.x_lo = cur_x; 
+        sw.y_lo = cur_y; 
+        sw.z_lo = current_leg_z_[leg]; 
+        sw.tau0 = tau;
         double dt_half = 0.5 * T * beta;
         Vec2 TD = stance_map_step({default_leg_pos_[leg].x, default_leg_pos_[leg].y}, -dt_half, vx, vy, omega);
-        sw.x_td = TD.x; sw.y_td = TD.y;
+        sw.x_td = TD.x; 
+        sw.y_td = TD.y;
         sw.first_tick = false;
+        leg_vz_[leg] = 0.0;
     }
 
+    // Early touchdown detection during the descending half of the swing phase
+    if (tau > 0.5 && contact) {
+        leg_early_stance_[leg] = true;
+        lost_contact_ticks_[leg] = 0;
+
+        // Compensate overshoot if the leg was moving downward
+        if (leg_vz_[leg] < 0.0) {
+            current_leg_z_[leg] += (-leg_vz_[leg]) * LATENCY;
+        }
+        leg_vz_[leg] = 0.0;
+
+        // Advance XY using stance kinematics for this tick
+        Vec2 p = stance_map_step({cur_x, cur_y}, dt, vx, vy, omega);
+        leg_pos_[leg].x = p.x;
+        leg_pos_[leg].y = p.y;
+        leg_pos_[leg].z = current_leg_z_[leg];
+        return;
+    }
+
+    // Swing trajectory interpolation
+    double s_abs = smoothstep5(tau);
     double denom = 1.0 - sw.tau0;
     double tau_rel = (denom > 1e-6) ? (tau - sw.tau0) / denom : 1.0;
-    
     double s_rel = smoothstep5(tau_rel);
-    double s_abs = smoothstep5(tau);
-    
-    // XY movement
+
     leg_pos_[leg].x = lerp(sw.x_lo, sw.x_td, s_rel);
     leg_pos_[leg].y = lerp(sw.y_lo, sw.y_td, s_rel);
 
-    // Horizontal movement
-    leg_pos_[leg].z = h + 4.0 * swing_h * s_abs * (1.0 - s_abs);
+    // Compute new Z height and track vertical velocity for potential early touchdown
+    double prev_z = current_leg_z_[leg];
+    double expected_z = lerp(sw.z_lo, h, s_rel);
+    double new_z = expected_z + 4.0 * swing_h * s_abs * (1.0 - s_abs);
+
+    leg_vz_[leg] = (dt > 1e-6) ? ((new_z - prev_z) / dt) : 0.0;
+    leg_pos_[leg].z = new_z;
+    current_leg_z_[leg] = new_z;
 }
 
 // Rotate point by negative RPY and translate
@@ -462,28 +666,27 @@ void HexapodLocomotionNode::inverseKinematics(const Vector3& off_xyz, const Vect
             target_angles_rad_[leg][2] = th_tibia;
         } else {
             // Unreachable position, keep previous angles
-            RCLCPP_WARN(this->get_logger(), "Leg %d target position unreachable (R=%.2f, rho=%.2f)", leg, R, rho);
         }
     }
 }
 
 // Publish joint states (for RViz) and hardware angles (for servo drivers)
 void HexapodLocomotionNode::publishAngles() {
-    sensor_msgs::msg::JointState js_msg;
-    js_msg.header.stamp = this->now();
+    prealloc_js_msg_.header.stamp = this->now();
     
-    std_msgs::msg::Float32MultiArray hw_msg;
-    hw_msg.data.reserve(18);
-
     for (int l = 0; l < NUM_OF_LEGS; ++l) {
-        const std::string prefixes[] = {"coxa", "femur", "tibia"};
         for (int j = 0; j < JOINTS_PER_LEG; ++j) {
-            js_msg.name.push_back("leg" + std::to_string(l) + "_" + prefixes[j] + "_joint");
+            // Linear index
+            int idx = l * 3 + j;
             
-            if (j == 0) js_msg.position.push_back(target_angles_rad_[l][j] * URDF_COXA_SIGN);
-            else if (j == 1) js_msg.position.push_back(target_angles_rad_[l][j] * URDF_FEMUR_SIGN);
-            else js_msg.position.push_back(target_angles_rad_[l][j] * URDF_TIBIA_SIGN);
-            
+            if (j == 0) {
+                prealloc_js_msg_.position[idx] = target_angles_rad_[l][j] * URDF_COXA_SIGN;
+            } else if (j == 1) {
+                prealloc_js_msg_.position[idx] = target_angles_rad_[l][j] * URDF_FEMUR_SIGN;
+            } else {
+                prealloc_js_msg_.position[idx] = target_angles_rad_[l][j] * URDF_TIBIA_SIGN;
+            }
+
             double deg = target_angles_rad_[l][j] * 180.0 / M_PI;
             const auto& cfg = servo_config[l][j];
             double hw_ang = deg + cfg.angle_offset;
@@ -491,23 +694,15 @@ void HexapodLocomotionNode::publishAngles() {
 
             // Check servo limits
             if (hw_ang < cfg.min_angle || hw_ang > cfg.max_angle) {
-                const double exceeded_min = cfg.min_angle - hw_ang; // >0 if below min
-                const double exceeded_max = hw_ang - cfg.max_angle; // >0 if above max
-                const double worst = std::max(exceeded_min, exceeded_max);
-
-                RCLCPP_WARN( this->get_logger(),
-                    "Servo leg%d_%s out of range: %.2f deg (limits [%.2f, %.2f], exceeded by %.2f deg). Clamping.",
-                    l, prefixes[j].c_str(), hw_ang,
-                    cfg.min_angle, cfg.max_angle, worst);
-
                 hw_ang = std::clamp(hw_ang, cfg.min_angle, cfg.max_angle);
             }
 
-            hw_msg.data.push_back(hw_ang);
+            prealloc_hw_msg_.data[idx] = hw_ang;
         }
     }
-    joint_pub_->publish(js_msg);
-    hw_angles_pub_->publish(hw_msg);
+    
+    joint_pub_->publish(prealloc_js_msg_);
+    hw_angles_pub_->publish(prealloc_hw_msg_);
 }
 
 // Animation handling functions

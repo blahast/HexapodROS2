@@ -20,8 +20,7 @@ BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options) : Node("
         // Configure pin for output
         buzzer_line_.request({"buzzer_driver", gpiod::line_request::DIRECTION_OUTPUT, 0}, 0);
     } catch (const std::exception& e) {
-        RCLCPP_ERROR(this->get_logger(), "Failed to initialize gpiod on %s pin %d: %s", 
-                     buzzer_chip_name_.c_str(), buzzer_pin_, e.what());
+        RCLCPP_ERROR(this->get_logger(), "Failed to initialize gpiod on %s pin %d: %s", buzzer_chip_name_.c_str(), buzzer_pin_, e.what());
     }
 
     // Subscribe to buzzer command messages
@@ -29,8 +28,7 @@ BuzzerDriverNode::BuzzerDriverNode(const rclcpp::NodeOptions & options) : Node("
         "play_melody", 10,
         [this](const hexapod_custom_msgs::msg::BuzzerCommand::SharedPtr msg) { commandCallback(msg); });
 
-    RCLCPP_INFO(this->get_logger(), "Buzzer driver node initialized on %s pin %d.", 
-                buzzer_chip_name_.c_str(), buzzer_pin_);
+    RCLCPP_INFO(this->get_logger(), "Buzzer driver node initialized on %s pin %d.", buzzer_chip_name_.c_str(), buzzer_pin_);
 
     is_running_ = true;
     play_thread_ = std::thread(&BuzzerDriverNode::playLoop, this);

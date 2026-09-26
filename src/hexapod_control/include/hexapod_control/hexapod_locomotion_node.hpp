@@ -12,25 +12,29 @@
 #include <geometry_msgs/msg/twist.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 #include <std_msgs/msg/float32_multi_array.hpp>
+#include <sensor_msgs/msg/imu.hpp>
+#include <tf2/LinearMath/Quaternion.h>
 
 #include "hexapod_custom_msgs/msg/locomotion_command.hpp"
 #include "hexapod_custom_msgs/msg/gait_command.hpp"
 #include "hexapod_custom_msgs/msg/locomotion_state.hpp"
+#include "hexapod_custom_msgs/msg/switch_event.hpp"
+
 
 // Leg geometry (mm)
 constexpr double L_COXA =           48.0;
 constexpr double L_FEMUR =          75.0;
-constexpr double L_TIBIA =          116.0;
+constexpr double L_TIBIA =          117.9;
 constexpr double BASE_RADIUS =      78.0;
-constexpr double TIBIA_ANGLE_RAD =  24.9 * M_PI / 180.0;   // Tibia angular offset
+constexpr double TIBIA_ANGLE_RAD =  25.2 * M_PI / 180.0;   // Tibia angular offset
 constexpr double ALPHA0 =           30.0 * M_PI / 180.0;   // First leg angular offset
 
 // Default leg positions in body frame (mm)
 constexpr double DEFAULT_DISTANCE = 200.0;
 constexpr double DEFAULT_HEIGHT =   -80.0;
-constexpr double INITIAL_DISTANCE = 169.0;
-constexpr double INITIAL_HEIGHT =   -25.0;
-constexpr double GROUND_HEIGHT =    -28.0;
+constexpr double INITIAL_DISTANCE = 185.0;
+constexpr double INITIAL_HEIGHT =   -15.0;
+constexpr double GROUND_HEIGHT =    -20.0;
 
 // Input mapping limits from teleop range [-1, 1]
 constexpr double MIN_FREQ =     0.1;
@@ -52,7 +56,7 @@ constexpr double URDF_TIBIA_SIGN =  1.0;
 constexpr int NUM_OF_LEGS = 6;
 constexpr int JOINTS_PER_LEG = 3;
 
-constexpr double DEFAULT_LOOP_RATE_HZ = 50.0;   // Hz
+constexpr double DEFAULT_LOOP_RATE_HZ = 100.0;   // Hz
 
 constexpr double PARAMETER_SMOOTHING_TC = 0.3;  // s
 constexpr double GAIT_SMOOTHING_TC = 1.0;       // s
@@ -60,6 +64,12 @@ constexpr double GAIT_SMOOTHING_TC = 1.0;       // s
 constexpr double STOPPING_DISTANCE_DEADZONE = 10.0;  // mm
 constexpr double STOPPING_VELOCITY_DEADZONE = 1.0;  // mm
 constexpr double STOPPING_OMEGA_DEADZONE = 0.2;  // mm
+
+// Terrain adaptation parameters
+constexpr double SEEK_SPEED = 50.0; // mm/s
+constexpr double Z_ADAPTATION_SPEED = 5.0; // mm/s
+static constexpr int CONTACT_LOSS_HYSTERESIS_TICKS = 3; // times 20ms
+static constexpr double LATENCY = 0.050; // ms
 
 struct Vector3 { double x, y, z; };
 struct Vec2 { double x, y; };
@@ -77,6 +87,29 @@ struct GaitParams {
     double beta;                // duty cycle (stance fraction)
     double max_speed;           // max linear speed (mm/s)
     double max_turning_speed;   // max angular speed (rad/s)
+};
+
+// Simple PID Controller for stabilization
+struct PIDController {
+    double kp = 0.0;
+    double ki = 0.0;
+    double kd = 0.0;
+    double integral = 0.0;
+    double prev_error = 0.0;
+    double output_limit = 0.0;
+
+    double compute(double setpoint, double measured, double dt) {
+        double error = setpoint - measured;
+        integral += error * dt;
+        // Anti-windup protection
+        integral = std::clamp(integral, -output_limit, output_limit);
+        
+        double derivative = (dt > 0.0) ? (error - prev_error) / dt : 0.0;
+        prev_error = error;
+        
+        double output = (kp * error) + (ki * integral) + (kd * derivative);
+        return std::clamp(output, -output_limit, output_limit);
+    }
 };
 
 // Servo configuration
@@ -167,12 +200,31 @@ private:
     double current_off_x_ = 0.0, current_off_y_ = 0.0, current_off_z_ = 0.0;
     double current_roll_ = 0.0, current_pitch_ = 0.0, current_yaw_ = 0.0;
 
+    // Measured IMU states
+    double measured_roll_ = 0.0;
+    double measured_pitch_ = 0.0;
+    bool imu_initialized_ = false;
+    tf2::Quaternion initial_imu_q_{0.0, 0.0, 0.0, 1.0};
+    
+    // PID Controllers for body stabilization
+    PIDController roll_pid_;
+    PIDController pitch_pid_;
+
     // Walking dynamics
     double current_freq_ = MIN_FREQ;
     double current_vx_ = 0.0, current_vy_ = 0.0, current_omega_ = 0.0, current_swing_h_ = MIN_STEP_H;
     double phase_base_ = 0.0;
     bool is_walking_ = false;
     bool stopping_ = false;
+    double current_z_velocity_ = 0.0;
+
+    // Terrain adaptation state variables
+    bool leg_contact_[NUM_OF_LEGS] = {false};
+    bool leg_early_stance_[NUM_OF_LEGS] = {false};
+    bool leg_late_touchdown_[NUM_OF_LEGS] = {false};
+    double current_leg_z_[NUM_OF_LEGS] = {DEFAULT_HEIGHT, DEFAULT_HEIGHT, DEFAULT_HEIGHT, DEFAULT_HEIGHT, DEFAULT_HEIGHT, DEFAULT_HEIGHT};
+    int lost_contact_ticks_[NUM_OF_LEGS] = {0};
+    double leg_vz_[NUM_OF_LEGS] = {0.0};
 
     // Leg geometry and state
     Vector3 leg_anchor_[NUM_OF_LEGS];           // Coxa pivot points in body frame
@@ -196,6 +248,7 @@ private:
         bool in_swing = false;
         bool first_tick = false;
         double x_lo = 0.0, y_lo = 0.0;       // Lift‑off position
+        double z_lo = 0.0;                   // Lift-off z position for terrain adaptation
         double x_td = 0.0, y_td = 0.0;       // Touch‑down position
         int swings_done = 0;
         double tau0 = 0.0;                   // Phase at lift‑off
@@ -212,6 +265,11 @@ private:
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr vel_sub_;
     rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr pose_sub_;
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr params_sub_;
+    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_; 
+    rclcpp::Subscription<hexapod_custom_msgs::msg::SwitchEvent>::SharedPtr switch_sub_; // Subscriber for switches
+
+    sensor_msgs::msg::JointState prealloc_js_msg_;
+    std_msgs::msg::Float32MultiArray prealloc_hw_msg_;
 
     // Callbacks
     void cmdCallback(const hexapod_custom_msgs::msg::LocomotionCommand::SharedPtr msg);
@@ -219,6 +277,8 @@ private:
     void velCallback(const geometry_msgs::msg::Twist::SharedPtr msg);
     void poseCallback(const geometry_msgs::msg::Pose::SharedPtr msg);
     void paramsCallback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
+    void imuCallback(const sensor_msgs::msg::Imu::SharedPtr msg); 
+    void switchCallback(const hexapod_custom_msgs::msg::SwitchEvent::SharedPtr msg); // Switch callback
     
     void publishState(State s);
     void locomotionLoopStep(); // Timer callback

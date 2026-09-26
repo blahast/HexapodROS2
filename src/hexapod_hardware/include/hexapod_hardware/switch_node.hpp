@@ -10,14 +10,19 @@
 #include <array>
 #include <cstdint>
 #include <algorithm>
+#include <chrono>
 
 #include "hexapod_custom_msgs/msg/switch_event.hpp"
+
+
+// monitors the six leg contact switches on GPIO lines and publishes SwitchEvent messages
 
 class SwitchNode : public rclcpp::Node
 {
 public:
   static constexpr const char* DEFAULT_GPIO_CHIP_SWITCH = "/dev/gpiochip4";
-  static constexpr std::array<int64_t, 6> DEFAULT_LINE_OFFSETS = {16, 19, 20, 21, 26, 27};
+  static constexpr std::array<int64_t, 6> DEFAULT_LINE_OFFSETS = {26, 16, 25, 24, 23, 22}; // L1 L2 L3 R3 R2 R1
+  static constexpr int64_t DEFAULT_DEBOUNCE_MS = 5; // ms
 
   explicit SwitchNode(const rclcpp::NodeOptions & options = rclcpp::NodeOptions());
   ~SwitchNode() override;
@@ -32,6 +37,10 @@ private:
 
   std::string chip_name_;
   std::vector<unsigned int> line_offsets_;
+
+  // Software debouncing state
+  std::chrono::milliseconds debounce_timeout_;
+  std::vector<std::chrono::steady_clock::time_point> last_event_times_;
 };
 
 #endif  // HEXAPOD_DRIVER__SWITCH_NODE_HPP_
